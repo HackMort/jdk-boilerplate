@@ -1,0 +1,23 @@
+{
+  "name": "strensiq-hcp",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev --host",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "css:build": "sass src/styles:public/assets/css"
+  },
+  "dependencies": {
+    "astro": "2.1.8"
+  },
+  "devDependencies": {
+    "sass": "1.59.3",
+    "standard": "17.0.0"
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/standard/eslintrc.json"
+  }
+}
