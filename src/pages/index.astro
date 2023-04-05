@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 ---
 
-<Layout title="Welcome">
+<Layout title="Welcome" header={false}>
 	<main>
 		<h1>Project <span class="text-gradient">Started</span></h1>
 		<p class="instructions">
@@ -20,6 +20,17 @@ import Card from "../components/Card.astro";
 				href="https://docs.astro.build/"
 				title="Astro Docs"
 				body="Learn how Astro works and explore the official API docs."
+			/>
+			<Card
+				href="/design"
+				title="Project Design System"
+				body="Design system"
+			/>
+			<Card
+				href="/"
+				title="JDK Exercise"
+				body="SKILLED website with Astro. Created by Geordy Reyes"
+				className="active"
 			/>
 		</ul>
 	</main>

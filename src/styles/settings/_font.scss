@@ -1,0 +1,25 @@
+// Font Plus Jakarta Sans
+//https://fonts.google.com/specimen/Plus+Jakarta+Sans?query=plus+jakarta
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('/fonts/PlusJakartaSans-Regular.ttf')
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('/fonts/PlusJakartaSans-Medium.ttf');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('/fonts/PlusJakartaSans-Bold.ttf');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('/fonts/PlusJakartaSans-ExtraBold.ttf');
+    font-weight: 800;
+}

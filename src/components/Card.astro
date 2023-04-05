@@ -3,12 +3,13 @@ export interface Props {
 	title: string;
 	body: string;
 	href: string;
+	className?: string;
 }
 
-const { href, title, body } = Astro.props;
+const { href, title, body, className="" } = Astro.props;
 ---
 
-<li class="link-card">
+<li class={`link-card ${className}`}>
 	<a href={href} target="_blank">
 		<h2>
 			{title}
@@ -32,6 +33,7 @@ const { href, title, body } = Astro.props;
 		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 		box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
 			0 2px 4px -2px rgba(0, 0, 0, 0.1);
+		border: 2px solid transparent;
 	}
 
 	.link-card > a {
@@ -57,8 +59,13 @@ const { href, title, body } = Astro.props;
 	.link-card:is(:hover, :focus-within) {
 		background-position: 0;
 		background-image: var(--accent-gradient);
+		border: 2px solid transparent !important;
 	}
 	.link-card:is(:hover, :focus-within) h2 {
 		color: rgb(var(--accent));
+	}
+
+	.link-card.active {
+		border: 2px solid rgb(var(--accent));  
 	}
 </style>
