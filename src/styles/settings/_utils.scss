@@ -1,0 +1,97 @@
+.colors {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: calc(100% / 8);
+}
+.color {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    &__thumb {
+        display: block;
+        width: 255px;
+        height: 125px;
+        border-radius: 10px;
+        border: 1px solid $color-gray-smoke;
+    }
+    &__hex--symbol {
+        font-weight: 600;
+        color: $color-gray-smoke;
+        padding-right: 5px ;
+    }
+}
+
+.color--purple-heather {
+    background-color: $color-purple-heather;
+}
+
+.color--blue-midnight {
+    background-color: $color-blue-midnight;
+}
+
+.color--gray-smoke {
+    background-color: $color-gray-smoke;
+}
+
+.color--pink-punch {
+    background-color: $color-pink-punch;
+}
+
+.color--pink {
+    background-color: $color-pink;
+}
+
+.color--white {
+    background-color: $color-white;
+}
+
+.color--black {
+    background-color: $color-black;
+}
+
+.color--bg-primary {
+    background: $color-bg-primary;
+}
+
+.color--br-secondary {
+    background: $color-bg-secondary;
+}
+
+
+.text-color--purple-heather {
+    color: $color-purple-heather;
+}
+
+.text-color--blue-midnight {
+    color: $color-blue-midnight;
+}
+
+.text-color--gray-smoke {
+    color: $color-gray-smoke;
+}
+
+.text-color--pink-punch {
+    color: $color-pink-punch;
+}
+
+.text-color--pink {
+    color: $color-pink;
+}
+
+.text-color--white {
+    color: $color-white;
+}
+
+.text-color--black {
+    color: $color-black;
+}
+
+.text-color--bg-primary {
+    color: $color-bg-primary;
+}
+
+.text-color--bg-secondary {
+    color: $color-bg-secondary;
+}
