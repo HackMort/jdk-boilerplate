@@ -2,116 +2,224 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Design System" header>
+<Layout title="Design System" header={false}>
     <div class="wrapper">
-        <h1>Design Sytem</h1>
+        <h1 class="title">Design Sytem</h1>
 
         <h2>Color</h2>
-        <div class="colors">
-            <div class="color">
-                <div class="color__thumb color--purple-heather"></div>
-                <div class="color__hex">
-                    <span class="color__hex--symbol">#</span>666CA3 
-                </div>
-                <div class="color__rgb">
-                    <span class="color__hex--symbol">RGB</span>102, 108, 163
-                </div>
-                <div class="color__hsl">
-                    <span class="color__hex--symbol">HSL</span>234°, 25%, 52%
-                </div>
-            </div>
-
-            <div class="color">
-                <div class="color__thumb color--blue-midnight"></div>
-                <div class="color__hex">
-                    <span class="color__hex--symbol">#</span>13183F 
-                </div>
-                <div class="color__rgb">
-                    <span class="color__hex--symbol">RGB</span>19, 24, 63
-                </div>
-                <div class="color__hsl">
-                    <span class="color__hex--symbol">HSL</span>233°, 54%, 16%
-                </div>
-            </div>
-
-            <div class="color">
-                <div class="color__thumb color--gray-smoke"></div>
-                <div class="color__hex">
-                    <span class="color__hex--symbol">#</span>83869A 
-                </div>
-                <div class="color__rgb">
-                    <span class="color__hex--symbol">RGB</span>131, 134, 154
-                </div>
-                <div class="color__hsl">
-                    <span class="color__hex--symbol">HSL</span>232°, 10%, 56%
-                </div>
-            </div>
-
-            <div class="color">
-                <div class="color__thumb color--pink-punch"></div>
-                <div class="color__hex">
-                    <span class="color__hex--symbol">#</span>F74780 
-                </div>
-                <div class="color__rgb">
-                    <span class="color__hex--symbol">RGB</span>247, 71, 128
-                </div>
-                <div class="color__hsl">
-                    <span class="color__hex--symbol">HSL</span>341°, 92%, 62%
-                </div>
-            </div>
-
-            <div class="color">
-                <div class="color__thumb color--pink"></div>
-                <div class="color__hex">
-                    <span class="color__hex--symbol">#</span>FFA7C3 
-                </div>
-                <div class="color__rgb">
-                    <span class="color__hex--symbol">RGB</span>255, 167, 195
-                </div>
-                <div class="color__hsl">
-                    <span class="color__hex--symbol">HSL</span>341°, 100%, 83%
-                </div>
-            </div>
-
-            <div class="color">
-                <div class="color__thumb color--white"></div>
-                <div class="color__hex">
-                    <span class="color__hex--symbol">#</span>FFFFFF 
-                </div>
-                <div class="color__rgb">
-                    <span class="color__hex--symbol">RGB</span>255, 255, 255
-                </div>
-                <div class="color__hsl">
-                    <span class="color__hex--symbol">HSL</span>0°, 0%, 100%
-                </div>
-            </div>
+        <div class="colors row">
             
-            <div class="color">
-                <div class="color__thumb color--bg-primary"></div>
-                <div class="color__hex">
-                    <span class="color__hex--symbol">#</span>F02AA6 - FF6F48 
-                </div>
-                <div class="color__rgb">
-                    <span class="color__hex--symbol">RGB</span>240, 42, 166 - 255, 111, 72
-                </div>
-                <div class="color__hsl">
-                    <span class="color__hex--symbol">HSL</span>322°, 87%, 55% - 13°, 100%, 64%
+            <div class="col">
+                <div class="color">
+                    <div class="color__thumb color--purple-heather"></div>
+                    <div class="color__hex">
+                        <span class="color__hex--symbol">#</span>666CA3 
+                    </div>
+                    <div class="color__rgb">
+                        <span class="color__hex--symbol">RGB</span>102, 108, 163
+                    </div>
+                    <div class="color__hsl">
+                        <span class="color__hex--symbol">HSL</span>234°, 25%, 52%
+                    </div>
                 </div>
             </div>
 
-            <div class="color">
-                <div class="color__thumb color--bg-secondary"></div>
-                <div class="color__hex">
-                    <span class="color__hex--symbol">#</span>4851FF - F02AA6
+            <div class="col">
+                <div class="color">
+                    <div class="color__thumb color--blue-midnight"></div>
+                    <div class="color__hex">
+                        <span class="color__hex--symbol">#</span>13183F 
+                    </div>
+                    <div class="color__rgb">
+                        <span class="color__hex--symbol">RGB</span>19, 24, 63
+                    </div>
+                    <div class="color__hsl">
+                        <span class="color__hex--symbol">HSL</span>233°, 54%, 16%
+                    </div>
                 </div>
-                <div class="color__rgb">
-                    <span class="color__hex--symbol">RGB</span>72, 81, 255 - 240, 42, 166
+            </div>
+
+
+            <div class="col">
+                <div class="color">
+                    <div class="color__thumb color--gray-smoke"></div>
+                    <div class="color__hex">
+                        <span class="color__hex--symbol">#</span>83869A 
+                    </div>
+                    <div class="color__rgb">
+                        <span class="color__hex--symbol">RGB</span>131, 134, 154
+                    </div>
+                    <div class="color__hsl">
+                        <span class="color__hex--symbol">HSL</span>232°, 10%, 56%
+                    </div>
                 </div>
-                <div class="color__hsl">
-                    <span class="color__hex--symbol">HSL</span>237°, 100%, 64% - 322°, 87%, 55%
+            </div>
+
+            <div class="col">
+                <div class="color">
+                    <div class="color__thumb color--pink-punch"></div>
+                    <div class="color__hex">
+                        <span class="color__hex--symbol">#</span>F74780 
+                    </div>
+                    <div class="color__rgb">
+                        <span class="color__hex--symbol">RGB</span>247, 71, 128
+                    </div>
+                    <div class="color__hsl">
+                        <span class="color__hex--symbol">HSL</span>341°, 92%, 62%
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="color">
+                    <div class="color__thumb color--pink"></div>
+                    <div class="color__hex">
+                        <span class="color__hex--symbol">#</span>FFA7C3 
+                    </div>
+                    <div class="color__rgb">
+                        <span class="color__hex--symbol">RGB</span>255, 167, 195
+                    </div>
+                    <div class="color__hsl">
+                        <span class="color__hex--symbol">HSL</span>341°, 100%, 83%
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="color">
+                    <div class="color__thumb color--white"></div>
+                    <div class="color__hex">
+                        <span class="color__hex--symbol">#</span>FFFFFF 
+                    </div>
+                    <div class="color__rgb">
+                        <span class="color__hex--symbol">RGB</span>255, 255, 255
+                    </div>
+                    <div class="color__hsl">
+                        <span class="color__hex--symbol">HSL</span>0°, 0%, 100%
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="color">
+                    <div class="color__thumb color--bg-primary"></div>
+                    <div class="color__hex">
+                        <span class="color__hex--symbol">#</span>F02AA6 - FF6F48 
+                    </div>
+                    <div class="color__rgb">
+                        <span class="color__hex--symbol">RGB</span>240, 42, 166 - 255, 111, 72
+                    </div>
+                    <div class="color__hsl">
+                        <span class="color__hex--symbol">HSL</span>322°, 87%, 55% - 13°, 100%, 64%
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="color">
+                    <div class="color__thumb color--bg-secondary"></div>
+                    <div class="color__hex">
+                        <span class="color__hex--symbol">#</span>4851FF - F02AA6
+                    </div>
+                    <div class="color__rgb">
+                        <span class="color__hex--symbol">RGB</span>72, 81, 255 - 240, 42, 166
+                    </div>
+                    <div class="color__hsl">
+                        <span class="color__hex--symbol">HSL</span>237°, 100%, 64% - 322°, 87%, 55%
+                    </div>
                 </div>
             </div>
 
         </div>
+
+        <h2>Typography</h2>
+        <div class="typography row">
+            <div class="col-8">
+                
+                <div>
+                    <p class="typography--desc">Heading XL 
+                        <span>Plus Jakarta Sans Extra Bold</span>
+                        <span><strong>56px</strong></span>
+                        <span>70px Line</span>
+                    </p>
+                    <p class="typography--content h-xl">
+                        Increase your skill with minimal budget
+                    </p>
+                </div>
+
+                <div>
+                    <p class="typography--desc">Heading L 
+                        <span>Plus Jakarta Sans Extra Bold</span>
+                        <span><strong>40px</strong></span>
+                        <span>51px Line</span>
+                    </p>
+                    <p class="typography--content h-l">
+                        Users all around the globe
+                    </p>
+                </div>
+
+                <div>
+                    <p class="typography--desc">Heading M
+                        <span>Plus Jakarta Sans Extra Bold</span>
+                        <span><strong>32px</strong></span>
+                        <span>40px Line</span>
+                    </p>
+                    <p class="typography--content h-m">
+                        Check out our most popular courses
+                    </p>
+                </div>
+
+                <div>
+                    <p class="typography--desc">Heading S
+                        <span>Plus Jakarta Sans Extra Bold</span>
+                        <span><strong>24px</strong></span>
+                        <span>28px Line</span>
+                    </p>
+                    <p class="typography--content h-s">
+                        Photography
+                    </p>
+                </div>
+
+            </div>
+            <div class="col">
+
+                <div>
+                    <p class="typography--desc">Body M
+                        <span>Plus Jakarta Sans Medium</span>
+                        <span><strong>18px</strong></span>
+                        <span>28px Line</span>
+                    </p>
+                    <p class="typography--content p-m">
+                        Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis. Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.
+                    </p>
+                </div>
+
+                <div>
+                    <p class="typography--desc">Body S
+                        <span>Plus Jakarta Sans Bold</span>
+                        <span><strong>16px</strong></span>
+                        <span>28px Line</span>
+                    </p>
+                    <p class="typography--content p-s">
+                        Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis. Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.Donec nec justo eget felis facilisis fermentum.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <h2>Buttons</h2>
+        <div class="buttons row">
+            <div class="col-4 buttons__col">
+                <a href="#" class="btn btn-primary">Get started</a>
+            </div>
+            <div class="col-4 buttons__col">
+                <a href="" class="btn btn-secondary">Get started</a>
+            </div>
+            <div class="col-4 buttons__col">
+                <a href="" class="btn btn-tertiary">Get started</a>
+            </div>
+        </div>
+
     </div>
 </Layout>

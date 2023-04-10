@@ -7,3 +7,57 @@ body {
   margin: 0;
   padding: 0;
 }
+
+h2, h3, h4, h5, h6 {
+  color: $color-gray-smoke;
+}
+
+.title {
+  margin-bottom: 2rem;
+}
+
+.colors, .typography, .buttons {
+  margin-bottom: 5rem;
+}
+
+.color {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 25px;
+  @media screen and (max-width: 768px) {
+    align-items: center;
+  }
+  &__thumb {
+      display: block;
+      width: 250px;
+      height: 150px;
+      border-radius: 10px;
+      border: 1px solid $color-gray-smoke;
+      cursor: pointer;
+  }
+  &__hex--symbol {
+      font-weight: 600;
+      color: $color-gray-smoke;
+      padding-right: 5px ;
+  }
+}
+
+.typography--desc {
+  color: $color-gray-smoke;
+  font-weight: 400;
+  font-size: 16px;
+
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+
+.buttons__col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgb(131, 134, 154, 0.2);
+  padding: 5rem 0;
+  border-radius: 10px;
+}

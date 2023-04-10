@@ -6,4 +6,11 @@ $color-pink: #FFA7C3;
 $color-white: #FFFFFF;
 $color-black: #000000;
 $color-bg-primary: linear-gradient(180deg, #FF6F48 0.04%, #F02AA6 100%);
+$color-bg-primary-soft: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), linear-gradient(180deg, #FF6F48 0%, #F02AA6 100%);
 $color-bg-secondary: linear-gradient(180deg, #4851FF 0%, #F02AA6 99.92%);
+$color-bg-secondary-soft: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), linear-gradient(180deg, #4851FF -54.32%, #F02AA6 100%);
+
+$font-size-xl: 56px;
+$font-size-l: 40px;
+$font-size-m: 32px;
+$font-size-s: 24px;

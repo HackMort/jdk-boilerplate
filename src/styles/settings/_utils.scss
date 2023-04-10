@@ -1,62 +1,46 @@
-.colors {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: calc(100% / 8);
-}
-.color {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    &__thumb {
-        display: block;
-        width: 255px;
-        height: 125px;
-        border-radius: 10px;
-        border: 1px solid $color-gray-smoke;
-    }
-    &__hex--symbol {
-        font-weight: 600;
-        color: $color-gray-smoke;
-        padding-right: 5px ;
-    }
-}
-
 .color--purple-heather {
     background-color: $color-purple-heather;
+    color: $color-purple-heather;
 }
 
 .color--blue-midnight {
     background-color: $color-blue-midnight;
+    color:  $color-blue-midnight;
 }
 
 .color--gray-smoke {
     background-color: $color-gray-smoke;
+    color: $color-gray-smoke;
 }
 
 .color--pink-punch {
     background-color: $color-pink-punch;
+    color: $color-pink-punch;
 }
 
 .color--pink {
     background-color: $color-pink;
+    color: $color-pink;
 }
 
 .color--white {
     background-color: $color-white;
+    color: $color-white;
 }
 
 .color--black {
     background-color: $color-black;
+    color: $color-black;
 }
 
 .color--bg-primary {
     background: $color-bg-primary;
+    color: transparent;
 }
 
-.color--br-secondary {
+.color--bg-secondary {
     background: $color-bg-secondary;
+    color: transparent;
 }
 
 
@@ -94,4 +78,75 @@
 
 .text-color--bg-secondary {
     color: $color-bg-secondary;
+}
+
+.h-xl {
+    font-size: $font-size-xl;
+    font-weight: 800;
+    line-height: 70px;
+}
+
+.h-l {
+    font-size: $font-size-l;
+    font-weight: 800;
+    line-height: 51px;
+}
+
+.h-m {
+    font-size: $font-size-m;
+    font-weight: 800;
+    line-height: 40px;
+}
+
+.h-s {
+    font-size: $font-size-s;
+    font-weight: 800;
+    line-height: 28px;
+}
+
+
+//Buttons
+.btn {
+    border-radius: 28px;
+    padding: 14px 32px;
+    cursor: pointer;
+    text-decoration: none;
+
+    max-width: fit-content;
+}
+
+.btn-primary {
+    background-color: $color-blue-midnight;
+    color: $color-white;
+    border: 1px solid $color-blue-midnight;
+
+    &:hover {
+        background-color: $color-purple-heather;
+        border: 1px solid $color-purple-heather;
+        color: $color-white;
+    }
+}
+
+.btn-secondary {
+    background: $color-bg-primary;
+    color: $color-white;
+    border: 1px solid $color-bg-primary;
+    
+    &:hover {
+        background: $color-bg-primary-soft;
+        border: 1px solid $color-bg-secondary-soft;
+        color: $color-white;
+    }
+}
+
+.btn-tertiary {
+    background: $color-bg-secondary;
+    color: $color-white;
+    border: 1px solid $color-bg-secondary;
+    
+    &:hover {
+        background: $color-bg-secondary-soft;
+        border: 1px solid $color-bg-secondary-soft;
+        color: $color-white;
+    }
 }
