@@ -1,5 +1,5 @@
 import { Tabs } from './tabs.js'
-// import { Validation } from './validate.js'
+import { Validation } from './validate.js'
 document.addEventListener('DOMContentLoaded', function (e) {
   console.log('DOM fully loaded and parsed')
   /**
