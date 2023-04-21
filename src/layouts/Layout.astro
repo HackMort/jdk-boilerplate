@@ -1,6 +1,8 @@
 ---
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import "../styles/style.scss";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 export interface Props {
   title: string;
   pageClass?: string;
@@ -18,10 +20,12 @@ const { title, pageClass } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body>
-    <main class={`main ${pageClass}`}>
+  <body class={pageClass}>
+    <Header />
+    <main class="main">
       <slot />
     </main>
+    <Footer />
   </body>
   <script src="/assets/js/script.js" type="module"></script>
 </html>
