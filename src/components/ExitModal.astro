@@ -1,0 +1,99 @@
+---
+---
+
+<div class="modal" id="modal" style="display: none;">
+  <div class="modal__wrapper" tabindex="-1">
+    <button
+      class="button modal__close"
+      data-dismiss="modal"
+      aria-label="Close modal"
+    >
+      +
+    </button>
+    <div class="modal__content">
+      <h1 class="modal__title">Modal Title</h1>
+      <p class="modal__sub-title">Modal Subtitle</p>
+      <div class="modal__text">
+        <p>
+          You are now leaving strensiq-hcp.com, a website provided by Alexion
+          Pharmaceuticals, Inc. <a class="modal__text-link">This link</a> will take
+          you to a different site that is owned and operated by an independent third
+          party to which this Privacy Notice does not apply.
+        </p>
+      </div>
+      <div class="modal__buttons">
+        <button data-dismiss="modal" id="back" class="button modal--stay"
+          >Stay</button
+        >
+        <a id="proceed" href="#" class="button button--white modal--continue"
+          >Continue/Leave</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { Fancybox } from "@fancyapps/ui";
+
+  const externalLinks = document.querySelectorAll(
+    'a[target="_blank"]:not(.document-link)'
+  );
+
+  if (externalLinks && externalLinks.length > 0) {
+    externalLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        let instance: Fancybox;
+
+        const href = link.getAttribute("href");
+        const modal = document.querySelector("#modal");
+        const continueLink = document.querySelector(".modal__text-link");
+        const continueButton = modal.querySelector(".modal--continue");
+        const stayButton = modal.querySelector(".modal--stay");
+        const modalClose = modal.querySelector(".modal__close");
+
+        continueButton.setAttribute("href", href);
+        continueButton.setAttribute("target", "_blank");
+
+        stayButton.addEventListener("click", () => {
+          instance.close();
+        });
+        modalClose.addEventListener("click", () => {
+          instance.close();
+        });
+
+        continueButton.addEventListener("click", () => {
+          setTimeout(() => {
+            window.open(href, "_blank");
+            instance.close();
+          }, 500);
+          return;
+        });
+
+        continueLink.addEventListener("click", () => {
+          const secondaryLink = "https://alexion.com/Legal#privacynotice";
+
+          setTimeout(() => {
+            window.open(secondaryLink, "_blank");
+            instance.close();
+          }, 500);
+        });
+
+        instance = new Fancybox([{ src: "modal" }], {
+          autoFocus: true,
+          defaultType: "inline",
+          placeFocusBack: true,
+          trapFocus: true,
+          closeButton: false,
+          on: {
+            close: () => {
+              continueButton.setAttribute("href", "");
+            },
+          },
+        });
+      });
+    });
+  }
+</script>
