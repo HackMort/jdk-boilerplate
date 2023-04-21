@@ -1,0 +1,62 @@
+/*
+  This mixin will build the prefix values for the property and value passed in.
+  It will also add the property and value without the prefix.
+  Example:
+    @include build-prefix-values('transition', 'all 1s linear');
+*/
+$default-prefixes: webkit moz ms o;
+
+@mixin build-prefix-values($property, $value, $prefixes: $default-prefixes) {
+  @each $prefix in $prefixes {
+    -#{$prefix}-#{$property}: #{$value};
+  }
+
+  #{$property}: #{$value};
+}
+
+@mixin transition($property: all, $delay: 1s, $timing: ease-in-out) {
+  $value: $property $delay $timing;
+  @include build-prefix-values('transition', $value);
+}
+
+/* 
+  Example usage:
+    .my-class {
+      // Default usage
+      @include transition();
+      // Custom usage
+      @include transition('all', 1s, linear);
+    }
+*/
+
+// Mixin to make gap with flexbox on unsupported browsers
+@mixin flex-gap($gap) {
+  gap: $gap;
+
+  @supports (-webkit-touch-callout: none) and (not (translate: none)) {
+    >* {
+      margin: calc(#{$gap} / 2);
+    }
+  }
+}
+
+// media query mxin
+@mixin media($breakpoint) {
+  @if $breakpoint =='mobile' {
+    @media (max-width: 767px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint =='tablet' {
+    @media (min-width: 768px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint =='desktop' {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+}
