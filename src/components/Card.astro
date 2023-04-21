@@ -3,7 +3,7 @@ export interface Props {
   title: string;
   body: string;
   href: string;
-  target?: string;
+  target?: string; // defaults to _blank
 }
 
 const { href, target, title, body } = Astro.props;
