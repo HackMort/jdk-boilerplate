@@ -2,11 +2,10 @@ import { defineConfig } from 'astro/config'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://strensiq-hcp.com/',
+  site: 'https://my-site.com', // Modify as you need
   build: {
-    format: 'file',
-    out: 'build',
-    assets: 'css'
+    format: 'directory',
+    assets: 'assets/js'
   },
   vite: {
     css: {
@@ -15,6 +14,7 @@ export default defineConfig({
     build: {
       minify: false,
       rollupOptions: {
+        format: 'esm',
         output: {
           assetFileNames: 'assets/css/style[extname]'
         }
