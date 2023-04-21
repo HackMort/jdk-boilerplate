@@ -1,0 +1,141 @@
+@import "./mixins";
+@import "./variables";
+
+* {
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+
+.fonts-preview {
+  background-color: #E4E4E4;
+  color: #5E5E5E;
+  word-wrap: break-word;
+  margin-bottom: 40px;
+  padding: 30px;
+
+  width: 100%;
+
+  h2 {
+    color: #444444;
+    font-weight: 400;
+    font-size: 45px;
+    line-height: 48px;
+    margin: 0;
+  }
+
+}
+
+table {
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  width: 100%;
+}
+
+table th,
+table td {
+  border-bottom: 1px solid #d5d5d5;
+  padding: 5px 0;
+}
+
+tr {
+  color: $color-black;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+tr.h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  line-height: 2.925rem;
+}
+
+tr.h2 {
+  font-size: 1.875rem;
+  font-weight: 600;
+  line-height: 2.3438rem;
+}
+
+tr.h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.7581rem;
+}
+
+tr.h4 {
+  font-size: 1.25rem;
+  line-height: 1.465rem;
+}
+
+tr.h5 {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+tr.p {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.3181rem;
+}
+
+tr.small {
+  font-size: 0.75rem;
+  font-weight: 300;
+  line-height: .8788rem;
+}
+
+.buttons {
+  display: flex;
+  @include flex-gap(1rem);
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .button {
+    max-width: max-content;
+  }
+}
+
+main {
+  max-width: 90vw;
+  margin: 2rem auto;
+
+  display: flex;
+  flex-direction: column;
+  @include flex-gap(2rem)
+}
+
+.title {
+  font-size: 2em;
+  margin-bottom: 1rem;
+}
+
+.colors {
+  display: flex;
+  flex-direction: row;
+  @include flex-gap(1rem);
+  flex-wrap: wrap;
+}
+
+.color {
+  width: 6.25rem;
+}
+
+.color__box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4.375rem;
+  margin-bottom: 0.5rem;
+  padding: 0.2rem;
+  width: 6.25rem;
+}
+
+.color__hex {
+  font-size: 0.75em;
+  margin: auto;
+}
+
+.color__variable {
+  font-size: 0.75em;
+  font-weight: 500;
+}
