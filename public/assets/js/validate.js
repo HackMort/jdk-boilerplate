@@ -6,7 +6,6 @@
   * If the access code is correct, the function sets a cookie with the access code and redirects the user to the home page
   * If the access code is incorrect, the function displays an alert
   * The function also checks if the user has a cookie with the access code
-  * If the user does not have a cookie with the access code, the function redirects the user to the validation page
   */
 
 export function Validation () {
