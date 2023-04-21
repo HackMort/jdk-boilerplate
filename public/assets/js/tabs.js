@@ -1,20 +1,6 @@
 /**
   * The function looks for <ul role="tablist"> elements
-  * Here's an example of a tablist:
-  * <ul role="tablist">
-  *  <li role="presentation">
-  *   <a href="#tab1" role="tab" aria-controls="tab1" aria-selected="true">Tab 1</a>
-  * </li>
-  * <li role="presentation">
-  *  <a href="#tab2" role="tab" aria-controls="tab2" tabindex="-1">Tab 2</a>
-  * </li>
-  * </ul>
   * The function also looks for <section role="tabpanel"> elements
-  * Here's an example of a tabpanel:
-  * <section id="tab1" role="tabpanel" aria-labelledby="tab1">
-  * <h2>Tab 1</h2>
-  * <p>Tab 1 content</p>
-  * </section>
   */
 export function Tabs () {
   const tablist = document.querySelectorAll("ul[role='tablist']")
