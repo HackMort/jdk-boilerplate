@@ -1,5 +1,5 @@
 {
-  "name": "strensiq-hcp",
+  "name": "jdk-boilerplate",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -14,6 +14,7 @@
     "astro": "2.1.8"
   },
   "devDependencies": {
+    "@fancyapps/ui": "5.0.14",
     "sass": "1.59.3",
     "standard": "17.0.0"
   },

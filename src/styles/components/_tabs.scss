@@ -1,0 +1,60 @@
+[role="tablist"] {
+  background-color: #c1c1c1;
+  // border-radius: 5rem;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  overflow-y: scroll;
+  padding-top: .3125rem;
+  padding-right: .9375rem;
+  padding-bottom: .3125rem;
+  padding-left: .9375rem;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  height: 3.125rem;
+
+}
+
+[role="tablist"] li {
+  list-style-type: none;
+  margin-right: 1rem;
+  height: 2.5rem;
+
+  &::marker {
+    display: none;
+  }
+}
+
+[role="tablist"] a {
+  border: 2px solid currentColor;
+  // border-radius: 1.6875rem;
+  color: currentColor;
+  font-size: 1.125rem;
+  font-weight: 300;
+  line-height: 1.125rem;
+  min-width: 6.875rem;
+  padding-right: 1.25rem;
+  padding-left: 1.25rem;
+  transition: all 0.2s ease-in-out;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+
+  @include media('tablet') {
+    font-size: 1.25rem;
+    line-height: 1.4375rem;
+  }
+}
+
+[role="tablist"] [aria-selected] {
+  background-color: #FFFFFF;
+  border: 2px solid #FFFFFF;
+  font-weight: 900;
+}
+
+[role="tabpanel"] {
+  padding: 1rem;
+}

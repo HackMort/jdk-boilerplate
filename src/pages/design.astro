@@ -1,0 +1,192 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "../styles/settings/_design.scss";
+---
+
+<Layout
+  title="Design System"
+  pageClass="design"
+  showFooter={false}
+  showISI={false}
+  showHeader={false}
+>
+  <main>
+    <h1>
+      Design System
+      <a href="/" style="font-size: 1.25rem; float: right;"> &laquo; Home</a>
+    </h1>
+    <section class="design-system-section">
+      <div class="section-wrapper section-wrapper--small">
+        <h1 class="title">Colors</h1>
+        <div class="colors">
+          <div class="color">
+            <div class="color__box" style="background-color: #000000;">
+              <p class="color__hex" style="color: white;">#000000</p>
+            </div>
+            <p class="color__variable">$color-black</p>
+          </div>
+          <div class="color">
+            <div
+              class="color__box"
+              style="background-color: #ffffff; border: 1px solid #000"
+            >
+              <p class="color__hex">#ffffff</p>
+            </div>
+            <p class="color__variable">$color-white</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="design-system-section">
+      <div class="section-wrapper section-wrapper--small">
+        <h1 class="title">Fonts</h1>
+
+        <div class="fonts-preview">
+          <h2>Roboto</h2>
+          <p>AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz</p>
+          <p>1234567890</p>
+          <p>!@#$%^&*(</p>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Tag</th>
+              <th>Weight</th>
+              <th>Size</th>
+              <th>Line height</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="h1">
+              <td>h1</td>
+              <td>Bold</td>
+              <td>40px</td>
+              <td>46.88px</td>
+            </tr>
+            <tr class="h2">
+              <td>h2</td>
+              <td>600</td>
+              <td>30px</td>
+              <td>35.16px</td>
+            </tr>
+            <tr class="h3">
+              <td>h3</td>
+              <td>500</td>
+              <td>24px</td>
+              <td>28.13px</td>
+            </tr>
+            <tr class="h4">
+              <td>h4</td>
+              <td>500</td>
+              <td>20px</td>
+              <td>23.44px</td>
+            </tr>
+            <tr class="h5">
+              <td>h5</td>
+              <td>500</td>
+              <td>16px</td>
+              <td>24px</td>
+            </tr>
+            <tr class="p">
+              <td>p</td>
+              <td>400</td>
+              <td>18px</td>
+              <td>21.09px</td>
+            </tr>
+            <tr class="small">
+              <td>small</td>
+              <td>300</td>
+              <td>12px</td>
+              <td>14.06px</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="design-system-section">
+      <div class="section-wrapper section-wrapper--small">
+        <h1 class="title">Buttons</h1>
+        <div class="buttons">
+          <!-- Default button -->
+          <button class="button"> Button Primary / Default</button>
+          <button class="button button--secondary"> Button Secondary</button>
+          <button class="button button--tertiary"> Tertiary Button</button>
+        </div>
+      </div>
+    </section>
+    <section class="design-system-section">
+      <div class="section-wrapper section-wrapper--small">
+        <h1 class="title">Tabs</h1>
+        <ul role="tablist">
+          <li role="presentation">
+            <!--active one -->
+            <a href="#panel1" role="tab" id="tab1" aria-selected="true">Tab 1</a
+            >
+          </li>
+          <li role="presentation">
+            <a href="#panel2" role="tab" id="tab2" tabindex="-1">Tab 2</a>
+          </li>
+          <li role="presentation">
+            <a href="#panel3" role="tab" id="tab3" tabindex="-1">Tab 3</a>
+          </li>
+        </ul>
+        <section
+          id="panel1"
+          role="tabpanel"
+          aria-labelledby="tab1"
+          aria-hidden="false"
+          tabindex="-1"
+        >
+          <h2>Panel 1</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+            dui nibh, fermentum ac gravida quis, <a href="#">tempus sit</a> amet
+            nulla. Fusce dignissim dolor sit amet sapien auctor, eu vehicula elit
+            placerat. Aliquam vehicula luctus enim, at ullamcorper risus. Aliquam
+            ut tincidunt ipsum. Vivamus dui mi, suscipit vitae libero id, interdum
+            aliquet metus.
+          </p>
+        </section>
+        <section
+          id="section2"
+          role="tabpanel"
+          aria-labelledby="tab2"
+          aria-hidden="true"
+          tabindex="-1"
+          hidden
+        >
+          <h2>Panel 2</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+            dui nibh, fermentum ac gravida quis, <a href="#">tempus sit</a> amet
+            nulla. Fusce dignissim dolor sit amet sapien auctor, eu vehicula elit
+            placerat. Aliquam vehicula luctus enim, at ullamcorper risus. Aliquam
+            ut tincidunt ipsum. Vivamus dui mi, suscipit vitae libero id, interdum
+            aliquet metus.
+          </p>
+        </section>
+        <section
+          id="section3"
+          role="tabpanel"
+          aria-labelledby="tab3"
+          aria-hidden="true"
+          tabindex="-1"
+          hidden
+        >
+          <h2>Panel 3</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+            dui nibh, fermentum ac gravida quis, <a href="#">tempus sit</a> amet
+            nulla. Fusce dignissim dolor sit amet sapien auctor, eu vehicula elit
+            placerat. Aliquam vehicula luctus enim, at ullamcorper risus. Aliquam
+            ut tincidunt ipsum. Vivamus dui mi, suscipit vitae libero id, interdum
+            aliquet metus.
+          </p>
+        </section>
+      </div>
+    </section>
+  </main>
+</Layout>

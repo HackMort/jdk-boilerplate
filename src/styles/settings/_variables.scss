@@ -1,0 +1,21 @@
+/* We declare colors in a map as key: value
+with the color name as the key and the hex
+as the value
+
+And we are goint to use it in _utils.scss*/
+$colors: (
+    "dark-blue-gray": #666CA3,
+    "dark-blue": #13183F,
+    "waterloo": #83869A,
+    "violet-red": #F74780,
+    "pink": #FFA7C3,
+    "black": #000000,
+    "white": #FFFFFF
+);
+$color-white: #FFFFFF;
+$color-black: #000000;
+$color-dark-blue-gray: #666CA3;
+$color-dark-blue: #13183F;
+$color-waterloo: #83869A;
+$color-violet-red: #F74780;
+$color-pink: #FFA7C3;

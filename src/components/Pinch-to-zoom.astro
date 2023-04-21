@@ -1,0 +1,20 @@
+---
+type Props = {
+  id: string;
+};
+const { id } = Astro.props;
+---
+
+<div class="pinch-to-zoom f-panzoom" id={id}>
+  <button
+    data-panzoom-action="zoomToFull"
+    data-content-id={id}
+    class="button button--pich-to-zoom"></button>
+  <button class="pinch-to-zoom__close-modal" style="display: none">×</button>
+  <div class="pinch-to-zoom__container f-panzoom__viewport">
+    <div class="f-panzoom__content">
+      <slot />
+    </div>
+  </div>
+</div>
+<script src="/src/js/pinch-to-zoom.ts" type="module"></script>

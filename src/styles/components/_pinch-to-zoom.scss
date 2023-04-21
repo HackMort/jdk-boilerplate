@@ -1,0 +1,16 @@
+.pinch-to-zoom {
+  height: 100%;
+  margin: 0 !important;
+  width: 100% !important;
+  padding: .5rem 1rem;
+
+  .pinch-to-zoom__close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: #000000;
+    font-size: 3.125rem;
+    font-weight: 300;
+    line-height: 40%;
+  }
+}
