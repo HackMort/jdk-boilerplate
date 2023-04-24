@@ -1,61 +1,56 @@
 @import '../settings/variables';
 @import '../settings/fonts';
 
-#validate-page {
-  background-color: #c1c1c1;
-}
-
 
 .validate__section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  display: grid;
+  place-items: center;
   height: 100vh;
   width: 100%;
-  width: 35%;
   margin: auto;
 }
 
 .validate__section--title {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   margin: 0;
   margin-bottom: 2rem;
   text-transform: capitalize;
-  color: #000000;
+  color: $color-black;
   text-align: center;
+
+  @media screen and (min-width: 600px) {
+    font-size: 2rem;
+  }
 }
 
 .validate__section label {
   font-weight: bold;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   margin-top: 1rem;
 }
 
 .validate__section input[type="text"] {
-  background-color: #FFFFFF;
-  border: 1px solid #000000;
+  background-color: $color-white;
+  border: 1px solid $color-black;
   border-radius: 5px;
   height: 40px;
   margin-top: 5px;
   margin-bottom: 2rem;
   padding: 0 10px;
-  width: 92%;
 }
 
 .wrapper-color {
-  background-color: #c1c1c1;
-  width: 411px;
-  padding: 15px;
+  max-width: 411px;
+  padding: 2rem;
+  width: 100%;
 }
 
 .validate__section input[type="submit"] {
-  background-color: #000000;
-  border: 1px solid #000000;
+  background-color: $color-black;
+  border: 1px solid $color-black;
   border-radius: 5px;
-  box-shadow: 0 2px 0 #000000;
-  color: #FFFFFF;
+  box-shadow: 0 2px 0 $color-black;
+  color: $color-white;
   display: block;
   font-weight: bold;
   font-size: 15px;
@@ -70,16 +65,7 @@
 }
 
 .validate__section input[type="submit"]:hover {
-  border-color: #222121;
-  background-color: #222121;
-}
-
-
-
-
-section a {
-  font-size: inherit;
-  font-weight: bold;
-  color: #4462a7;
-  text-decoration: underline;
+  --hover-color: #222121;
+  border-color: var(--hover-color);
+  background-color: var(--hover-color);
 }
