@@ -1,43 +1,34 @@
 ---
+import Layout from "../layouts/Layout.astro";
 import "../styles/components/_validate.scss";
 ---
 
-<html id="validate-page">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width" />
-  <link rel="icon" href="/favicon.png" />
-  <title>Validate</title>
-  <body>
-    <!-- Main -->
-    <main id="content" role="main">
-      <section class="validate__section">
-        <div class="wrapper-color">
-          <div class="wrapper">
-            <div class="validate__section--content">
-              <h2 class="validate__section--title">Restricted Access</h2>
-            </div>
-          </div>
-          <div class="validate__section--form">
-            <form class="form__validate">
-              <div class="form__validate group">
-                <label for="access-code">Enter Access Code</label>
-                <input
-                  type="text"
-                  id="access-code"
-                  name="access-code"
-                  class="control"
-                  required
-                  autocomplete="off"
-                />
-              </div>
-              <div class="form__validate group">
-                <input type="submit" class="button" value="SEE CONTENT" />
-              </div>
-            </form>
-          </div>
+<Layout title="Validate" showHeader={false} showFooter={false}>
+  <section class="validate__section">
+    <div class="wrapper-color">
+      <div class="wrapper">
+        <div class="validate__section--content">
+          <h2 class="validate__section--title">Restricted Access</h2>
         </div>
-      </section>
-    </main>
-    <script src="/assets/js/script.js" type="module"></script>
-  </body>
-</html>
+      </div>
+      <div class="validate__section--form">
+        <form class="form__validate">
+          <div class="form__validate group">
+            <label for="access-code">Enter Access Code</label>
+            <input
+              type="text"
+              id="access-code"
+              name="access-code"
+              class="control"
+              required
+              autocomplete="off"
+            />
+          </div>
+          <div class="form__validate group">
+            <input type="submit" class="button" value="SEE CONTENT" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</Layout>
