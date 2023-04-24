@@ -9,12 +9,13 @@
   * If the user does not have a cookie with the access code, the function redirects the user to the validation page
   */
 
-export function Validation () {
+function cookieValidation () {
   const accessCookie = document.cookie.split(';').filter((item) => item.trim().startsWith('accessCookie=')).pop()
   if (!accessCookie && accessCookie !== 'accessCookie=customPSW' && window.location.pathname !== '/validate/') {
     window.location.href = '/validate/'
   }
-
+}
+function cookieFormValidation () {
   // Validate Form
   const form = document.querySelector('.form__validate')
   if (form) {
@@ -30,3 +31,5 @@ export function Validation () {
     })
   }
 }
+
+export { cookieValidation, cookieFormValidation }

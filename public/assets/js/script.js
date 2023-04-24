@@ -1,5 +1,6 @@
 import { Tabs } from './tabs.js'
-import { Validation } from './validate.js'
+import { cookieValidation, cookieFormValidation } from './validate.js'
+import { Accordions } from './accordions.js'
 document.addEventListener('DOMContentLoaded', function (e) {
   console.log('DOM fully loaded and parsed')
   /**
@@ -7,11 +8,18 @@ document.addEventListener('DOMContentLoaded', function (e) {
    * @see public/assets/js/validation.js
    * Call the function from validation.js
   */
-  // Validation()
+  cookieValidation()
+  cookieFormValidation()
   /**
    * Tabs
    * @see public/assets/js/tabs.js
    * Call the function from tabs.js
   */
   Tabs()
+  /**
+   * Accordions
+   * @see public/assets/js/accordions.js
+   * Call the function from accordions.js
+  */
+  Accordions()
 })

@@ -1,0 +1,31 @@
+---
+type Props = {
+  id: string;
+  header: string;
+  expanded?: boolean;
+};
+
+const { header, id, expanded } = Astro.props;
+---
+
+<article id={id} role="tab" class="accordion__item" aria-expanded={expanded}>
+  <div class="accordion__item_header">
+    <h6
+      class="accordion__item_title"
+      role="button"
+      tabindex="0"
+      aria-controls={id}
+    >
+      {header}
+    </h6>
+  </div>
+
+  <div
+    class="accordion__item_content"
+    role="tabpanel"
+    aria-labelledby={id}
+    tabindex="0"
+  >
+    <slot />
+  </div>
+</article>
