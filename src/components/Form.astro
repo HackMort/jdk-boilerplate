@@ -1,0 +1,262 @@
+<form class="form" novalidate>
+  <div class="form__controls">
+    <div
+      class="form__control"
+      data-touched="false"
+      data-required="false"
+      data-is-valid="false"
+    >
+      <div class="form__control-checkbox">
+        <input id="inpuCheck-1" type="checkbox" name="inpuCheck-1" />
+        <label class="form__control-label" for="inpuCheck-1">
+          Input Checkbox 1
+        </label>
+      </div>
+    </div>
+    <div
+      class="form__control"
+      data-touched="false"
+      data-required="false"
+      data-is-valid="false"
+    >
+      <div class="form__control-checkbox">
+        <input id="sign-up" type="checkbox" name="sign-up" />
+        <label class="form__control-label" for="sign-up"> Sign up</label>
+      </div>
+    </div>
+    <p class="form__group-label">*Indicates a required field.</p>
+    <div
+      class="form__control"
+      data-touched="false"
+      data-required="true"
+      data-is-valid="false"
+    >
+      <input
+        autocomplete="given-name"
+        class="form__control-input"
+        type="text"
+        id="first-name"
+        name="first-name"
+        placeholder="*First Name"
+        required
+        aria-required="true"
+        pattern="^[a-zA-Z.'\\- ]{1,50}$"
+        onblur="validateFormControl(event)"
+        onchange="validateFormControl(event)"
+      />
+      <p class="form__control-error">Please enter first name</p>
+    </div>
+    <div
+      class="form__control"
+      data-touched="false"
+      data-required="true"
+      data-is-valid="false"
+    >
+      <input
+        autocomplete="additional-name"
+        class="form__control-input"
+        type="text"
+        id="last-name"
+        name="last-name"
+        placeholder="*Last Name"
+        required
+        aria-required="true"
+        pattern="^[a-zA-Z.'\\- ]{1,50}$"
+        onblur="validateFormControl(event)"
+        onchange="validateFormControl(event)"
+      />
+      <p class="form__control-error">Please enter last name</p>
+    </div>
+    <div
+      class="form__control"
+      data-touched="false"
+      data-required="true"
+      data-is-valid="false"
+    >
+      <input
+        autocomplete="email"
+        class="form__control-input"
+        type="email"
+        id="email"
+        name="email"
+        placeholder="*Email Address"
+        required
+        aria-required="true"
+        pattern="^[a-zA-Z0-9._\\-]{1,100}@[a-zA-Z0-9]+\\.[a-zA-Z]{2,10}$"
+        onblur="validateFormControl(event)"
+        onchange="validateFormControl(event)"
+      />
+      <p class="form__control-error">Please enter email address</p>
+    </div>
+    <div
+      class="form__control"
+      data-touched="false"
+      data-required="true"
+      data-is-valid="false"
+    >
+      <input
+        autocomplete="tel"
+        class="form__control-input"
+        type="tel"
+        id="phone-number"
+        name="phone-number"
+        placeholder="*Phone Number"
+        required
+        aria-required="true"
+        pattern="^[0-9]+"
+        onblur="validateFormControl(event)"
+        onchange="validateFormControl(event)"
+      />
+      <p class="form__control-error">Please enter phone number</p>
+    </div>
+    <div
+      class="form__control"
+      data-touched="false"
+      data-required="true"
+      data-is-valid="false"
+    >
+      <input
+        autocomplete="postal-code"
+        class="form__control-input"
+        type="text"
+        id="zip-code"
+        name="zip-code"
+        placeholder="*ZIP Code"
+        required
+        aria-required="true"
+        pattern="^[0-9]+"
+        onblur="validateFormControl(event)"
+        onchange="validateFormControl(event)"
+      />
+      <p class="form__control-error">Please enter ZIP code</p>
+    </div>
+    <div
+      class="form__control"
+      data-touched="false"
+      data-required="true"
+      data-is-valid="false"
+    >
+      <div class="form__control-select-wrapper">
+        <select
+          id="specialty"
+          name="specialty"
+          class="form__control-select"
+          aria-placeholder="*Specialty"
+          required
+          aria-required="true"
+          onblur="validateFormControl(event)"
+          onchange="validateFormControl(event)"
+        >
+          <option value="" selected disabled>*Specialty</option>
+          <option value="Dentistry">Dentistry</option>
+          <option value="Endocrinology">Endocrinology</option>
+          <option value="Genetics">Genetics</option>
+          <option value="Neonatology">Neonatology</option>
+          <option value="Neurology">Neurology</option>
+          <option value="Nurse Practitioner/Physician Assistant"
+            >Nurse Practitioner/Physician Assistant</option
+          >
+          <option value="Orthopedics">Orthopedics</option>
+          <option value="Pediatrics">Pediatrics</option>
+          <option value="Primary Care/Internal Medicine"
+            >Primary Care/Internal Medicine</option
+          >
+          <option value="Rheumatology">Rheumatology</option>
+          <option value="Other healthcare professional"
+            >Other healthcare professional</option
+          >
+          <option value="Other non-healthcare professional"
+            >Other non-healthcare professional</option
+          >
+        </select>
+      </div>
+      <p class="form__control-error">Plase select a specialty</p>
+    </div>
+    <div
+      class="form__control"
+      data-touched="false"
+      data-required="true"
+      data-is-valid="false"
+    >
+      <div class="form__control-select-wrapper">
+        <select
+          id="contact-preference"
+          name="contact-preference"
+          class="form__control-select"
+          aria-placeholder="*Contact preference?"
+          required
+          aria-required="true"
+          onblur="validateFormControl(event)"
+          onchange="validateFormControl(event)"
+        >
+          <option value="" selected disabled>*Contact preference?</option>
+          <option value="Text">Text</option>
+          <option value="Call">Call</option>
+          <option value="Email">Email</option>
+        </select>
+      </div>
+      <p class="form__control-error">Plase select a contact preference</p>
+    </div>
+    <div
+      class="form__control"
+      data-touched="false"
+      data-required="true"
+      data-is-valid="false"
+    >
+      <input
+        class="form__control-input"
+        type="text"
+        id="npi-number"
+        name="npi-number"
+        placeholder="*NPI Number"
+        required
+        aria-required="true"
+        pattern="^[0-9]+"
+        onblur="validateFormControl(event)"
+        onchange="validateFormControl(event)"
+      />
+      <p class="form__control-error">Please enter NPI number</p>
+    </div>
+    <div
+      class="form__control"
+      data-touched="false"
+      data-required="true"
+      data-is-valid="false"
+    >
+      <div class="form__control-checkbox form__control-checkbox--last">
+        <input
+          id="terms-and-conditions"
+          type="checkbox"
+          name="terms-and-conditions"
+          required
+          aria-required="true"
+          onblur="validateFormControl(event)"
+          onchange="validateFormControl(event)"
+        />
+        <label class="form__control-label" for="terms-and-conditions">
+          By checking this box and submitting this form, I give <a
+            href="https://alexion.com/Legal#privacynotice%5D"
+            target="_blank">Alexion</a
+          > permission to contact me for commercial purposes or otherwise provide
+          me with information about Alexion's products, services, programs, market
+          research, or other topics of interest that Alexion thinks may interest
+          me.
+        </label>
+      </div>
+      <p class="form__control-error">Please confirm</p>
+    </div>
+  </div>
+
+  <p class="request-a-rep__terms-text">
+    By clicking Submit, you agree to the <a
+      href="https://alexion.com/Legal#privacynotice"
+      target="_blank">Privacy Notice</a
+    > and <a href="https://alexion.com/Legal#termsofuse" target="_blank"
+      >Terms of Use</a
+    >.
+  </p>
+
+  <div class="button button--primary">
+    <input type="submit" value="Submit" onclick="validateFormOnSubmit(event)" />
+  </div>
+</form>
