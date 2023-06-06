@@ -28,7 +28,7 @@ All commands are run from the root of the project, from a terminal:
 | `npm run css:build`    | Build the final style.css & style.css.map for production site to `./dist/css/`          |
 | `npm run preview`      | Preview your build locally, before deploying     |
 | `npm run astro ...`    | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro --help` | Get help using the Astro CLI       
+| `npm run astro --help` | Get help using the Astro CLI
 
 <!-- Note -->
 ## 📝 Notes:
@@ -70,6 +70,9 @@ const {} = Astro.props
 <style></style>
 ```
 
+## VS Code Configuration for ESLINT, Prettier and Stylelint
+To ensure a successful installation process and configuration of VS Code Extensions, please follow the instructions provided in the [shared document](https://netorgft9311378-my.sharepoint.com/:w:/g/personal/christian_contreras_jdoutstanding_com/EVhQFZIqY69IvXPflmBl94UBBgEzxn4zpuL7TxosTNrWoA?e=Rj4smm). It is important to note that NPM packages, and its configuration files, have already been added.
+
 <!-- Screenshot here when its ready -->
 ## 🚀 Project Structure
 
@@ -107,4 +110,4 @@ Any static assets, like images, can be placed in the `public/` directory.
 
 ## 👀 Want to learn more?
 
-Feel free to check [our documentation](https://docs.astro.build) 
+Feel free to check [our documentation](https://docs.astro.build)
