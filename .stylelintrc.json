@@ -1,0 +1,7 @@
+{
+  "extends": ["stylelint-config-standard-scss", "stylelint-config-clean-order"],
+  "rules": {
+    "font-family-name-quotes": "always-unless-keyword",
+    "media-feature-range-notation": "prefix"
+  }
+}

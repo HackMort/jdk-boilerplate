@@ -27,7 +27,23 @@
   },
   "eslintConfig": {
     "extends": [
-      "./node_modules/standard/eslintrc.json"
-    ]
+      "./node_modules/standard/eslintrc.json",
+      "plugin:astro/recommended"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "*.astro"
+        ],
+        "parser": "astro-eslint-parser",
+        "parserOptions": {
+          "parser": "@typescript-eslint/parser",
+          "extraFileExtensions": [
+            ".astro"
+          ]
+        }
+      }
+    ],
+    "rules": {}
   }
 }
