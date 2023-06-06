@@ -15,10 +15,19 @@
   },
   "devDependencies": {
     "@fancyapps/ui": "5.0.14",
+    "@typescript-eslint/parser": "5.59.9",
+    "eslint-plugin-astro": "0.27.1",
+    "prettier": "2.8.8",
+    "prettier-plugin-astro": "0.10.0",
     "sass": "1.59.3",
-    "standard": "17.0.0"
+    "standard": "17.0.0",
+    "stylelint": "15.7.0",
+    "stylelint-config-clean-order": "5.0.1",
+    "stylelint-config-standard-scss": "9.0.0"
   },
   "eslintConfig": {
-    "extends": "./node_modules/standard/eslintrc.json"
+    "extends": [
+      "./node_modules/standard/eslintrc.json"
+    ]
   }
 }
