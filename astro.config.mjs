@@ -5,7 +5,10 @@ function changeAstroComponentEntryFilenameToJs (filename) {
 
   let sanitized = name
   if (/[A-Z]/.test(name)) {
-    sanitized = name.replace(/([A-Z])/g, '-$1').toLowerCase().slice(1)
+    sanitized = name
+      .replace(/([A-Z])/g, '-$1')
+      .toLowerCase()
+      .slice(1)
   }
 
   sanitized = sanitized.replace(/ /g, '-')
@@ -32,19 +35,19 @@ export default defineConfig({
       rollupOptions: {
         output: {
           /**
-              * Function that generates the file name for assets.
-              *
-              * To set up a custom name for a styles files, you should add
-              * a regular comment as follow:
-              *
-              * {outputFileName:<file-name>}
-              *
-              * When <file-name> can be replaced for the name we want the final css file has
-              *
-              * @param {Object} asset - The object representing the asset.
-              * @returns {string} - The generated file name.
-              */
-          assetFileNames: (asset) => {
+           * Function that generates the file name for assets.
+           *
+           * To set up a custom name for a styles files, you should add
+           * a regular comment as follow:
+           *
+           * {outputFileName:<file-name>}
+           *
+           * When <file-name> can be replaced for the name we want the final css file has
+           *
+           * @param {Object} asset - The object representing the asset.
+           * @returns {string} - The generated file name.
+           */
+          assetFileNames: asset => {
             // Regular expression to search for custom file name
             const regex = /\{outputFileName:(.*?)\}/
             const name = asset.name
@@ -68,21 +71,18 @@ export default defineConfig({
             }
           },
           /**
-              * Function that generates the file name for entry files.
-              *
-              * @param {Object} entry - The object representing the entry file.
-              * @returns {string} - The generated file name.
-              */
-          entryFileNames: (entry) => {
-            console.log(entry)
+           * Function that generates the file name for entry files.
+           *
+           * @param {Object} entry - The object representing the entry file.
+           * @returns {string} - The generated file name.
+           */
+          entryFileNames: entry => {
             let name = 'assets/js/[name].[hash].js'
             const moduleIds = entry.moduleIds
 
             if (moduleIds && moduleIds.length > 0) {
               name = moduleIds[0].split('/').pop().split('?')[0] // Extract the file name from the module ID
-
               const isAstroFile = name.includes('.astro') // Check if it is an Astro file
-
               if (isAstroFile) {
                 name = changeAstroComponentEntryFilenameToJs(name)
               }
