@@ -1,5 +1,3 @@
-/*{outputFileName:base styles}*/
-
 @import './settings/_reset.scss';
 @import './settings/_variables.scss';
 @import './settings/_fonts.scss';
@@ -19,6 +17,3 @@
 @import './components/_pinch-to-zoom.scss';
 @import './components/_footer.scss';
 @import './components/_footer-navigation.scss';
-
-//Grid system
-@import "grid-system/grid-system.scss";
