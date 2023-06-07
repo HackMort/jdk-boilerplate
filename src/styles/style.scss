@@ -19,7 +19,4 @@
 @import './components/_footer-navigation.scss';
 
 //Grid system
-@import "grid-system/variables/main.scss";
-@import "grid-system/mixins/main.scss";
-@import "grid-system/grid";
-@import "grid-system/visibility"; // Visibility last for precedence
+@import "grid-system/grid-system.scss";
