@@ -1,15 +1,15 @@
 ---
 export interface Props {
-  title: string;
-  body: string;
-  href: string;
-  target?: string; // defaults to _blank
+  title: string
+  body: string
+  href: string
+  target?: string // defaults to _blank
 }
 
-const { href, target, title, body } = Astro.props;
+const { href, target, title, body } = Astro.props
 ---
 
-<li class="link-card">
+<li class='link-card'>
   <a href={href} target={target ? target : `_blank`}>
     <h2>
       {title}
