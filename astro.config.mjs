@@ -25,7 +25,6 @@ export default defineConfig({
     assets: 'assets'
   },
   vite: {
-    appType: 'mpa',
     css: {
       devSourcemap: true
     },
