@@ -1,33 +1,58 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
+import Layout from '../layouts/Layout.astro'
+import Card from '../components/Card.astro'
+import Modal from '../components/modal/Modal.astro'
 ---
 
-<Layout title="Welcome" showFooter={false} showHeader={false} showISI={false}>
+<Layout title='Welcome' showFooter={false} showHeader={false} showISI={false}>
   <main>
-    <h1>Project <span class="text-gradient">Started</span></h1>
-    <p class="instructions">
+    <h1>Project <span class='text-gradient'>Started</span></h1>
+    <p class='instructions'>
       To get started, open the directory <code>src/pages</code> in your project.<br
       />
     </p>
-    <ul role="list" class="link-card-grid">
+    <ul role='list' class='link-card-grid'>
       <Card
-        href="https://tech.dev-jdoutstanding.com/en/introduction/"
-        title="JDK Workflow"
-        body="Learn about our company workflow."
+        href='https://tech.dev-jdoutstanding.com/en/introduction/'
+        title='JDK Workflow'
+        body='Learn about our company workflow.'
       />
       <Card
-        href="/design"
-        target="_self"
-        title="Design System"
-        body="Check out our design system page."
+        href='/design'
+        target='_self'
+        title='Design System'
+        body='Check out our design system page.'
       />
       <Card
-        href="https://docs.astro.build/"
-        title="Astro Docs"
-        body="Learn how Astro works and explore the official API docs."
+        href='https://docs.astro.build/'
+        title='Astro Docs'
+        body='Learn how Astro works and explore the official API docs.'
       />
     </ul>
+
+    <Modal>
+      <Fragment slot='modal-content'>
+        <div class='modal__content'>
+          <h1>Modal content</h1>
+        </div>
+      </Fragment>
+    </Modal>
+
+    <Modal>
+      <Fragment slot='modal-content'>
+        <div class='modal__content'>
+          <h1>Modal content</h1>
+        </div>
+      </Fragment>
+    </Modal>
+
+    <Modal>
+      <Fragment slot='modal-content'>
+        <div class='modal__content'>
+          <h1>Modal content</h1>
+        </div>
+      </Fragment>
+    </Modal>
   </main>
 </Layout>
 

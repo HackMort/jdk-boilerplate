@@ -1,0 +1,31 @@
+---
+import './modal.scss'
+import { generateRandomNumber } from '../../js/utils'
+type Props = {
+  id?: string
+  className?: string
+}
+const { id, className = '' } = Astro.props
+let modalId = id
+if (!modalId) {
+  modalId = generateRandomNumber().toString()
+}
+---
+
+<template id={`jd-modal-template-${modalId}`}>
+  <section class={`jd-modal ${className}`} id={`jd-modal-${modalId}`}>
+    <div class='jd-modal__wrapper'>
+      <div class='jd-modal__header'>
+        <div class='jd-modal__close-button-wrapper'>
+          <slot name='modal-close-button'>
+            <button class='jd-modal__close-button'>CLOSE</button>
+          </slot>
+        </div>
+      </div>
+      <div class='jd-modal__content'>
+        <slot name='modal-content' />
+      </div>
+    </div>
+  </section>
+</template>
+<script src='./jd-modal.ts' type='module'></script>
