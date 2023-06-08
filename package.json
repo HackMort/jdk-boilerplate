@@ -13,7 +13,7 @@
     },
     "dependencies": {
         "@fancyapps/ui": "5.0.19",
-        "astro": "2.1.8"
+        "astro": "2.6.1"
     },
     "devDependencies": {
         "autoprefixer": "10.4.14",
