@@ -29,41 +29,12 @@ import Modal from '../components/modal/Modal.astro'
         body='Learn how Astro works and explore the official API docs.'
       />
     </ul>
-    <br /><br /><br />
-
-    <button data-jd-modal-trigger='modal-1'>Modal 1</button>
-    <button data-jd-modal-trigger='modal-2'>Modal 2</button>
-    <button data-jd-modal-trigger='modal-3'>Modal 3</button>
-
-    <Modal id='modal-1'>
-      <Fragment slot='modal-content'>
-        <div class='modal__content'>
-          <h1>Modal content</h1>
-        </div>
-      </Fragment>
-    </Modal>
-
-    <Modal id='modal-2'>
-      <Fragment slot='modal-content'>
-        <div class='modal__content'>
-          <h1>Modal content</h1>
-        </div>
-      </Fragment>
-    </Modal>
-
-    <Modal id='modal-3'>
-      <Fragment slot='modal-content'>
-        <div class='modal__content'>
-          <h1>Modal content</h1>
-        </div>
-      </Fragment>
-    </Modal>
   </main>
 </Layout>
 
 <script src='/src/js/utils.js'></script>
 
-<style>
+<style lang='scss'>
   main {
     margin: auto;
     padding: 1.5rem;
