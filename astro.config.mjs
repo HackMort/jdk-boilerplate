@@ -80,13 +80,22 @@ export default defineConfig({
             const moduleIds = entry.moduleIds
 
             if (moduleIds && moduleIds.length > 0) {
-              name = moduleIds[0].split('/').pop().split('?')[0] // Extract the file name from the module ID
+              const nonNodeModuleId = moduleIds.find(
+                id => !id.includes('node_modules')
+              )
+              if (nonNodeModuleId) {
+                name = nonNodeModuleId.split('/').pop().split('?')[0] // Extract the file name from the module ID
+              }
               const isAstroFile = name.includes('.astro') // Check if it is an Astro file
               if (isAstroFile) {
                 name = changeAstroComponentEntryFilenameToJs(name)
               }
-            }
 
+              const isTypeScript = name.includes('.ts')
+              if (isTypeScript) {
+                name = name.replace('.ts', '.js')
+              }
+            }
             return `assets/js/${name}`
           }
           // chunkFileNames: 'assets/js/[name].[hash].js'
