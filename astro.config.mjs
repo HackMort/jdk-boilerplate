@@ -76,7 +76,7 @@ export default defineConfig({
            * @returns {string} - The generated file name.
            */
           entryFileNames: entry => {
-            let name = 'assets/js/[name].[hash].js'
+            let name = '[name].[hash].js'
             const moduleIds = entry.moduleIds
 
             if (moduleIds && moduleIds.length > 0) {
