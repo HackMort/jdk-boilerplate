@@ -2,18 +2,18 @@
 import './modal.scss'
 import { generateRandomNumber } from '../../js/utils'
 type Props = {
-  id?: string
+  id: string
   className?: string
 }
 const { id, className = '' } = Astro.props
-let modalId = id
-if (!modalId) {
-  modalId = generateRandomNumber().toString()
-}
 ---
 
-<template id={`jd-modal-template-${modalId}`}>
-  <section class={`jd-modal ${className}`} id={`jd-modal-${modalId}`}>
+<template id={`jd-modal-template-${id}`}>
+  <section
+    class={`jd-modal ${className}`}
+    id={`jd-modal-${id}`}
+    style='display: none'
+  >
     <div class='jd-modal__wrapper'>
       <div class='jd-modal__header'>
         <div class='jd-modal__close-button-wrapper'>
@@ -28,4 +28,4 @@ if (!modalId) {
     </div>
   </section>
 </template>
-<script src='./jd-modal.js'></script>
+<script src='./jd-modal.ts'></script>
