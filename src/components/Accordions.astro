@@ -6,6 +6,11 @@ type Props = {
 }
 
 const { name, expandAll = false, expandable = false } = Astro.props
+
+//  * Props description:
+//  *  name: string (required to match with the corresponding accordion-items)
+//  *  expandAll: boolean (default: false, if true, all accordion-items will be expanded)
+//  *  expandable: boolean (default: false, if true, the expandable and colapsable feature will be enabled)
 ---
 
 <article
