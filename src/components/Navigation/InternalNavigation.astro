@@ -1,0 +1,75 @@
+---
+import '../../styles/components/_internal-navigation.scss'
+import navigationData from './data/internal_navigation-data.js'
+
+/*
+  addWrapper -> Allows add a wrapper class to .internal-nav__container
+  wrapperClassname -> Allows to change wrapper class that will be added if addWrapper is set as true
+  scrollToActiveItem -> Enable/Disable Internal Navigation's behavior to scroll the list to the selected item (onScroll and onClick)
+  highlightOnScroll -> Enable/Disable Internal Navigation's behavior to highlight item that has the reference of the visible section
+  isFixed -> Enable/Disable Internal Navigation's behavior to get position:fixed on scrolling
+  page -> Allows astro component to get the correct settings from navigationData
+ */
+type Props = {
+  addWrapper?: boolean
+  wrapperClassname?: string
+  scrollToActiveItem?: boolean
+  highlightOnScroll?: boolean
+  isFixed?: boolean
+  page: string
+}
+
+const {
+  page,
+  addWrapper = true,
+  wrapperClassname = 'wrapper',
+  scrollToActiveItem = false,
+  highlightOnScroll = false,
+  isFixed = true
+} = Astro.props
+---
+
+{
+  navigationData.navigationItems[page] && (
+    <>
+      <nav
+        class='internal-nav'
+        data-scroll-to-active={`${scrollToActiveItem}`}
+        data-active-item-on-scroll={`${highlightOnScroll}`}
+        data-fix-on-scroll={`${isFixed}`}
+        data-elements-before-nav={JSON.stringify(
+          navigationData.elementsBeforeNav
+        )}
+      >
+        <div
+          class={`internal-nav__container ${
+            addWrapper ? wrapperClassname : ''
+          }`}
+        >
+          <slot name='before-list' />
+          <ul class='internal-nav__list'>
+            {navigationData.navigationItems[page].map((item) => {
+              const activeClass = item.active
+                ? 'internal-nav__list-item--is-active'
+                : ''
+              const classNames = item.classes ? item.classes.join(' ') : ''
+              return (
+                <li
+                  class={`internal-nav__list-item  ${activeClass} ${classNames}`}
+                >
+                  <a
+                    href={`#${item.href}`}
+                    class='internal-nav__list-item-link'
+                    set:html={item.label}
+                  />
+                </li>
+              )
+            })}
+          </ul>
+          <slot name='after-list' />
+        </div>
+      </nav>
+      <script src='../../public/assets/js/internal-navigation.js' />
+    </>
+  )
+}
