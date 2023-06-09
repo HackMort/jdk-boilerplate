@@ -1,0 +1,22 @@
+---
+type Props = {
+  name: string
+  expandAll?: boolean
+  expandable?: boolean
+}
+
+const { name, expandAll = false, expandable = false } = Astro.props
+---
+
+<article
+  id=`accordion-group-${name}`
+  class='accordion accordion-group'
+  data-expanded={expandAll}
+>
+  {
+    expandable && (
+      <a href='#' data-target={`${name}`} class='accordion-group-toggle' />
+    )
+  }
+  <slot />
+</article>

@@ -1,6 +1,6 @@
 ---
 import Accordion from '../components/Accordion.astro'
-import AccordionGroup from '../components/AccordionGroup.astro'
+import Accordions from '../components/Accordions.astro'
 import Layout from '../layouts/Layout.astro'
 import '../styles/settings/_design.scss'
 ---
@@ -192,8 +192,8 @@ import '../styles/settings/_design.scss'
     <section class='design-system-section'>
       <div class='section-wrapper section-wrapper--small'>
         <h1 class='title'>Accordions</h1>
-        <div class='accordion'>
-          <Accordion id='1' header='ACC 1' expanded>
+        <Accordions name='accordion-group-2-name'>
+          <Accordion id='1' header='ACC-1' expanded>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti,
               pariatur labore perspiciatis repudiandae aliquid quae doloribus!
@@ -201,7 +201,7 @@ import '../styles/settings/_design.scss'
               animi, sapiente exercitationem.
             </p>
           </Accordion>
-          <Accordion id='2' header='ACC 2'>
+          <Accordion id='2' header='ACC-2'>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti,
               pariatur labore perspiciatis repudiandae aliquid quae doloribus!
@@ -209,37 +209,35 @@ import '../styles/settings/_design.scss'
               animi, sapiente exercitationem.
             </p>
           </Accordion>
+        </Accordions>
 
-          <br />
-          <h2 class='title'>Accordion group</h2>
-
-          <AccordionGroup name='accordion-group-name'>
-            <Accordion id='1' header='ACC-1'>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Deleniti, pariatur labore perspiciatis repudiandae aliquid quae
-                doloribus! Ratione, fugiat quae ad dolor voluptatum esse laborum
-                porro id non animi, sapiente exercitationem.
-              </p>
-            </Accordion>
-            <Accordion id='2' header='ACC-2'>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Deleniti, pariatur labore perspiciatis repudiandae aliquid quae
-                doloribus! Ratione, fugiat quae ad dolor voluptatum esse laborum
-                porro id non animi, sapiente exercitationem.
-              </p>
-            </Accordion>
-            <Accordion id='3' header='ACC-3'>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Deleniti, pariatur labore perspiciatis repudiandae aliquid quae
-                doloribus! Ratione, fugiat quae ad dolor voluptatum esse laborum
-                porro id non animi, sapiente exercitationem.
-              </p>
-            </Accordion>
-          </AccordionGroup>
-        </div>
+        <hr />
+        <Accordions name='accordion-group-1-name' expandAll expandable>
+          <Accordion id='1' header='ACC-1'>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti,
+              pariatur labore perspiciatis repudiandae aliquid quae doloribus!
+              Ratione, fugiat quae ad dolor voluptatum esse laborum porro id non
+              animi, sapiente exercitationem.
+            </p>
+          </Accordion>
+          <Accordion id='2' header='ACC-2'>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti,
+              pariatur labore perspiciatis repudiandae aliquid quae doloribus!
+              Ratione, fugiat quae ad dolor voluptatum esse laborum porro id non
+              animi, sapiente exercitationem.
+            </p>
+          </Accordion>
+          <Accordion id='3' header='ACC-3'>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti,
+              pariatur labore perspiciatis repudiandae aliquid quae doloribus!
+              Ratione, fugiat quae ad dolor voluptatum esse laborum porro id non
+              animi, sapiente exercitationem.
+            </p>
+          </Accordion>
+        </Accordions>
       </div>
     </section>
   </main>
