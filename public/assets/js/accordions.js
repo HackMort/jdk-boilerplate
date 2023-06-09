@@ -12,14 +12,25 @@
   */
 
 export function Accordions () {
-  const accordions = document.querySelectorAll('.accordion-group')
+  const accordions = document.querySelectorAll('.accordion.accordion-group')
+  const globalAccordionItems = document.querySelectorAll('.accordion:not(.accordion-group) .accordion__item')
 
   if (!accordions) {
     return
   }
 
+  if (globalAccordionItems.length > 0) {
+    globalAccordionItems.forEach((accordionItem) => {
+      accordionItem.addEventListener('click', (e) => {
+        const expanded = accordionItem.getAttribute('aria-expanded') === 'true' || false
+        accordionItem.setAttribute('aria-expanded', !expanded)
+      })
+    })
+  }
+
   accordions.forEach((accordion) => {
-    const accordionIsExpandAll = accordion.hasAttribute('data-expanded') ?? false
+    const accordionIsExpandAll = accordion.hasAttribute('data-expand-all') ?? false
+    const accordionExpandBehavior = accordion.getAttribute('data-expand-behavior') ?? 'multiple'
     const accordionItems = accordion.querySelectorAll('.accordion__item')
     const accordionTrigger = accordion.querySelector('.accordion-group-toggle') ?? false
     const accordionTriggerOpenClass = 'accordion-group-toggle--opened'
@@ -35,13 +46,16 @@ export function Accordions () {
       accordionItem.addEventListener('click', (e) => {
         const expanded = accordionItem.getAttribute('aria-expanded') === 'true' || false
         accordionItem.setAttribute('aria-expanded', !expanded)
-        // close all other accordion items... maybe?
-        /* accordionItems.forEach((accordionItem) => {
-          // If the accordion item is not the clicked and if its not expanded
-          if (accordionItem !== e.currentTarget && expanded === false) {
-            accordionItem.setAttribute('aria-expanded', false)
-          }
-        }) */
+
+        if (accordionExpandBehavior === 'single') {
+          // close all other accordion items... maybe?
+          accordionItems.forEach((accordionItem) => {
+            // If the accordion item is not the clicked and if its not expanded
+            if (accordionItem !== e.currentTarget && expanded === false) {
+              accordionItem.setAttribute('aria-expanded', false)
+            }
+          })
+        }
 
         if (accordionTrigger) {
           if (expanded) {
