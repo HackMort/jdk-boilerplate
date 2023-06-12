@@ -2,46 +2,48 @@
 @import "./variables";
 
 * {
-  font-family: "Roboto", sans-serif;
   box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 
 .fonts-preview {
-  background-color: #E4E4E4;
-  color: #5E5E5E;
-  word-wrap: break-word;
+  width: 100%;
   margin-bottom: 40px;
   padding: 30px;
 
-  width: 100%;
+  color: #5E5E5E;
+  word-wrap: break-word;
+
+  background-color: #E4E4E4;
 
   h2 {
-    color: #444444;
-    font-weight: 400;
-    font-size: 45px;
-    line-height: 48px;
     margin: 0;
+
+    font-size: 45px;
+    font-weight: 400;
+    line-height: 48px;
+    color: #444;
   }
 
 }
 
 table {
+  width: 100%;
   font-size: 18px;
   line-height: 24px;
   text-align: center;
-  width: 100%;
 }
 
 table th,
 table td {
-  border-bottom: 1px solid #d5d5d5;
   padding: 5px 0;
+  border-bottom: 1px solid #d5d5d5;
 }
 
 tr {
-  color: $color-black;
   font-weight: 500;
   line-height: 1.5;
+  color: $color-black;
 }
 
 tr.h1 {
@@ -85,10 +87,10 @@ tr.small {
 }
 
 .buttons {
-  display: flex;
   @include flex-gap(1rem);
-  flex-direction: row;
-  flex-wrap: wrap;
+
+  display: flex;
+  flex-flow: row wrap;
 
   .button {
     max-width: max-content;
@@ -96,24 +98,26 @@ tr.small {
 }
 
 main {
-  max-width: 90vw;
-  margin: 2rem auto;
+  main {
+    @include flex-gap(2rem);
 
-  display: flex;
-  flex-direction: column;
-  @include flex-gap(2rem)
+    display: flex;
+    flex-direction: column;
+    max-width: 90vw;
+    margin: 2rem auto;
+  }
 }
 
 .title {
-  font-size: 2em;
   margin-bottom: 1rem;
+  font-size: 2em;
 }
 
 .colors {
-  display: flex;
-  flex-direction: row;
   @include flex-gap(1rem);
-  flex-wrap: wrap;
+
+  display: flex;
+  flex-flow: row wrap;
 }
 
 .color {
@@ -122,20 +126,25 @@ main {
 
 .color__box {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+
+  width: 6.25rem;
   height: 4.375rem;
   margin-bottom: 0.5rem;
   padding: 0.2rem;
-  width: 6.25rem;
 }
 
 .color__hex {
-  font-size: 0.75em;
   margin: auto;
+  font-size: 0.75em;
 }
 
 .color__variable {
   font-size: 0.75em;
   font-weight: 500;
+}
+
+.space-at-bottom-for-navigation {
+  height: 50vh;
 }

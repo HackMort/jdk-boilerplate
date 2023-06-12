@@ -40,7 +40,7 @@
       "stylelint --fix"
     ],
     "*.{js,jsx,ts,tsx}": [
-      "prettier --lint --staged"
+      "prettier --write"
     ],
     "*.md": "prettier --write"
   }
