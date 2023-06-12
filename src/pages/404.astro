@@ -1,27 +1,36 @@
 ---
-import JDModal from '../components/jd-modal/JDModal.astro';
-import Layout from "../layouts/Layout.astro";
+import Modal from '../components/Modal/Modal.astro'
+import Layout from '../layouts/Layout.astro'
 ---
 
-<Layout title="Page not found" pageClass="page__not_found">
+<Layout title='Page not found' pageClass='page__not_found'>
   <h1>Beautiful 404 - Page not found</h1>
   <p>Sorry, we couldn't find the page you were looking for.</p>
 
-  <JDModal id='modal-demo' className='modal-demo'>
+  <Modal id='modal-demo' className='modal-demo'>
     <Fragment>
       <div class='modal'>
-       <div data-jd-modal-header>
-        <h1 class='modal__title' data-jd-modal-title>Modal content 1</h1>
-        <button data-jd-modal-close>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg>
-        </button>
-       </div>
+        <div data-jd-modal-header>
+          <h1 class='modal__title' data-jd-modal-title>Modal content 1</h1>
+          <button data-jd-modal-close>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              width='24'
+              height='24'
+              viewBox='0 0 24 24'
+              style='fill: rgba(0, 0, 0, 1);transform: ;msFilter:;'
+              ><path
+                d='m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z'
+              ></path></svg
+            >
+          </button>
+        </div>
         <div class='modal__text' data-jd-modal-content>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
-            officiis mollitia cum amet quas quisquam soluta omnis, iusto,
-            rem veritatis dicta a optio aperiam vel corrupti recusandae vero
-            harum nisi!
+            officiis mollitia cum amet quas quisquam soluta omnis, iusto, rem
+            veritatis dicta a optio aperiam vel corrupti recusandae vero harum
+            nisi!
           </p>
         </div>
         <div class='modal__actions' data-jd-modal-actions>
@@ -29,6 +38,5 @@ import Layout from "../layouts/Layout.astro";
         </div>
       </div>
     </Fragment>
-  </JDModal>
-  
+  </Modal>
 </Layout>
