@@ -1,6 +1,7 @@
 import { Tabs } from './tabs.js'
 import { cookieValidation, cookieFormValidation } from './validate.js'
 import { Accordions } from './accordions.js'
+
 document.addEventListener('DOMContentLoaded', function (e) {
   console.log('DOM fully loaded and parsed')
   /**
