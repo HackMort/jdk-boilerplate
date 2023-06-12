@@ -22,7 +22,8 @@ export default defineConfig({
   compressHTML: false,
   build: {
     format: 'directory',
-    assets: 'assets'
+    assets: 'assets',
+    inlineStylesheets: 'never'
   },
   vite: {
     css: {
