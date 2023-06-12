@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import Card from '../components/Card.astro'
-import Modal from '../components/modal/Modal.astro';
+import JDModal from '../components/modal/JDModal.astro';
 ---
 
 <Layout title='Welcome' showFooter={false} showHeader={false} showISI={false}>
@@ -29,7 +29,7 @@ import Modal from '../components/modal/Modal.astro';
         body='Learn how Astro works and explore the official API docs.'
       />
     </ul>
-    <Modal id='modal-demo' className='modal-demo'>
+    <JDModal id='modal-demo' className='modal-demo'>
         <Fragment>
           <div class='modal'>
            <div data-jd-modal-header>
@@ -51,7 +51,7 @@ import Modal from '../components/modal/Modal.astro';
             </div>
           </div>
         </Fragment>
-      </Modal>
+      </JDModal>
   </main>
 </Layout>
 
