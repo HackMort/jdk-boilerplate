@@ -1,24 +1,24 @@
 /* {outputFileName:styles} */
 
-@import './settings/_reset';
-@import './settings/_variables';
-@import './settings/_fonts';
-@import './settings/_mixins';
-@import './settings/_layouts';
-@import './settings/_global';
-@import './settings/_utils';
-@import './components/_buttons';
-@import './components/_header';
-@import './components/_header-navigation';
-@import './components/_cookie';
-@import './components/_isi';
-@import './components/_tabs';
-@import './components/_forms';
-@import './components/_accordions';
-@import './components/_exit-modal';
-@import './components/_pinch-to-zoom';
-@import './components/_footer';
-@import './components/_footer-navigation';
+@import './settings/reset';
+@import './settings/variables';
+@import './settings/fonts';
+@import './settings/mixins';
+@import './settings/layouts';
+@import './settings/global';
+@import './settings/utils';
+@import './components/buttons';
+@import './components/header';
+@import './components/header-navigation';
+@import './components/cookie';
+@import './components/isi';
+@import './components/tabs';
+@import './components/forms';
+@import './components/accordions';
+@import './components/exit-modal';
+@import './components/pinch-to-zoom';
+@import './components/footer';
+@import './components/footer-navigation';
 
 //Grid system
 @import "grid-system/grid-system";

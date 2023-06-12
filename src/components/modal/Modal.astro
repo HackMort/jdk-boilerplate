@@ -1,11 +1,11 @@
 ---
-import './modal.scss'
+import './jd-modal.scss'
 type Props = {
   id: string
   className?: string
   closeButton?: boolean
 }
-const { id, className = '', closeButton = true } = Astro.props
+const { id, className = '' } = Astro.props
 ---
 
 <template id={`jd-modal-template-${id}`}>

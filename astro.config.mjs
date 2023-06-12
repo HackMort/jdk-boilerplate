@@ -30,8 +30,9 @@ export default defineConfig({
       devSourcemap: true
     },
     build: {
-      minify: false,
+      cssCodeSplit: true,
       cssMinify: false,
+      minify: false,
       rollupOptions: {
         output: {
           /**
