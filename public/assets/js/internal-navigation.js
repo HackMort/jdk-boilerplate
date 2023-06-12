@@ -1,10 +1,13 @@
-window.addEventListener('DOMContentLoaded', event => {
+let isClick = false
+let clickTimeout
+
+window.addEventListener('DOMContentLoaded', (event) => {
   const internalNav = document.querySelector('.internal-nav')
   if (internalNav) {
     const internalNavigationLinks = document.querySelectorAll(
       '.internal-nav__list-item-link'
     )
-    internalNavigationLinks.forEach(navigationLink => {
+    internalNavigationLinks.forEach((navigationLink) => {
       if (navigationLink.hash.startsWith('#')) {
         navigationLink.addEventListener('click', goToTarget)
       }
@@ -31,12 +34,15 @@ window.addEventListener('DOMContentLoaded', event => {
   }
 })
 
-function goToTarget (event) {
+function goToTarget(event) {
   event.preventDefault()
+  if (clickTimeout) {
+    clearTimeout(clickTimeout)
+  }
   const target = document.querySelector(event.target.hash)
   if (target) {
     const internalNav = document.querySelector('.internal-nav')
-    const internalNavStyles = getComputedStyle(internalNav)
+    const internalNavStyles = window.getComputedStyle(internalNav)
 
     let internalNavHeight = 0
     let elementsBeforeNavHeight = 0
@@ -44,26 +50,39 @@ function goToTarget (event) {
     getNavigationOffsetPreFixedPosition()
     if (internalNav.dataset.fixOnScroll !== 'false') {
       internalNavHeight = internalNav.scrollHeight
-      elementsBeforeNavHeight = parseInt(internalNavStyles.getPropertyValue('--internal-nav-top').slice(0, -2))
+      elementsBeforeNavHeight = parseInt(
+        internalNavStyles.getPropertyValue('--internal-nav-top').slice(0, -2)
+      )
       fixedElementsBeforeHeight = getNavigationOffsetPreFixedPosition()
     }
 
-    let targetOffsetTop = target.getBoundingClientRect().top + window.pageYOffset
+    let targetOffsetTop =
+      target.getBoundingClientRect().top + window.pageYOffset
     if (!internalNav.classList.contains('is--fixed')) {
-      targetOffsetTop = targetOffsetTop - internalNavHeight - elementsBeforeNavHeight + fixedElementsBeforeHeight
+      targetOffsetTop =
+        targetOffsetTop -
+        internalNavHeight -
+        elementsBeforeNavHeight +
+        fixedElementsBeforeHeight
     }
 
-    const scrollPosition = targetOffsetTop - internalNavHeight - elementsBeforeNavHeight
+    const scrollPosition =
+      targetOffsetTop - internalNavHeight - elementsBeforeNavHeight
+    isClick = true
     switchActive(event.target)
 
     window.scroll({
       top: scrollPosition,
       behavior: 'smooth'
     })
+
+    clickTimeout = setTimeout(() => {
+      isClick = false
+    }, 1000)
   }
 }
 
-function addHighlightOnScrollObserver () {
+function addHighlightOnScrollObserver() {
   const internalNavItemLinks = document.querySelectorAll(
     '.internal-nav__list-item-link'
   )
@@ -75,10 +94,10 @@ function addHighlightOnScrollObserver () {
     threshold: 0.15
   }
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
+  const observer = new window.IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
       const sectionTop = entry.boundingClientRect.top
-      const internalNavMainStyles = getComputedStyle(internalNav)
+      const internalNavMainStyles = window.getComputedStyle(internalNav)
       const heightBeforeInternalNav =
         parseInt(
           internalNavMainStyles
@@ -87,8 +106,8 @@ function addHighlightOnScrollObserver () {
         ) + internalNav.scrollHeight
       const targetElement = entry.target
       const elementId = targetElement.id
-
       if (
+        !isClick &&
         entry.isIntersecting &&
         sectionTop <= heightBeforeInternalNav &&
         sectionTop >= 0
@@ -101,7 +120,7 @@ function addHighlightOnScrollObserver () {
     })
   }, observerOptions)
 
-  internalNavItemLinks.forEach(internalNavItemLink => {
+  internalNavItemLinks.forEach((internalNavItemLink) => {
     if (internalNavItemLink.hash) {
       const targetElement = document.querySelector(internalNavItemLink.hash)
       if (targetElement) {
@@ -111,7 +130,7 @@ function addHighlightOnScrollObserver () {
   })
 }
 
-function setFixInternalNav () {
+function setFixInternalNav() {
   let extraOffset = 0
   const internalNav = document.querySelector('.internal-nav')
   const previousSibling = internalNav.previousElementSibling
@@ -123,19 +142,22 @@ function setFixInternalNav () {
   const fixedElementsBeforeHeight = getNavigationOffsetPreFixedPosition()
 
   const internalNavHeight = internalNav.offsetHeight
-  if (window.pageYOffset > (internalNavHeight + extraOffset - fixedElementsBeforeHeight)) {
+  if (
+    window.pageYOffset >
+    internalNavHeight + extraOffset - fixedElementsBeforeHeight
+  ) {
     internalNav.classList.add('is--fixed')
   } else {
     internalNav.classList.remove('is--fixed')
   }
 }
 
-function setTopNav () {
+function setTopNav() {
   const internalNav = document.querySelector('.internal-nav')
   const elementsBeforeNav = JSON.parse(internalNav.dataset.elementsBeforeNav)
 
   let totalOffset = 0
-  elementsBeforeNav.forEach(element => {
+  elementsBeforeNav.forEach((element) => {
     if (element.selector !== '') {
       const elementBeforeNav = document.querySelector(element.mainSelector)
       if (elementBeforeNav) {
@@ -147,15 +169,18 @@ function setTopNav () {
   internalNav.style.setProperty('--internal-nav-top', `${totalOffset}px`)
 }
 
-function getNavigationOffsetPreFixedPosition () {
+function getNavigationOffsetPreFixedPosition() {
   const internalNav = document.querySelector('.internal-nav')
   const elementsBeforeNav = JSON.parse(internalNav.dataset.elementsBeforeNav)
 
   let totalOffset = 0
-  elementsBeforeNav.forEach(element => {
+  elementsBeforeNav.forEach((element) => {
     if (element.selector !== '') {
       const elementBeforeNav = document.querySelector(element.mainSelector)
-      if (elementBeforeNav && elementBeforeNav.classList.contains(element.fixedPositionClassname)) {
+      if (
+        elementBeforeNav &&
+        elementBeforeNav.classList.contains(element.fixedPositionClassname)
+      ) {
         totalOffset += elementBeforeNav.scrollHeight
       }
     }
@@ -164,7 +189,7 @@ function getNavigationOffsetPreFixedPosition () {
   return totalOffset
 }
 
-function switchActive (targetChild) {
+function switchActive(targetChild) {
   const currentLinkActive = document.querySelector(
     '.internal-nav__list-item--is-active'
   )
@@ -174,7 +199,7 @@ function switchActive (targetChild) {
   scrollToActiveElement(newLinkActive)
 }
 
-function scrollToActiveElement (itemTarget) {
+function scrollToActiveElement(itemTarget) {
   const internalNav = document.querySelector('.internal-nav')
 
   if (internalNav.dataset.scrollToActive !== 'false') {
