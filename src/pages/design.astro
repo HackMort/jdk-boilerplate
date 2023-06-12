@@ -1,4 +1,5 @@
 ---
+import Accordions from '../components/Accordions.astro'
 import Accordion from '../components/Accordion.astro'
 import InternalNavigation from '../components/Navigation/InternalNavigation.astro'
 import Layout from '../layouts/Layout.astro'
@@ -196,11 +197,60 @@ import '../styles/settings/_design.scss'
         </section>
       </div>
     </section>
-    <section id='design-accordions' class='design-system-section'>
+    <section class='design-system-section'>
       <div class='section-wrapper section-wrapper--small'>
         <h1 class='title'>Accordions</h1>
-        <div class='accordion'>
-          <Accordion id='1' header='ACC 1' expanded>
+        <p>
+          Accordions component is a wrapper for accordion-item components and
+          enable properties in order to control the behaviour of the
+          accordion-items wrapped.
+        </p>
+        <br />
+        <table>
+          <thead>
+            <tr style='text-align: left;'>
+              <th> props</th>
+              <th> type</th>
+              <th> description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style='text-align: left;'>
+              <td> name</td>
+              <td> string</td>
+              <td>
+                Required to match with the corresponding accordion-items group
+              </td>
+            </tr>
+            <tr style='text-align: left;'>
+              <td> expandAll</td>
+              <td> boolean</td>
+              <td>
+                All accordion-items in a group will be expanded (default: false)
+              </td>
+            </tr>
+            <tr style='text-align: left;'>
+              <td> expandable</td>
+              <td> boolean</td>
+              <td>
+                The expandable and colapsable feature will be enabled (default:
+                false)
+              </td>
+            </tr>
+            <tr style='text-align: left;'>
+              <td> expandBehavior</td>
+              <td> string</td>
+              <td>
+                if 'single', only one accordion-item will be expanded at a time
+                (default: 'multiple')
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <br />
+
+        <Accordions name='accordion-group-name' expandable>
+          <Accordion id='1' header='ACC-1' expanded>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti,
               pariatur labore perspiciatis repudiandae aliquid quae doloribus!
@@ -208,7 +258,7 @@ import '../styles/settings/_design.scss'
               animi, sapiente exercitationem.
             </p>
           </Accordion>
-          <Accordion id='2' header='ACC 2'>
+          <Accordion id='2' header='ACC-2'>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti,
               pariatur labore perspiciatis repudiandae aliquid quae doloribus!
@@ -216,7 +266,15 @@ import '../styles/settings/_design.scss'
               animi, sapiente exercitationem.
             </p>
           </Accordion>
-        </div>
+          <Accordion id='3' header='ACC-3'>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti,
+              pariatur labore perspiciatis repudiandae aliquid quae doloribus!
+              Ratione, fugiat quae ad dolor voluptatum esse laborum porro id non
+              animi, sapiente exercitationem.
+            </p>
+          </Accordion>
+        </Accordions>
       </div>
     </section>
   </main>
