@@ -1,5 +1,5 @@
 ---
-import './jd-modal.scss'
+import './modal.scss'
 type Props = {
   id: string
   className?: string
@@ -12,7 +12,7 @@ const { id, className = '' } = Astro.props
   <section
     class={`jd-modal ${className}`}
     id={`jd-modal-${id}`}
-    style='display: none' 
+    style='display: none'
   >
     <div class='jd-modal__wrapper'>
       <div class='jd-modal__content'>
@@ -21,4 +21,4 @@ const { id, className = '' } = Astro.props
     </div>
   </section>
 </template>
-<script src='./jd-modal.ts'></script>
+<script src='./modal.ts'></script>
