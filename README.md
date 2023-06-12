@@ -41,6 +41,45 @@ All commands are run from the root of the project, from a terminal:
 
 Install VSCode Extenstion Astro [here](https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode) to get syntax highlighting and other features.
 
+## Components
+
+To create an Astro component follow this steps:
+
+1- In the src/components folder, create a new folder with the name of the component. This folder will contain the files that make up the component. There are primarily three files: .astro, .scss, and .js/.ts. For example, this is the structure for the jd-modal component:
+
+```
+src/components/Modal
+├── Modal.astro
+├── modal.scss
+└── modal.ts
+```
+
+2- To import the styles in the component, continuing with the example of the jd-modal component, here's how you import its styles within the .astro file:
+```js
+---
+import './modal.scss'
+
+---
+```
+When using your component on multiple pages, Astro will create a separate stylesheet specifically for your component's styles. You can read more about it <a href="https://docs.astro.build/en/guides/styling/#production" target="_black">here</a>.
+
+Also, read the documentation of <a href="https://docs.astro.build/en/guides/styling/" target="_black">Astro Framework</a> regarding how styles are handled.
+
+To properly name those styles that Astro will compile, you should add the following comment on line 1 of the .scss file:
+
+```scss
+/* {outputFileName:modal} */
+```
+You should replace modal with the name your file should have upon compilation. This applies to all .scss files, for example, the one for each page.
+
+You can find more information about this in the configuration file of this project **(astro.config.mjs)**.
+
+3- Add the corresponding script to your component:
+```js
+<script src='./modal.ts'></script>
+```
+This is how it's done in the **`modal`** component.
+
 ## Astro Snippets
 
 Install VSCode Extenstion Astro Snippets [here](https://marketplace.visualstudio.com/items?itemName=SheltonLouis.astro-snippets) to easily create Astro components. Example:

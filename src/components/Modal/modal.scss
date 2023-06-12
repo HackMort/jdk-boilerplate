@@ -1,0 +1,29 @@
+/* {outputFileName:modal} */
+
+.jd-modal {
+    position: relative;
+    padding: 0;
+
+    [data-jd-modal-close] {
+        cursor: pointer;
+    }
+
+    .jd-modal__header {
+        position: relative;
+
+        .jd-modal__close-button-wrapper {
+            position: absolute;
+            right: 0;
+        }
+    }
+
+    [data-jd-modal-header] {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    [data-jd-modal-actions] {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
