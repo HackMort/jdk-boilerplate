@@ -12,10 +12,10 @@
         "prepare": "husky install"
     },
     "dependencies": {
-        "@fancyapps/ui": "5.0.19",
         "astro": "2.6.1"
     },
     "devDependencies": {
+        "@fancyapps/ui": "5.0.19",
         "autoprefixer": "10.4.14",
         "husky": "8.0.3",
         "lint-staged": "13.2.2",
@@ -40,7 +40,7 @@
             "stylelint --fix"
         ],
         "*.{js,jsx,ts,tsx}": [
-            "prettier --lint --staged"
+            "prettier --write"
         ],
         "*.md": "prettier --write"
     }

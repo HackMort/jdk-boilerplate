@@ -1,0 +1,72 @@
+@import '../settings/variables';
+
+.internal-nav {
+  --internal-nav-top: 0px;
+
+  top: var(--internal-nav-top);
+  left: 0;
+
+  width: 100%;
+  max-width: 100%;
+  padding: .625rem;
+
+  background-color: $color-black;
+
+  &__container {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__list {
+    position: relative;
+
+    display: flex;
+    gap: .625rem;
+    justify-content: flex-start;
+
+    padding: .625rem;
+
+
+    &-item {
+      list-style-type: none;
+
+      &-link {
+        padding: .3125rem .625rem;
+        color: $color-white;
+      }
+
+      &--is-active {
+        background-color: $color-white;
+
+        .internal-nav__list-item-link {
+          color: $color-black;
+        }
+      }
+    }
+  }
+
+  &[data-scroll-to-active='true'] {
+    .internal-nav {
+      &__list {
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+
+        overflow-x: scroll;
+
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: none;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &.is--fixed {
+    position: fixed;
+    z-index: 1;
+    top: var(--internal-nav-top);
+    left: 0;
+  }
+}
