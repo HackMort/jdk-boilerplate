@@ -14,4 +14,14 @@
             right: 0;
         }
     }
+
+    [data-jd-modal-header] {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    [data-jd-modal-actions] {
+        display: flex;
+        justify-content: flex-end;
+    }
 }
