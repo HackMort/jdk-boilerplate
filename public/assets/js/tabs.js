@@ -1,22 +1,22 @@
 /**
-  * The function looks for <ul role="tablist"> elements
-  * Here's an example of a tablist:
-  * <ul role="tablist">
-  *  <li role="presentation">
-  *   <a href="#tab1" role="tab" aria-controls="tab1" aria-selected="true">Tab 1</a>
-  * </li>
-  * <li role="presentation">
-  *  <a href="#tab2" role="tab" aria-controls="tab2" tabindex="-1">Tab 2</a>
-  * </li>
-  * </ul>
-  * The function also looks for <section role="tabpanel"> elements
-  * Here's an example of a tabpanel:
-  * <section id="tab1" role="tabpanel" aria-labelledby="tab1">
-  * <h2>Tab 1</h2>
-  * <p>Tab 1 content</p>
-  * </section>
-  */
-export function Tabs () {
+ * The function looks for <ul role="tablist"> elements
+ * Here's an example of a tablist:
+ * <ul role="tablist">
+ *  <li role="presentation">
+ *   <a href="#tab1" role="tab" aria-controls="tab1" aria-selected="true">Tab 1</a>
+ * </li>
+ * <li role="presentation">
+ *  <a href="#tab2" role="tab" aria-controls="tab2" tabindex="-1">Tab 2</a>
+ * </li>
+ * </ul>
+ * The function also looks for <section role="tabpanel"> elements
+ * Here's an example of a tabpanel:
+ * <section id="tab1" role="tabpanel" aria-labelledby="tab1">
+ * <h2>Tab 1</h2>
+ * <p>Tab 1 content</p>
+ * </section>
+ */
+export function Tabs() {
   const tablist = document.querySelectorAll("ul[role='tablist']")
   if (!tablist || tablist.length === 0) {
     return
@@ -43,6 +43,8 @@ export function Tabs () {
       const currentTab = currentTabList.querySelector('[aria-selected]')
       if (e.currentTarget !== currentTab) {
         switchTab(currentTab, e.currentTarget)
+        currentTabList.hasAttribute('data-horizontal-scroll') &&
+          horizontalScroll(e.currentTarget, currentTabList)
       }
     })
 
@@ -77,7 +79,26 @@ export function Tabs () {
     newTab.setAttribute('aria-selected', 'true')
     prevTab.removeAttribute('aria-selected')
     prevTab.setAttribute('tabindex', '-1')
-    panels[tabLinks.indexOf(prevTab)].hidden = true
-    panels[tabLinks.indexOf(newTab)].hidden = false
+
+    // panels[tabLinks.indexOf(prevTab)].hidden = true
+    // panels[tabLinks.indexOf(newTab)].hidden = false
+
+    const prevPanel = document.getElementById(
+      prevTab.getAttribute('href').split('#')[1]
+    )
+    const newPanel = document.getElementById(
+      newTab.getAttribute('href').split('#')[1]
+    )
+
+    prevPanel.hidden = true
+    newPanel.hidden = false
+  }
+
+  const horizontalScroll = (tab, tablist) => {
+    const widthOffset = tablist.offsetWidth
+    const tabPosition = tab.offsetLeft
+    const tabWidth = tab.clientWidth
+
+    tablist.scrollLeft = tabPosition + tabWidth - widthOffset + 50
   }
 }
