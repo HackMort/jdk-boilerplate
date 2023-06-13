@@ -1,0 +1,35 @@
+---
+type Props = {
+  name: string
+  expandAll?: boolean
+  expandBehavior?: string // 'single' | 'multiple'
+  expandable?: boolean
+}
+
+const {
+  name,
+  expandAll = false,
+  expandable = false,
+  expandBehavior = 'multiple'
+} = Astro.props
+
+//  * Props description:
+//  *  name: string (required to match with the corresponding accordion-items)
+//  *  expandAll: boolean (default: false, if true, all accordion-items will be expanded)
+//  *  expandable: boolean (default: false, if true, the expandable and colapsable feature will be enabled)
+//  *  expandBehavior: string (default: 'multiple', if 'single', only one accordion-item will be expanded at a time)
+---
+
+<article
+  id=`accordion-group-${name}`
+  class='accordion accordion-group'
+  data-expand-behavior={expandBehavior}
+  data-expand-all={expandAll}
+>
+  {
+    expandable && (
+      <a href='#' data-target={`${name}`} class='accordion-group-toggle' />
+    )
+  }
+  <slot />
+</article>

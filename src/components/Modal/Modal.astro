@@ -1,0 +1,24 @@
+---
+import './modal.scss'
+type Props = {
+  id: string
+  className?: string
+  closeButton?: boolean
+}
+const { id, className = '' } = Astro.props
+---
+
+<template id={`jd-modal-template-${id}`}>
+  <section
+    class={`jd-modal ${className}`}
+    id={`jd-modal-${id}`}
+    style='display: none'
+  >
+    <div class='jd-modal__wrapper'>
+      <div class='jd-modal__content'>
+        <slot />
+      </div>
+    </div>
+  </section>
+</template>
+<script src='./modal.ts'></script>
