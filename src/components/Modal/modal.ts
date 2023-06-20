@@ -103,8 +103,19 @@ function removeModalInstanceFromGroup (modalId: string) {
  * target element that triggered the event.
  */
 function init (event: Event) {
-  const trigger = event.target as HTMLButtonElement
-  let modalId = trigger.dataset.jdModalTrigger
+  const trigger = event.target as HTMLElement
+
+  const getModalId = (target: HTMLElement) => {
+    let modalId = target.dataset.jdModalTrigger
+
+    if (modalId) {
+      return modalId
+    } else {
+      return getModalId(target.parentElement)
+    }
+  }
+
+  let modalId = getModalId(trigger)
   const modalTemplateId = '#' + TEMPLATE_PREFFIX + modalId
 
   const modalTemplate: HTMLTemplateElement =
