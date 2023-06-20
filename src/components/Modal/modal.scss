@@ -1,28 +1,28 @@
 /* {outputFileName:modal} */
 
-.jd-modal {
+.modal {
     position: relative;
     padding: 0;
 
-    [data-jd-modal-close] {
+    [data-modal-close] {
         cursor: pointer;
     }
 
-    .jd-modal__header {
+    .modal__header {
         position: relative;
 
-        .jd-modal__close-button-wrapper {
+        .modal__close-button-wrapper {
             position: absolute;
             right: 0;
         }
     }
 
-    [data-jd-modal-header] {
+    [data-modal-header] {
         display: flex;
         justify-content: space-between;
     }
 
-    [data-jd-modal-actions] {
+    [data-modal-actions] {
         display: flex;
         justify-content: flex-end;
     }

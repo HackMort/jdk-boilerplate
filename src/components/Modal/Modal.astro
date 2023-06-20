@@ -8,14 +8,14 @@ type Props = {
 const { id, className = '' } = Astro.props
 ---
 
-<template id={`jd-modal-template-${id}`}>
+<template id={`modal-template-${id}`}>
   <section
-    class={`jd-modal ${className}`}
-    id={`jd-modal-${id}`}
+    class={`modal ${className}`}
+    id={`modal-${id}`}
     style='display: none'
   >
-    <div class='jd-modal__wrapper'>
-      <div class='jd-modal__content'>
+    <div class='modal__wrapper'>
+      <div class='modal__content'>
         <slot />
       </div>
     </div>

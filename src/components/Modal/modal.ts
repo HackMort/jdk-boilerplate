@@ -1,11 +1,11 @@
 /**
- * data-jd-modal-trigger="<modalId>"
+ * data-modal-trigger="<modalId>"
  */
 
 import { Fancybox } from '@fancyapps/ui'
 
-const TEMPLATE_PREFFIX = 'jd-modal-template-'
-const MODAL_PREFFIX = 'jd-modal-'
+const TEMPLATE_PREFFIX = 'modal-template-'
+const MODAL_PREFFIX = 'modal-'
 
 let openModalTriggers: HTMLElement[] = []
 
@@ -53,7 +53,7 @@ function createModal (modalId: string) {
     trapFocus: false,
     closeButton: false,
     height: 'auto',
-    mainClass: 'fancybox__jd-modal-container',
+    mainClass: 'fancybox__modal-container',
     hideScrollbar: true,
     defaultDisplay: 'flex',
     on: {
@@ -131,9 +131,7 @@ function init (event: Event) {
   const modal = createModal(modalId)
 
   const closeButtons: HTMLButtonElement[] = Array.from(
-    document
-      .querySelector('#' + modalId)
-      .querySelectorAll('[data-jd-modal-close]')
+    document.querySelector('#' + modalId).querySelectorAll('[data-modal-close]')
   )
 
   if (closeButtons) {
@@ -161,7 +159,7 @@ function removeListeners () {
 document.addEventListener('DOMContentLoaded', () => {
   removeListeners()
   openModalTriggers = Array.from(
-    document.querySelectorAll<HTMLElement>('[data-jd-modal-trigger]')
+    document.querySelectorAll<HTMLElement>('[data-modal-trigger]')
   )
 
   openModalTriggers.forEach(trigger => {
