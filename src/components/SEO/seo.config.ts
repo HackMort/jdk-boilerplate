@@ -1,27 +1,37 @@
-import { Props } from 'astro-seo'
+import { Props as SeoProps } from 'astro-seo'
 
-export interface SeoSiteConfig {
+export interface PageSeoConfig {
   pageId: string
-  config: Props
+  config: SeoProps
 }
-const SEO_CONFIG: SeoSiteConfig[] = [
-  {
-    pageId: 'index',
-    config: {
+
+export interface SiteSeoConfig {
+  globals: SeoProps
+  pages: { [pageId: string]: SeoProps }
+}
+export const SEO_CONFIG: SiteSeoConfig = {
+  globals: {
+    openGraph: {
+      basic: {
+        title: 'A Very Descriptive Title',
+        type: 'A type.'
+      }
+    }
+  },
+  pages: {
+    index: {
       title: 'Homepage',
       titleTemplate: '%s | JD Boilerplate',
       description:
         'A heavily optimized description full of well-researched keywords.',
       openGraph: {
         basic: {
-          title: 'A Very Descriptive Title',
-          type: 'A type.',
           image:
-            'https://dev-jdoutstanding.com/_astro/jdk-logo-alt.cc760fca.png'
+            'https://dev-jdoutstanding.com/_astro/jdk-logo-alt.cc760fca.png',
+
+          url: 'https://www.boilerplate.com'
         }
       }
     }
   }
-]
-
-export function getSeoConfig (pageId: string) {}
+}

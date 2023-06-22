@@ -1,9 +1,19 @@
 ---
-import { SeoSiteConfig, getSeoConfig } from './seo.config'
-type Props = {
-  id: string
+import { Props as SeoProps, SEO as AstroSeo } from 'astro-seo'
+import { SEO_CONFIG } from './seo.config'
+import { mergeObjects } from '../../js/utils'
+type Props = { pageId: string }
+const { pageId } = Astro.props
+
+const getConfig = (pageId: string) => {
+  const globalSEO = SEO_CONFIG.globals
+  const pageSEO = SEO_CONFIG.pages[pageId] || null
+
+  const object = mergeObjects(globalSEO, pageSEO)
+  return object
 }
 
-const { id } = Astro.props
-const config = getSeoConfig(id)
+const config = getConfig(pageId)
 ---
+
+{config && <AstroSeo {...config} />}
