@@ -63,6 +63,93 @@ import './modal.scss'
 ---
 ```
 
+## How to use Modal Component
+
+### Add HTML
+
+The modal uses different properties to identify the parts of its content and apply certain CSS styles:
+
+- Header: **data-modal-header**
+- Title: **data-modal-title**
+- Close button **data-modal-close** => very important
+- Content: **data-modal-content**
+- Actions container: **data-modal-actions**
+
+```html
+<Modal id="custom-modal" className="custom-modal">
+  <Fragment>
+    <div>
+      <div data-modal-header>
+        <h1 data-modal-title>Modal title</h1>
+        <button data-modal-close>X</button>
+      </div>
+      <div data-modal-content>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
+          officiis mollitia cum amet quas quisquam soluta omnis, iusto, rem
+          veritatis dicta a optio aperiam vel corrupti recusandae vero harum
+          nisi!
+        </p>
+      </div>
+      <div data-modal-actions>
+        <button data-modal-close>Close</button>
+      </div>
+    </div>
+  </Fragment>
+</Modal>
+```
+
+### Triggers
+
+For a DOM element to open the modal, it must have the **data-modal-trigger** property with the modal's ID as its value.
+
+```html
+<Modal id="custom-modal"> ... </Modal>
+...
+<button data-modal-trigger="custom-modal">Open custom modal</button>
+```
+
+### Config modal fancybox instance
+
+> NOTE: Currently, we can only send static properties in the configuration. Sending functions will have no effect; they simply won't work. If we send a function for any Fancybox event, it will overwrite the default function, and the modal may not work as expected.
+
+```javascript
+---
+import Modal from '../components/Modal/Modal.astro'
+import { OptionsType } from '@fancyapps/ui/types/Fancybox/options'
+
+const modalOptions: Partial<OptionsType> = {
+  closeButton: true
+}
+---
+
+<Modal id="custom-modal" options={modalOptions}>
+...
+</Modal>
+```
+
+Learn more about Fancybox options <a href="https://fancyapps.com/fancybox/api/options/#available-options" target="_blank">here</a>
+
+### How to listen modal events
+
+###### Available events
+
+- init
+- ready
+- resize
+- done
+- shouldClose
+- close
+- destroy
+
+```javascript
+document.addEventListener('modal:init', ({ detail }) => {
+  const { fancybox, id, eventName } = detail
+})
+```
+
+Learn more about Fancybox events <a href="https://fancyapps.com/fancybox/api/events/#available-events" target="_blank">here</a>
+
 When using your component on multiple pages, Astro will create a separate stylesheet specifically for your component's styles. You can read more about it <a href="https://docs.astro.build/en/guides/styling/#production" target="_black">here</a>.
 
 Also, read the documentation of <a href="https://docs.astro.build/en/guides/styling/" target="_black">Astro Framework</a> regarding how styles are handled.
@@ -149,6 +236,12 @@ If in the future you want to change the way SCSS files are imported and modify S
 This project uses Swiper Slider Element. You can find the documentation [here](https://swiperjs.com/element).
 To control the slider, you can read the API documentation [here](https://swiperjs.com/swiper-api).
 To see demos of the slider, you can go [here](https://swiperjs.com/demos).
+
+## Astro SEO
+
+Astro SEO is a component that allows to configure tags for SEO on each page  
+If you want to know more about this component, you can read the following [documentation](https://github.com/jonasmerlin/astro-seo#readme)  
+In the boilerplate the Astro SEO component is implemented with a custom component that receives props data from a common file
 
 ## 🚀 Project Structure
 

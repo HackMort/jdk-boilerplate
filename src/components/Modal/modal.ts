@@ -1,11 +1,11 @@
 /**
- * data-jd-modal-trigger="<modalId>"
+ * data-modal-trigger="<modalId>"
  */
 
 import { Fancybox } from '@fancyapps/ui'
+import { OptionsType } from '@fancyapps/ui/types/Fancybox/options'
 
-const TEMPLATE_PREFFIX = 'jd-modal-template-'
-const MODAL_PREFFIX = 'jd-modal-'
+const TEMPLATE_PREFFIX = 'modal-template-'
 
 let openModalTriggers: HTMLElement[] = []
 
@@ -44,7 +44,7 @@ function removeHtmlModalFromDom(modalId: string) {
  * @returns The function `createModal` is returning a new instance of the `Fancybox` class with the
  * provided configuration options.
  */
-function createModal(modalId: string) {
+function createModal(modalId: string, options: Partial<OptionsType> = {}) {
   return new Fancybox([{ src: modalId }], {
     id: modalId,
     autoFocus: false,
@@ -53,9 +53,10 @@ function createModal(modalId: string) {
     trapFocus: false,
     closeButton: false,
     height: 'auto',
-    mainClass: 'fancybox__jd-modal-container',
+    mainClass: 'fancybox__modal-container',
     hideScrollbar: true,
     defaultDisplay: 'flex',
+    dragToClose: false,
     on: {
       close: () => {
         setTimeout(() => {
@@ -68,9 +69,34 @@ function createModal(modalId: string) {
           removeHtmlModalFromDom(modalId)
           removeModalInstanceFromGroup(modalId)
         }, 100)
-      }
-    }
+      },
+      '*': (fancybox, eventName) => dispatchEvent(fancybox, eventName)
+    },
+    ...options
   })
+}
+
+function dispatchEvent(fancybox: Fancybox, eventName: string) {
+  const availables = [
+    'init',
+    'ready',
+    'resize',
+    'done',
+    'shouldClose',
+    'close',
+    'destroy'
+  ]
+
+  if (availables.some((available) => eventName === available)) {
+    const event = new CustomEvent(`modal:${eventName}`, {
+      detail: { fancybox, eventName, id: fancybox.id },
+      bubbles: true,
+      cancelable: true,
+      composed: true
+    })
+
+    document.dispatchEvent(event)
+  }
 }
 
 /**
@@ -94,21 +120,34 @@ function removeModalInstanceFromGroup(modalId: string) {
     modals.delete(modalId)
   }
 }
-
 /**
- * This function initializes a modal by creating and appending it to the DOM, adding a close button
- * listener, and adding the modal instance to a group.
- * @param {Event} event - The `event` parameter is an object that represents an event that has
- * occurred, such as a mouse click or a key press. It contains information about the event, such as the
- * target element that triggered the event.
+ * This function initializes a modal by retrieving its template, creating the modal instance, and
+ * adding event listeners to its close buttons.
+ * @param {Event} event - The event parameter is an object that represents an event that has occurred,
+ * such as a mouse click or a key press. It contains information about the event, such as the target
+ * element that triggered the event.
  */
+
 function init(event: Event) {
-  const trigger = event.target as HTMLButtonElement
-  let modalId = trigger.dataset.jdModalTrigger
+  const trigger = event.target as HTMLElement
+
+  const getModalId = (target: HTMLElement) => {
+    let modalId = target.dataset.modalTrigger
+
+    if (modalId) {
+      return modalId
+    } else {
+      return getModalId(target.parentElement)
+    }
+  }
+
+  let modalId = getModalId(trigger)
   const modalTemplateId = '#' + TEMPLATE_PREFFIX + modalId
 
   const modalTemplate: HTMLTemplateElement =
     document.querySelector(modalTemplateId)
+
+  const options = JSON.parse(modalTemplate.dataset.modalOptions)
 
   if (modalTemplate) {
     appendHtmlModalToDom(modalTemplate)
@@ -116,13 +155,10 @@ function init(event: Event) {
     throw new Error('Modal template not found')
   }
 
-  modalId = MODAL_PREFFIX + modalId
-  const modal = createModal(modalId)
+  const modal = createModal(modalId, options)
 
   const closeButtons: HTMLButtonElement[] = Array.from(
-    document
-      .querySelector('#' + modalId)
-      .querySelectorAll('[data-jd-modal-close]')
+    document.querySelector('#' + modalId).querySelectorAll('[data-modal-close]')
   )
 
   if (closeButtons) {
@@ -147,13 +183,35 @@ function removeListeners() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  removeListeners()
-  openModalTriggers = Array.from(
-    document.querySelectorAll<HTMLElement>('[data-jd-modal-trigger]')
+function addEventListeners() {
+  const openModalTriggers = Array.from(
+    document.querySelectorAll<HTMLElement>('[data-modal-trigger]')
   )
 
   openModalTriggers.forEach((trigger) => {
     trigger.addEventListener('click', init)
   })
+}
+
+const observeDomMutations = () => {
+  const observedElement = document.querySelector('body')
+  const observerConfig = { childList: true, subtree: true }
+  const formModalObserver = new MutationObserver((mutations) => {
+    const addedNodes = Array.from(mutations[0].addedNodes) as HTMLElement[]
+
+    const init = addedNodes.length > 0
+
+    if (init) {
+      removeListeners()
+      addEventListeners()
+    }
+  })
+
+  formModalObserver.observe(observedElement, observerConfig)
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  removeListeners()
+  addEventListeners()
+  observeDomMutations()
 })

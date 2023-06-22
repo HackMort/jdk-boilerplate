@@ -4,12 +4,15 @@ import '../styles/style.scss'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 import Isi from '../components/ISI.astro'
+import SEOWrapper from '../components/SEO/SEOWrapper.astro'
+
 export interface Props {
   title: string
   pageClass?: string
   showHeader?: boolean
   showFooter?: boolean
   showISI?: boolean
+  page?: string
 }
 
 const {
@@ -17,18 +20,15 @@ const {
   pageClass,
   showHeader = true,
   showISI = true,
-  showFooter = true
+  showFooter = true,
+  page = ''
 } = Astro.props
 ---
 
 <!DOCTYPE html>
 <html lang='en'>
   <head>
-    <meta charset='UTF-8' />
-    <meta name='viewport' content='width=device-width' />
-    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-    <meta name='generator' content={Astro.generator} />
-    <title>{title}</title>
+    <SEOWrapper page={page} />
   </head>
   <body class={pageClass}>
     {showHeader && <Header />}
@@ -37,25 +37,25 @@ const {
     </main>
     {showISI && <Isi />}
     {showFooter && <Footer />}
+    <script src='/assets/js/script.js' type='module'></script>
+    <style is:global>
+      :root {
+        --accent: 124, 58, 237;
+        --accent-gradient: linear-gradient(
+          45deg,
+          rgb(var(--accent)),
+          #da62c4 30%,
+          white 60%
+        );
+      }
+      html {
+        font-family: system-ui, sans-serif;
+        background-color: #f6f6f6;
+      }
+      code {
+        font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+          DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+      }
+    </style>
   </body>
-  <script src='/assets/js/script.js' type='module'></script>
 </html>
-<style is:global>
-  :root {
-    --accent: 124, 58, 237;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      #da62c4 30%,
-      white 60%
-    );
-  }
-  html {
-    font-family: system-ui, sans-serif;
-    background-color: #f6f6f6;
-  }
-  code {
-    font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-  }
-</style>

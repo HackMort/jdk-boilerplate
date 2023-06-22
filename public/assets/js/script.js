@@ -1,5 +1,5 @@
 import { Tabs } from './tabs.js'
-import { cookieValidation, cookieFormValidation } from './validate.js'
+// import { cookieValidation, cookieFormValidation } from './validate.js'
 import { Accordions } from './accordions.js'
 
 document.addEventListener('DOMContentLoaded', function (e) {
@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', function (e) {
    * @see public/assets/js/validation.js
    * Call the function from validation.js
    */
-  cookieValidation()
-  cookieFormValidation()
+  // cookieValidation()
+  // cookieFormValidation()
   /**
    * Tabs
    * @see public/assets/js/tabs.js
@@ -23,4 +23,8 @@ document.addEventListener('DOMContentLoaded', function (e) {
    * Call the function from accordions.js
    */
   Accordions()
+
+  document.addEventListener('modal:done', ({ detail }) => {
+    console.log(detail.id)
+  })
 })
