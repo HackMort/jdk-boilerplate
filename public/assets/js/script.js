@@ -23,4 +23,8 @@ document.addEventListener('DOMContentLoaded', function (e) {
    * Call the function from accordions.js
    */
   Accordions()
+
+  document.addEventListener('modal:done', ({ detail }) => {
+    console.log(detail.id)
+  })
 })
