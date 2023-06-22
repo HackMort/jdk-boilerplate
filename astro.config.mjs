@@ -1,24 +1,20 @@
-import { defineConfig } from 'astro/config'
-
-function changeAstroComponentEntryFilenameToJs (filename) {
-  const name = filename.split('.')[0]
-
-  let sanitized = name
+import { defineConfig } from 'astro/config';
+import image from "@astrojs/image";
+function changeAstroComponentEntryFilenameToJs(filename) {
+  const name = filename.split('.')[0];
+  let sanitized = name;
   if (/[A-Z]/.test(name)) {
-    sanitized = name
-      .replace(/([A-Z])/g, '-$1')
-      .toLowerCase()
-      .slice(1)
+    sanitized = name.replace(/([A-Z])/g, '-$1').toLowerCase().slice(1);
   }
-
-  sanitized = sanitized.replace(/ /g, '-')
-
-  return `${sanitized}.js`
+  sanitized = sanitized.replace(/ /g, '-');
+  return `${sanitized}.js`;
 }
+
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://my-site.com', // Modify as you need
+  site: 'https://my-site.com',
+  // Modify as you need
   compressHTML: false,
   build: {
     format: 'directory',
@@ -50,25 +46,25 @@ export default defineConfig({
            */
           assetFileNames: asset => {
             // Regular expression to search for custom file name
-            const regex = /\{outputFileName:(.*?)\}/
-            const name = asset.name
-            const source = asset.source
-            const ext = name.substring(name.lastIndexOf('.'), name.length)
-            const hasCustomFilename = source.match(regex) // Check if the asset has a custom file name
+            const regex = /\{outputFileName:(.*?)\}/;
+            const name = asset.name;
+            const source = asset.source;
+            const ext = name.substring(name.lastIndexOf('.'), name.length);
+            const hasCustomFilename = source.match(regex); // Check if the asset has a custom file name
 
             switch (ext) {
               case '.css':
                 if (hasCustomFilename && hasCustomFilename.length > 0) {
-                  let customFilename = hasCustomFilename[1]
-                  customFilename = customFilename.replace(/ /g, '-')
-                  return `assets/css/${customFilename}${ext}`
+                  let customFilename = hasCustomFilename[1];
+                  customFilename = customFilename.replace(/ /g, '-');
+                  return `assets/css/${customFilename}${ext}`;
                 } else {
-                  return `assets/css/${name}`
+                  return `assets/css/${name}`;
                 }
               case '.js':
-                return `assets/js/${name}`
+                return `assets/js/${name}`;
               default:
-                return name
+                return name;
             }
           },
           /**
@@ -78,31 +74,29 @@ export default defineConfig({
            * @returns {string} - The generated file name.
            */
           entryFileNames: entry => {
-            let name = '[name].[hash].js'
-            const moduleIds = entry.moduleIds
-
+            let name = '[name].[hash].js';
+            const moduleIds = entry.moduleIds;
             if (moduleIds && moduleIds.length > 0) {
-              const nonNodeModuleId = moduleIds.find(
-                id => !id.includes('node_modules')
-              )
+              const nonNodeModuleId = moduleIds.find(id => !id.includes('node_modules'));
               if (nonNodeModuleId) {
-                name = nonNodeModuleId.split('/').pop().split('?')[0] // Extract the file name from the module ID
-              }
-              const isAstroFile = name.includes('.astro') // Check if it is an Astro file
-              if (isAstroFile) {
-                name = changeAstroComponentEntryFilenameToJs(name)
+                name = nonNodeModuleId.split('/').pop().split('?')[0]; // Extract the file name from the module ID
               }
 
-              const isTypeScript = name.includes('.ts')
+              const isAstroFile = name.includes('.astro'); // Check if it is an Astro file
+              if (isAstroFile) {
+                name = changeAstroComponentEntryFilenameToJs(name);
+              }
+              const isTypeScript = name.includes('.ts');
               if (isTypeScript) {
-                name = name.replace('.ts', '.js')
+                name = name.replace('.ts', '.js');
               }
             }
-            return `assets/js/${name}`
+            return `assets/js/${name}`;
           }
           // chunkFileNames: 'assets/js/[name].[hash].js'
         }
       }
     }
-  }
-})
+  },
+  integrations: [image()]
+});

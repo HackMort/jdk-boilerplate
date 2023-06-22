@@ -6,6 +6,8 @@ import InternalNavigation from '../components/Navigation/InternalNavigation.astr
 import Modal from '../components/Modal/Modal.astro'
 import Layout from '../layouts/Layout.astro'
 import '../styles/settings/design.scss'
+import { Picture } from '@astrojs/image/components'
+import AnaRadImage from './public/assets/images/anna-rad-desktop.png'
 ---
 
 <Layout
@@ -332,6 +334,15 @@ import '../styles/settings/design.scss'
           </div>
         </Fragment>
       </Modal>
+    </section>
+
+    <section class='design-system-section'>
+      <Picture
+        src={AnaRadImage}
+        widths={[200, 400, 800]}
+        sizes='(max-width: 800px) 100vw, 800px'
+        alt='descriptive text'
+      />
     </section>
   </main>
   <div class='space-at-bottom-for-navigation'></div>
