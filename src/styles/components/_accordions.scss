@@ -1,32 +1,81 @@
 .accordion {
-
   &__item_content {
-    color: $color-black;
-    overflow: hidden;
-    height: 100%;
-    max-height: 0px;
-    font-weight: 400;
-    font-size: 1.125rem;
-    line-height: 1.625rem;
-    margin-top: 1rem;
-    padding-top: 0;
 
     @include transition(max-height, 0.3s, ease-in-out);
 
+    overflow: hidden;
+
+    height: 100%;
+    max-height: 0;
+    margin-top: 1rem;
+    padding-top: 0;
+
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.625rem;
+    color: $color-black;
+
     a {
-      color: $color-red;
       font-weight: 600;
+      color: $color-red;
       text-decoration: underline;
     }
 
     p {
-      color: $color-black;
       padding-bottom: 1rem;
+      color: $color-black;
     }
 
     p:not(:last-of-type) {
       margin-bottom: 1rem;
     }
+
+    &[role="tabpanel"] {
+      padding: 0;
+    }
+  }
+
+  &__item {
+    margin-bottom: 0.25rem;
+
+    // padding-top: 1rem;
+    padding-right: 1.25rem;
+
+    // padding-bottom: 1rem;
+    padding-left: 1.25rem;
+
+    background-color: $color-white;
+    border: 1px solid $color-black;
+  }
+
+  
+  &__item_title {
+    cursor: pointer;
+
+    // font-size: 1.375rem;
+    line-height: 1.5588rem;
+    color: $color-black;
+    text-align: center;
+
+
+    &::after {
+      content: "";
+
+      display: block;
+
+      width: 1.3313rem;
+      height: .8087rem;
+      margin-top: .5rem;
+      margin-right: auto;
+      margin-left: auto;
+
+      // Arrow icon
+      background-image: url("data:image/svg+xml,%3Csvg width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23000000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+
   }
 
   [aria-expanded="true"] {
@@ -40,41 +89,21 @@
       transform: rotate(180deg);
     }
   }
+}
 
-  &__item {
-    background-color: $color-white;
-    border: 1px solid $color-black;
-    margin-bottom: 0.25rem;
-    //padding-top: 1rem;
-    padding-right: 1.25rem;
-    //padding-bottom: 1rem;
-    padding-left: 1.25rem;
-  }
-
-  &__item_title {
-    color: $color-black;
-    cursor: pointer;
-    //font-size: 1.375rem;
-    line-height: 1.5588rem;
-    text-align: center;
-
+.accordion-group {
+  &-toggle {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    text-decoration: underline;
 
     &::after {
-      content: "";
-      display: block;
-      // Arrow icon
-      background-image: url("data:image/svg+xml,%3Csvg width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23000000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: contain;
-      margin-top: .5rem;
-      margin-right: auto;
-      margin-left: auto;
-      height: .8087rem;
-      width: 1.3313rem;
+      content: "Expand all";
     }
 
+    &--opened::after {
+      content: "Collapse all";
+    }
 
   }
-
 }

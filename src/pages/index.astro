@@ -1,37 +1,70 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
+import Layout from '../layouts/Layout.astro'
+import Card from '../components/Card.astro'
+import Modal from '../components/Modal/Modal.astro'
 ---
 
-<Layout title="Welcome" showFooter={false} showHeader={false} showISI={false}>
+<Layout title='Welcome' showFooter={false} showHeader={false} showISI={false}>
   <main>
-    <h1>Project <span class="text-gradient">Started</span></h1>
-    <p class="instructions">
+    <h1>Project <span class='text-gradient'>Started</span></h1>
+    <p class='instructions'>
       To get started, open the directory <code>src/pages</code> in your project.<br
       />
     </p>
-    <ul role="list" class="link-card-grid">
+    <ul role='list' class='link-card-grid'>
       <Card
-        href="https://tech.dev-jdoutstanding.com/en/introduction/"
-        title="JDK Workflow"
-        body="Learn about our company workflow."
+        href='https://tech.dev-jdoutstanding.com/en/introduction/'
+        title='JDK Workflow'
+        body='Learn about our company workflow.'
       />
       <Card
-        href="/design"
-        target="_self"
-        title="Design System"
-        body="Check out our design system page."
+        href='/design'
+        target='_self'
+        title='Design System'
+        body='Check out our design system page.'
       />
       <Card
-        href="https://docs.astro.build/"
-        title="Astro Docs"
-        body="Learn how Astro works and explore the official API docs."
+        href='https://docs.astro.build/'
+        title='Astro Docs'
+        body='Learn how Astro works and explore the official API docs.'
       />
     </ul>
+    <Modal id='modal-demo' className='modal-demo'>
+      <Fragment>
+        <div class='modal'>
+          <div data-jd-modal-header>
+            <h1 class='modal__title' data-jd-modal-title>Modal content 1</h1>
+            <button data-jd-modal-close>
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                width='24'
+                height='24'
+                viewBox='0 0 24 24'
+                style='fill: rgba(0, 0, 0, 1);transform: ;msFilter:;'
+                ><path
+                  d='m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z'
+                ></path></svg
+              >
+            </button>
+          </div>
+          <div class='modal__text' data-jd-modal-content>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
+              officiis mollitia cum amet quas quisquam soluta omnis, iusto, rem
+              veritatis dicta a optio aperiam vel corrupti recusandae vero harum
+              nisi!
+            </p>
+          </div>
+          <div class='modal__actions' data-jd-modal-actions>
+            <button class='button' data-jd-modal-close>Close</button>
+          </div>
+        </div>
+      </Fragment>
+    </Modal>
   </main>
 </Layout>
 
-<style>
+<style lang='scss'>
   main {
     margin: auto;
     padding: 1.5rem;

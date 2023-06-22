@@ -38,10 +38,10 @@
       "prettier --write"
     ],
     "src/**/*.{scss,css,sass}": [
-      "stylelint --fix"
+        "stylelint --fix"
     ],
     "*.{js,jsx,ts,tsx}": [
-      "prettier --lint --staged"
+        "prettier --write"
     ],
     "*.md": "prettier --write"
   }

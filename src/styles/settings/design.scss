@@ -1,0 +1,155 @@
+@import "./mixins";
+@import "./variables";
+
+* {
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+.fonts-preview {
+    width: 100%;
+    margin-bottom: 40px;
+    padding: 30px;
+
+    color: #5E5E5E;
+    word-wrap: break-word;
+
+    background-color: #E4E4E4;
+
+    h2 {
+        margin: 0;
+
+        font-size: 45px;
+        font-weight: 400;
+        line-height: 48px;
+        color: #444;
+    }
+
+}
+
+table {
+    width: 100%;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+}
+
+table th,
+table td {
+    padding: 5px 0;
+    border-bottom: 1px solid #d5d5d5;
+}
+
+tr {
+    font-weight: 500;
+    line-height: 1.5;
+    color: $color-black;
+}
+
+tr.h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 2.925rem;
+}
+
+tr.h2 {
+    font-size: 1.875rem;
+    font-weight: 600;
+    line-height: 2.3438rem;
+}
+
+tr.h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.7581rem;
+}
+
+tr.h4 {
+    font-size: 1.25rem;
+    line-height: 1.465rem;
+}
+
+tr.h5 {
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+tr.p {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.3181rem;
+}
+
+tr.small {
+    font-size: 0.75rem;
+    font-weight: 300;
+    line-height: .8788rem;
+}
+
+.buttons {
+    @include flex-gap(1rem);
+
+    display: flex;
+    flex-flow: row wrap;
+
+    .button {
+        max-width: max-content;
+    }
+}
+
+main {
+    @include flex-gap(2rem);
+
+    display: flex;
+    flex-direction: column;
+    max-width: 90vw;
+    margin: 2rem auto;
+}
+
+.title {
+    margin-bottom: 1rem;
+    font-size: 2em;
+}
+
+.colors {
+    @include flex-gap(1rem);
+
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.color {
+    width: 6.25rem;
+}
+
+.color__box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 6.25rem;
+    height: 4.375rem;
+    margin-bottom: 0.5rem;
+    padding: 0.2rem;
+}
+
+.color__hex {
+    margin: auto;
+    font-size: 0.75em;
+}
+
+.color__variable {
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+.modal-demo {
+    width: 100%;
+    max-width: 31.25rem;
+    padding: 1rem;
+    border-radius: .5rem;
+
+    .modal__title {
+        font-size: 1.5rem;
+    }
+}

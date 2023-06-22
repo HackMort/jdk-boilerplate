@@ -1,11 +1,8 @@
 ---
-import Slider from '../components/Slider.astro'
-import Accordions from '../components/Accordions.astro'
 import Accordion from '../components/Accordion.astro'
 import InternalNavigation from '../components/Navigation/InternalNavigation.astro'
-import Modal from '../components/Modal/Modal.astro'
 import Layout from '../layouts/Layout.astro'
-import '../styles/settings/design.scss'
+import '../styles/settings/_design.scss'
 ---
 
 <Layout
@@ -15,8 +12,29 @@ import '../styles/settings/design.scss'
   showISI={false}
   showHeader={false}
 >
+  <section class='test-section-b'>
+    <nav>
+      <ul>
+        <li>Test D</li>
+        <li>Test E</li>
+        <li>Test F</li>
+      </ul>
+    </nav>
+  </section>
+  <section class='test-section-a'>
+    <nav>
+      <ul>
+        <li>Test A</li>
+        <li>Test B</li>
+        <li>Test C</li>
+      </ul>
+    </nav>
+  </section>
+  <section class='hero-test'>
+    <h1>Hero</h1>
+  </section>
   <InternalNavigation
-    page='design'
+    page='internal-navigation-test'
     addWrapper={false}
     highlightOnScroll={true}
     scrollToActiveItem={true}
@@ -27,7 +45,7 @@ import '../styles/settings/design.scss'
       Design System
       <a href='/' style='font-size: 1.25rem; float: right;'> &laquo; Home</a>
     </h1>
-    <section id='design-colors' class='design-system-section'>
+    <section id='colors' class='design-system-section'>
       <div class='section-wrapper section-wrapper--small'>
         <h1 class='title'>Colors</h1>
         <div class='colors'>
@@ -50,7 +68,7 @@ import '../styles/settings/design.scss'
       </div>
     </section>
 
-    <section id='design-fonts' class='design-system-section'>
+    <section id='fonts' class='design-system-section'>
       <div class='section-wrapper section-wrapper--small'>
         <h1 class='title'>Fonts</h1>
 
@@ -117,7 +135,7 @@ import '../styles/settings/design.scss'
         </table>
       </div>
     </section>
-    <section id='design-buttons' class='design-system-section'>
+    <section id='buttons' class='design-system-section'>
       <div class='section-wrapper section-wrapper--small'>
         <h1 class='title'>Buttons</h1>
         <div class='buttons'>
@@ -128,7 +146,7 @@ import '../styles/settings/design.scss'
         </div>
       </div>
     </section>
-    <section id='design-tabs' class='design-system-section'>
+    <section id='tabs' class='design-system-section'>
       <div class='section-wrapper section-wrapper--small'>
         <h1 class='title'>Tabs</h1>
         <ul role='tablist'>
@@ -199,60 +217,11 @@ import '../styles/settings/design.scss'
         </section>
       </div>
     </section>
-    <section id='design-accordions' class='design-system-section'>
+    <section id='accordions' class='design-system-section'>
       <div class='section-wrapper section-wrapper--small'>
         <h1 class='title'>Accordions</h1>
-        <p>
-          Accordions component is a wrapper for accordion-item components and
-          enable properties in order to control the behaviour of the
-          accordion-items wrapped.
-        </p>
-        <br />
-        <table>
-          <thead>
-            <tr style='text-align: left;'>
-              <th> props</th>
-              <th> type</th>
-              <th> description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr style='text-align: left;'>
-              <td> name</td>
-              <td> string</td>
-              <td>
-                Required to match with the corresponding accordion-items group
-              </td>
-            </tr>
-            <tr style='text-align: left;'>
-              <td> expandAll</td>
-              <td> boolean</td>
-              <td>
-                All accordion-items in a group will be expanded (default: false)
-              </td>
-            </tr>
-            <tr style='text-align: left;'>
-              <td> expandable</td>
-              <td> boolean</td>
-              <td>
-                The expandable and colapsable feature will be enabled (default:
-                false)
-              </td>
-            </tr>
-            <tr style='text-align: left;'>
-              <td> expandBehavior</td>
-              <td> string</td>
-              <td>
-                if 'single', only one accordion-item will be expanded at a time
-                (default: 'multiple')
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <br />
-
-        <Accordions name='accordion-group-name' expandable>
-          <Accordion id='1' header='ACC-1' expanded>
+        <div class='accordion'>
+          <Accordion id='1' header='ACC 1' expanded>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti,
               pariatur labore perspiciatis repudiandae aliquid quae doloribus!
@@ -260,7 +229,7 @@ import '../styles/settings/design.scss'
               animi, sapiente exercitationem.
             </p>
           </Accordion>
-          <Accordion id='2' header='ACC-2'>
+          <Accordion id='2' header='ACC 2'>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti,
               pariatur labore perspiciatis repudiandae aliquid quae doloribus!
@@ -268,71 +237,89 @@ import '../styles/settings/design.scss'
               animi, sapiente exercitationem.
             </p>
           </Accordion>
-          <Accordion id='3' header='ACC-3'>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti,
-              pariatur labore perspiciatis repudiandae aliquid quae doloribus!
-              Ratione, fugiat quae ad dolor voluptatum esse laborum porro id non
-              animi, sapiente exercitationem.
-            </p>
-          </Accordion>
-        </Accordions>
+        </div>
       </div>
-    </section>
-
-    <section class='design-system-section'>
-      <h2>Swiper Slider</h2>
-      <span
-        ><a
-          href='https://swiperjs.com/element'
-          target='_blank'
-          style='text-decoration: underline;'>Doc</a
-        ></span
-      >
-      <br />
-      <Slider />
-      <br />
-    </section>
-    <section class='design-system-section'>
-      <br /><br /><br />
-
-      <button class='button button--primary' data-jd-modal-trigger='modal-demo'
-        >Modal 1</button
-      >
-
-      <Modal id='modal-demo' className='modal-demo'>
-        <Fragment>
-          <div class='modal'>
-            <div data-jd-modal-header>
-              <h1 class='modal__title' data-jd-modal-title>Modal content 1</h1>
-              <button data-jd-modal-close>
-                <svg
-                  xmlns='http://www.w3.org/2000/svg'
-                  width='24'
-                  height='24'
-                  viewBox='0 0 24 24'
-                  style='fill: rgba(0, 0, 0, 1);transform: ;msFilter:;'
-                  ><path
-                    d='m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z'
-                  ></path></svg
-                >
-              </button>
-            </div>
-            <div class='modal__text' data-jd-modal-content>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
-                officiis mollitia cum amet quas quisquam soluta omnis, iusto,
-                rem veritatis dicta a optio aperiam vel corrupti recusandae vero
-                harum nisi!
-              </p>
-            </div>
-            <div class='modal__actions' data-jd-modal-actions>
-              <button class='button' data-jd-modal-close>Close</button>
-            </div>
-          </div>
-        </Fragment>
-      </Modal>
     </section>
   </main>
   <div class='space-at-bottom-for-navigation'></div>
 </Layout>
+<style>
+  .test-section-a,
+  .test-section-b {
+    width: 100%;
+    background-color: darkcyan;
+  }
+  .test-section-a nav ul,
+  .test-section-b nav ul {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 15px 0;
+  }
+
+  .test-section-a nav ul li,
+  .test-section-b nav ul li {
+    list-style-type: none;
+    color: white;
+  }
+
+  .test-section-a.is--fixed,
+  .test-section-b.is--fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  .test-section-a.is--fixed {
+    top: 28px;
+  }
+
+  .test-section-b {
+    background-color: chocolate;
+  }
+
+  .test-section-b nav ul {
+    justify-content: flex-end;
+    gap: 1rem;
+    padding: 5px;
+  }
+
+  .test-section-b nav ul li {
+    color: black;
+  }
+
+  .hero-test {
+    background-color: green;
+    height: 300px;
+    width: 100%;
+  }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    setFixSection('.test-section-a')
+    setFixSection('.test-section-b')
+
+    window.addEventListener('scroll', () => {
+      setFixSection('.test-section-a')
+      setFixSection('.test-section-b')
+    })
+  })
+
+  function setFixSection(selector = '') {
+    let extraOffset = 0
+    const sectionElement = document.querySelector(selector)
+    const previousSibling = sectionElement.previousElementSibling
+
+    if (previousSibling) {
+      extraOffset += previousSibling.offsetHeight
+    }
+
+    const sectionElementHeight = sectionElement.offsetHeight
+    if (window.pageYOffset > sectionElementHeight + extraOffset) {
+      sectionElement.classList.add('is--fixed')
+    } else {
+      sectionElement.classList.remove('is--fixed')
+    }
+  }
+</script>
