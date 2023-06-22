@@ -144,6 +144,12 @@ If in the future you want to change the way SCSS files are imported and modify S
 
 <!-- Screenshot here when its ready -->
 
+## Swiper Slider Info
+
+This project uses Swiper Slider Element. You can find the documentation [here](https://swiperjs.com/element).
+To control the slider, you can read the API documentation [here](https://swiperjs.com/swiper-api).
+To see demos of the slider, you can go [here](https://swiperjs.com/demos).
+
 ## 🚀 Project Structure
 
 ```
