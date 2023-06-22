@@ -12,10 +12,10 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "astro": "2.6.1"
+    "astro": "2.6.1",
+    "astro-seo": "^0.7.4"
   },
   "devDependencies": {
-    "swiper": "9.3.2",
     "@fancyapps/ui": "5.0.19",
     "autoprefixer": "10.4.14",
     "husky": "8.0.3",
@@ -26,7 +26,8 @@
     "standard": "17.1.0",
     "stylelint": "15.7.0",
     "stylelint-config-clean-order": "5.0.1",
-    "stylelint-config-standard-scss": "9.0.0"
+    "stylelint-config-standard-scss": "9.0.0",
+    "swiper": "9.3.2"
   },
   "eslintConfig": {
     "extends": [
@@ -38,10 +39,10 @@
       "prettier --write"
     ],
     "src/**/*.{scss,css,sass}": [
-        "stylelint --fix"
+      "stylelint --fix"
     ],
     "*.{js,jsx,ts,tsx}": [
-        "prettier --write"
+      "prettier --write"
     ],
     "*.md": "prettier --write"
   }

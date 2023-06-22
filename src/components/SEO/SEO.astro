@@ -1,0 +1,9 @@
+---
+import { SeoSiteConfig, getSeoConfig } from './seo.config'
+type Props = {
+  id: string
+}
+
+const { id } = Astro.props
+const config = getSeoConfig(id)
+---
