@@ -10,8 +10,8 @@ const getConfig = (pageId: string) => {
   const globalSEO = SEO_CONFIG.globals
   const pageSEO = SEO_CONFIG.pages[pageId] || null
 
-  const object = mergeObjects(globalSEO, pageSEO)
-  return object
+  const mergedSeo = mergeObjects(globalSEO, pageSEO)
+  return mergedSeo
 }
 
 const config = getConfig(pageId)
