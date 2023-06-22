@@ -5,6 +5,11 @@ import InternalNavigation from '../components/Navigation/InternalNavigation.astr
 import Modal from '../components/Modal/Modal.astro'
 import Layout from '../layouts/Layout.astro'
 import '../styles/settings/design.scss'
+import { OptionsType } from '@fancyapps/ui/types/Fancybox/options'
+
+const modalOptions: Partial<OptionsType> = {
+  closeButton: true
+}
 ---
 
 <Layout
@@ -281,16 +286,21 @@ import '../styles/settings/design.scss'
     <section class='design-system-section'>
       <br /><br /><br />
 
-      <button class='button button--primary' data-jd-modal-trigger='event-form-modal'
-        >Modal 1</button
+      <button
+        class='button button--primary'
+        data-modal-trigger='event-form-modal'>Modal 1</button
       >
 
-      <Modal id='event-form-modal' className='event-form-modal'>
+      <Modal
+        id='event-form-modal'
+        className='event-form-modal'
+        options={modalOptions}
+      >
         <Fragment>
           <div>
-            <div data-jd-modal-header>
-              <h1 class='modal__title' data-jd-modal-title>Modal content 1</h1>
-              <button data-jd-modal-close>
+            <div data-modal-header>
+              <h1 class='modal__title' data-modal-title>Modal content 1</h1>
+              <button data-modal-close>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   width='24'
@@ -303,16 +313,101 @@ import '../styles/settings/design.scss'
                 >
               </button>
             </div>
-            <div class='modal__text' data-jd-modal-content>
+            <div class='modal__text' data-modal-content>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
                 officiis mollitia cum amet quas quisquam soluta omnis, iusto,
                 rem veritatis dicta a optio aperiam vel corrupti recusandae vero
                 harum nisi!
               </p>
+              <button
+                class='button button--primary'
+                data-modal-trigger='inner-modal'>Inner Modal</button
+              >
+
+              <Modal id='inner-modal' className='inner-modal'>
+                <Fragment>
+                  <div>
+                    <div data-modal-header>
+                      <h1 class='modal__title' data-modal-title>
+                        Modal content 1
+                      </h1>
+                      <button data-modal-close>
+                        <svg
+                          xmlns='http://www.w3.org/2000/svg'
+                          width='24'
+                          height='24'
+                          viewBox='0 0 24 24'
+                          style='fill: rgba(0, 0, 0, 1);transform: ;msFilter:;'
+                          ><path
+                            d='m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z'
+                          ></path></svg
+                        >
+                      </button>
+                    </div>
+                    <div class='modal__text' data-modal-content>
+                      <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Earum officiis mollitia cum amet quas quisquam soluta
+                        omnis, iusto, rem veritatis dicta a optio aperiam vel
+                        corrupti recusandae vero harum nisi!
+                        <button
+                          class='button button--primary'
+                          data-modal-trigger='super-inner-modal'
+                          >Super Inner Modal</button
+                        >
+
+                        <Modal
+                          id='super-inner-modal'
+                          className='super-inner-modal'
+                        >
+                          <Fragment>
+                            <div>
+                              <div data-modal-header>
+                                <h1 class='modal__title' data-modal-title>
+                                  Modal content 1
+                                </h1>
+                                <button data-modal-close>
+                                  <svg
+                                    xmlns='http://www.w3.org/2000/svg'
+                                    width='24'
+                                    height='24'
+                                    viewBox='0 0 24 24'
+                                    style='fill: rgba(0, 0, 0, 1);transform: ;msFilter:;'
+                                    ><path
+                                      d='m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z'
+                                    ></path></svg
+                                  >
+                                </button>
+                              </div>
+                              <div class='modal__text' data-modal-content>
+                                <p>
+                                  Lorem ipsum dolor sit amet consectetur
+                                  adipisicing elit. Earum officiis mollitia cum
+                                  amet quas quisquam soluta omnis, iusto, rem
+                                  veritatis dicta a optio aperiam vel corrupti
+                                  recusandae vero harum nisi!
+                                </p>
+                              </div>
+                              <div class='modal__actions' data-modal-actions>
+                                <button class='button' data-modal-close
+                                  >Close</button
+                                >
+                              </div>
+                            </div>
+                          </Fragment>
+                        </Modal>
+                      </p>
+                    </div>
+                    <div class='modal__actions' data-modal-actions>
+                      <button class='button' data-modal-close>Close</button>
+                    </div>
+                  </div>
+                </Fragment>
+              </Modal>
             </div>
-            <div class='modal__actions' data-jd-modal-actions>
-              <button class='button' data-jd-modal-close>Close</button>
+            <div class='modal__actions' data-modal-actions>
+              <button class='button' data-modal-close>Close</button>
             </div>
           </div>
         </Fragment>
