@@ -8,19 +8,19 @@ document.addEventListener('DOMContentLoaded', function (e) {
    * Validation
    * @see public/assets/js/validation.js
    * Call the function from validation.js
-  */
+   */
   cookieValidation()
   cookieFormValidation()
   /**
    * Tabs
    * @see public/assets/js/tabs.js
    * Call the function from tabs.js
-  */
+   */
   Tabs()
   /**
    * Accordions
    * @see public/assets/js/accordions.js
    * Call the function from accordions.js
-  */
+   */
   Accordions()
 })

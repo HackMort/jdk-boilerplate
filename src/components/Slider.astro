@@ -1,0 +1,48 @@
+---
+/**
+ * With Swiper custom elements you can create your own swiper components.
+ * You can modify your Swiper instance using properties.
+ */
+---
+
+<!-- Slider main container -->
+<swiper-container navigation='true' pagination='true' scrollbar='false'>
+  <swiper-slide>
+    <img src='https://placehold.jp/2000x500.png' alt='Image as example 1' />
+  </swiper-slide>
+  <swiper-slide>
+    <img src='https://placehold.jp/2000x500.png' alt='Image as example 2' />
+  </swiper-slide>
+  <swiper-slide>
+    <p class='myswiper-custum-text'>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas ut sed
+      deleniti dolores dignissimos repellendus, possimus, impedit officiis
+      commodi earum numquam provident quos natus, qui quisquam temporibus
+      dolorem harum eligendi!
+    </p>
+  </swiper-slide>
+</swiper-container>
+<style>
+  swiper-container {
+    /* Width and height of slider */
+    width: 100%;
+    height: auto;
+
+    /* Change the default color of the all swiper elements */
+    --swiper-theme-color: #000;
+  }
+
+  .myswiper-custum-text {
+    text-align: center;
+    padding: 3rem;
+    font-size: 2rem;
+    line-height: 1.5;
+  }
+</style>
+
+<script>
+  // import function to register Swiper custom elements
+  import { register } from 'swiper/element/bundle'
+  // register Swiper custom elements
+  register()
+</script>
