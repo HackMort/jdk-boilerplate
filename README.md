@@ -237,6 +237,12 @@ This project uses Swiper Slider Element. You can find the documentation [here](h
 To control the slider, you can read the API documentation [here](https://swiperjs.com/swiper-api).
 To see demos of the slider, you can go [here](https://swiperjs.com/demos).
 
+## Astro SEO
+
+Astro SEO is a component that allows to configure tags for SEO on each page  
+If you want to know more about this component, you can read the following [documentation](https://github.com/jonasmerlin/astro-seo#readme)  
+In the boilerplate the Astro SEO component is implemented with a custom component that receives props data from a common file
+
 ## 🚀 Project Structure
 
 ```
