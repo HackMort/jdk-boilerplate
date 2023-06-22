@@ -1,7 +1,8 @@
 ---
-import { Props as SeoProps, SEO as AstroSeo } from 'astro-seo'
+import { SEO as AstroSeo } from 'astro-seo'
 import { SEO_CONFIG } from './seo.config'
 import { mergeObjects } from '../../js/utils'
+
 type Props = { pageId: string }
 const { pageId } = Astro.props
 
