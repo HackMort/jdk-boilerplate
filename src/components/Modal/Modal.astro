@@ -1,21 +1,22 @@
 ---
+import { OptionsType } from '@fancyapps/ui/types/Fancybox/options'
 import './modal.scss'
 type Props = {
   id: string
   className?: string
   closeButton?: boolean
+  options?: Partial<OptionsType>
 }
-const { id, className = '' } = Astro.props
+const { id, className = '', options = {} } = Astro.props
 ---
 
-<template id={`jd-modal-template-${id}`}>
-  <section
-    class={`jd-modal ${className}`}
-    id={`jd-modal-${id}`}
-    style='display: none'
-  >
-    <div class='jd-modal__wrapper'>
-      <div class='jd-modal__content'>
+<template
+  id={`modal-template-${id}`}
+  data-modal-options={JSON.stringify(options)}
+>
+  <section class={`modal ${className}`} id={`${id}`} style='display: none'>
+    <div class='modal__wrapper'>
+      <div class='modal__content'>
         <slot />
       </div>
     </div>
