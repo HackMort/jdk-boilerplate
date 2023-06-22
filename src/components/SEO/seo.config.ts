@@ -1,14 +1,17 @@
 import { Props as SeoProps } from 'astro-seo'
 
-export interface PageSeoConfig {
-  pageId: string
-  config: SeoProps
-}
-
+/* The `SiteSeoConfig` interface is defining the structure of an object that contains SEO configuration
+for a website. It has two properties: `globals` and `pages`. */
 export interface SiteSeoConfig {
   globals: SeoProps
   pages: { [pageId: string]: SeoProps }
 }
+
+/**
+ * Add SEO configuration here
+ * global: SEO configuration using in all pages
+ * pages: SEO configuration by page
+ */
 export const SEO_CONFIG: SiteSeoConfig = {
   globals: {
     openGraph: {
