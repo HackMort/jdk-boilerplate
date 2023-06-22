@@ -1,0 +1,41 @@
+---
+import seoData from './data/seo-data.js'
+import { SEO } from 'astro-seo'
+
+type Props = {
+  page: string
+}
+
+const { page } = Astro.props
+---
+
+{
+  page !== '' ? (
+    <>
+      <SEO
+        title={seoData.pages[page].title}
+        titleTemplate={seoData.titleTemplate}
+        charset={seoData.charset}
+        extend={{
+          link: seoData.link,
+          meta: seoData.meta
+        }}
+        openGraph={seoData.pages[page].openGraph}
+        twitter={seoData.pages[page].twitter}
+      />
+      <meta name='generator' content={Astro.generator} />
+    </>
+  ) : (
+    <>
+      <SEO
+        titleTemplate={seoData.titleTemplate}
+        charset={seoData.charset}
+        extend={{
+          link: seoData.link,
+          meta: seoData.meta
+        }}
+      />
+      <meta name='generator' content={Astro.generator} />
+    </>
+  )
+}
