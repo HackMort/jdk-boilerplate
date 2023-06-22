@@ -15,11 +15,14 @@ const { page } = Astro.props
       <SEO
         title={seoData.pages[page].title}
         titleTemplate={seoData.titleTemplate}
+        titleDefault={seoData.titleDefault}
         charset={seoData.charset}
         extend={{
           link: seoData.link,
           meta: seoData.meta
         }}
+        nofollow={seoData.nofollow}
+        noindex={seoData.noindex}
         openGraph={seoData.pages[page].openGraph}
         twitter={seoData.pages[page].twitter}
       />
