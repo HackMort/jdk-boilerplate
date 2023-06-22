@@ -37,6 +37,38 @@ const seoData = {
         imageAlt: '',
         description: ''
       }
+    },
+    index: {
+      title: 'Welcome',
+      openGraph: {
+        basic: {
+          title: '',
+          type: '',
+          image: ''
+        }
+      },
+      twitter: {
+        title: '',
+        image: '',
+        imageAlt: '',
+        description: ''
+      }
+    },
+    'internal-nav-test': {
+      title: 'Internal Navigation Test',
+      openGraph: {
+        basic: {
+          title: '',
+          type: '',
+          image: ''
+        }
+      },
+      twitter: {
+        title: '',
+        image: '',
+        imageAlt: '',
+        description: ''
+      }
     }
   }
 }
