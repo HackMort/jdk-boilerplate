@@ -12,6 +12,7 @@ export interface Props {
   showHeader?: boolean
   showFooter?: boolean
   showISI?: boolean
+  page?: string
 }
 
 const {
@@ -20,7 +21,8 @@ const {
   pageClass,
   showHeader = true,
   showISI = true,
-  showFooter = true
+  showFooter = true,
+  page = ''
 } = Astro.props
 ---
 
@@ -43,24 +45,23 @@ const {
     {showISI && <Isi />}
     {showFooter && <Footer />}
     <script src='/assets/js/script.js' type='module'></script>
-    <style is:global>
-      :root {
-        --accent: 124, 58, 237;
-        --accent-gradient: linear-gradient(
-          45deg,
-          rgb(var(--accent)),
-          #da62c4 30%,
-          white 60%
-        );
-      }
-      html {
-        font-family: system-ui, sans-serif;
-        background-color: #f6f6f6;
-      }
-      code {
-        font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-          DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-      }
-    </style>
-  </body>
+  </body><style is:global>
+    :root {
+      --accent: 124, 58, 237;
+      --accent-gradient: linear-gradient(
+        45deg,
+        rgb(var(--accent)),
+        #da62c4 30%,
+        white 60%
+      );
+    }
+    html {
+      font-family: system-ui, sans-serif;
+      background-color: #f6f6f6;
+    }
+    code {
+      font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+        DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+    }
+  </style>
 </html>

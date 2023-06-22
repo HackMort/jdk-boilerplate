@@ -1,49 +1,49 @@
 {
-  "name": "jdk-boilerplate",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev --host",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "css:build": "sass src/styles:public/assets/css",
-    "prepare": "husky install"
-  },
-  "dependencies": {
-    "astro": "2.6.1",
-    "astro-seo": "^0.7.4"
-  },
-  "devDependencies": {
-    "@fancyapps/ui": "5.0.19",
-    "autoprefixer": "10.4.14",
-    "husky": "8.0.3",
-    "lint-staged": "13.2.2",
-    "prettier": "2.8.8",
-    "prettier-plugin-astro": "0.10.0",
-    "sass": "1.62.1",
-    "standard": "17.1.0",
-    "stylelint": "15.7.0",
-    "stylelint-config-clean-order": "5.0.1",
-    "stylelint-config-standard-scss": "9.0.0",
-    "swiper": "9.3.2"
-  },
-  "eslintConfig": {
-    "extends": [
-      "./node_modules/standard/eslintrc.json"
-    ]
-  },
-  "lint-staged": {
-    "src/**/*.astro": [
-      "prettier --write"
-    ],
-    "src/**/*.{scss,css,sass}": [
-      "stylelint --fix"
-    ],
-    "*.{js,jsx,ts,tsx}": [
-      "prettier --write"
-    ],
-    "*.md": "prettier --write"
-  }
+    "name": "jdk-boilerplate",
+    "type": "module",
+    "version": "0.0.1",
+    "scripts": {
+        "dev": "astro dev --host",
+        "start": "astro dev",
+        "build": "astro build",
+        "preview": "astro preview",
+        "astro": "astro",
+        "css:build": "sass src/styles:public/assets/css",
+        "prepare": "husky install"
+    },
+    "dependencies": {
+        "astro": "2.6.1",
+        "astro-seo": "0.7.4"
+    },
+    "devDependencies": {
+        "@fancyapps/ui": "5.0.19",
+        "autoprefixer": "10.4.14",
+        "husky": "8.0.3",
+        "lint-staged": "13.2.2",
+        "prettier": "2.8.8",
+        "prettier-plugin-astro": "0.10.0",
+        "sass": "1.62.1",
+        "standard": "17.1.0",
+        "stylelint": "15.7.0",
+        "stylelint-config-clean-order": "5.0.1",
+        "stylelint-config-standard-scss": "9.0.0",
+        "swiper": "9.3.2"
+    },
+    "eslintConfig": {
+        "extends": [
+            "./node_modules/standard/eslintrc.json"
+        ]
+    },
+    "lint-staged": {
+        "src/**/*.astro": [
+            "prettier --write"
+        ],
+        "src/**/*.{scss,css,sass}": [
+            "stylelint --fix"
+        ],
+        "*.{js,jsx,ts,tsx}": [
+            "prettier --write"
+        ],
+        "*.md": "prettier --write"
+    }
 }
