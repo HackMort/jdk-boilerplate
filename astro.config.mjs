@@ -1,5 +1,4 @@
 import { defineConfig } from 'astro/config';
-import image from "@astrojs/image";
 function changeAstroComponentEntryFilenameToJs(filename) {
   const name = filename.split('.')[0];
   let sanitized = name;
@@ -98,5 +97,4 @@ export default defineConfig({
       }
     }
   },
-  integrations: [image()]
 });
