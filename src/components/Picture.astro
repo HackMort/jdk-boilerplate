@@ -1,0 +1,30 @@
+---
+type Props = {
+  className?: string
+  src: string
+  alt: string
+}
+
+const medias = [
+  {
+    '(min-width: 1024px)': 'desktop'
+  },
+  {
+    '(min-width: 768px)': 'tablet'
+  }
+]
+
+const { className, src, alt } = Astro.props
+---
+
+<picture>
+  {
+    medias.map((media: any) => (
+      <source
+        srcset={src.split('.').join(`-${media[Object.keys(media)[0]]}.`)}
+        media={Object.keys(media)[0]}
+      />
+    ))
+  }
+  <img class={className} src={src} alt={alt} />
+</picture>

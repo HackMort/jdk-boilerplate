@@ -6,9 +6,8 @@ import InternalNavigation from '../components/Navigation/InternalNavigation.astr
 import Modal from '../components/Modal/Modal.astro'
 import Layout from '../layouts/Layout.astro'
 import '../styles/settings/design.scss'
-import { Picture } from '@astrojs/image/components'
-import AnaRadImage from './public/assets/images/anna-rad-desktop.png'
 import { OptionsType } from '@fancyapps/ui/types/Fancybox/options'
+import Picture from '../components/Picture.astro'
 
 const modalOptions: Partial<OptionsType> = {
   closeButton: true
@@ -288,7 +287,7 @@ const modalOptions: Partial<OptionsType> = {
       </div>
     </section>
 
-    <section class='design-system-section'>
+    <section id='design-slide' class='design-system-section'>
       <h2>Swiper Slider</h2>
       <span
         ><a
@@ -301,7 +300,7 @@ const modalOptions: Partial<OptionsType> = {
       <Slider />
       <br />
     </section>
-    <section class='design-system-section'>
+    <section id='design-modal' class='design-system-section'>
       <br /><br /><br />
 
       <button
@@ -432,12 +431,11 @@ const modalOptions: Partial<OptionsType> = {
       </Modal>
     </section>
 
-    <section class='design-system-section'>
+    <section id='design-picture' class='design-system-section'>
       <Picture
-        src={AnaRadImage}
-        widths={[200, 400, 800]}
-        sizes='(max-width: 800px) 100vw, 800px'
-        alt='descriptive text'
+        src='/assets/images/picture-component/test-image.png'
+        alt='Test image'
+        className='test-image'
       />
     </section>
   </main>
