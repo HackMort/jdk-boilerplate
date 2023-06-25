@@ -11,9 +11,11 @@ type Props = {
       [key: string]: string
     }[]
   ]
+  isLazy?: boolean
 }
 
-const { id, className, imgClassName, src, alt, media } = Astro.props
+const { id, className, imgClassName, src, alt, media, isLazy, ...attrs } =
+  Astro.props
 
 const medias = [
   ...media,
@@ -35,5 +37,11 @@ const medias = [
       />
     ))
   }
-  <img class={imgClassName} src={src} alt={alt} />
+  <img
+    class={imgClassName}
+    src={src}
+    alt={alt}
+    loading={isLazy ? 'lazy' : 'eager'}
+    {...attrs}
+  />
 </picture>

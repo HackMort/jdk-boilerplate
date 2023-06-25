@@ -433,14 +433,18 @@ const modalOptions: Partial<OptionsType> = {
 
     <section id='design-picture' class='design-system-section'>
       <Picture
+        id='test-image'
         src='/assets/images/picture-component/test-image.png'
         alt='Test image'
         className='test-image'
+        imgClassName='test-image__img'
         media={[
           {
             '(min-width: 1600px)': 'desktop-lg'
           }
         ]}
+        isLazy
+        data-test='true'
       />
     </section>
   </main>
