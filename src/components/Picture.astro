@@ -1,11 +1,22 @@
 ---
 type Props = {
+  id?: string
   className?: string
+  imgClassName?: string
   src: string
   alt: string
+  // Allows pass other media queries
+  media?: [
+    ...{
+      [key: string]: string
+    }[]
+  ]
 }
 
+const { id, className, imgClassName, src, alt, media } = Astro.props
+
 const medias = [
+  ...media,
   {
     '(min-width: 1024px)': 'desktop'
   },
@@ -13,11 +24,9 @@ const medias = [
     '(min-width: 768px)': 'tablet'
   }
 ]
-
-const { className, src, alt } = Astro.props
 ---
 
-<picture>
+<picture class={className} id={id}>
   {
     medias.map((media: any) => (
       <source
@@ -26,5 +35,5 @@ const { className, src, alt } = Astro.props
       />
     ))
   }
-  <img class={className} src={src} alt={alt} />
+  <img class={imgClassName} src={src} alt={alt} />
 </picture>

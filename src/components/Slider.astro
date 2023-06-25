@@ -1,4 +1,5 @@
 ---
+import Picture from '../components/Picture.astro'
 /**
  * With Swiper custom elements you can create your own swiper components.
  * You can modify your Swiper instance using properties.
@@ -8,7 +9,16 @@
 <!-- Slider main container -->
 <swiper-container navigation='true' pagination='true' scrollbar='false'>
   <swiper-slide>
-    <img src='https://placehold.jp/2000x500.png' alt='Image as example 1' />
+    <Picture
+      src='/assets/images/picture-component/test-image.png'
+      alt='Test image'
+      className='test-image'
+      media={[
+        {
+          '(min-width: 1600px)': 'desktop-lg'
+        }
+      ]}
+    />
   </swiper-slide>
   <swiper-slide>
     <img src='https://placehold.jp/2000x500.png' alt='Image as example 2' />
