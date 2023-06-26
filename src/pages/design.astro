@@ -133,11 +133,54 @@ const modalOptions: Partial<OptionsType> = {
           <button class='button button--secondary'> Button Secondary</button>
           <button class='button button--tertiary'> Tertiary Button</button>
         </div>
+
+        <div class='example-code'>
+          <button class='copy-clipboard' aria-labelledby='btn-code'>Copy</button
+          >
+          <pre
+            class='code'
+            id='btn-code'>
+
+            &lt;!-- Default / Primary button --&gt;
+            &lt;button class='button'&gt; Button Primary / Default&lt;/button&gt;
+              
+            &lt;!-- Secondary button --&gt;
+            &lt;button class='button button--secondary'&gt; Button Secondary&lt;/button&gt;
+              
+            &lt;!-- Tertiary button --&gt;
+            &lt;button class='button button--tertiary'&gt; Tertiary Button&lt;/button&gt;
+          </pre>
+        </div>
       </div>
     </section>
     <section id='design-tabs' class='design-system-section'>
       <div class='section-wrapper section-wrapper--small'>
         <h1 class='title'>Tabs</h1>
+        <p>
+          The picture component takes an src attribute and generates responsive
+          sources. The default image must be the mobile size.
+        </p>
+        <table>
+          <thead>
+            <tr style='text-align: left;'>
+              <th> props</th>
+              <th> type</th>
+              <th> description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style='text-align: left;'>
+              <td> data-horizontal-scroll</td>
+              <td> data attribute</td>
+              <td>
+                will enable an automatic horizontal scroll in order to be
+                visible always the active one</td
+              >
+            </tr>
+          </tbody>
+        </table>
+        <br />
+
         <ul role='tablist' data-horizontal-scroll>
           <li role='presentation'>
             <!--active one -->
@@ -204,6 +247,38 @@ const modalOptions: Partial<OptionsType> = {
             aliquet metus.
           </p>
         </section>
+
+        <div class='example-code'>
+          <button class='copy-clipboard' aria-labelledby='tabs-code'
+            >Copy</button
+          >
+          <pre
+            class='code'
+            id='tabs-code'>
+
+            &lt;ul role='tablist' data-horizontal-scroll&gt;
+              &lt;li role='presentation'&gt;
+                &lt;!--active one --&gt;
+                &lt;a href='#example-panel1' role='tab' id='example-tab1' aria-selected='true'&gt;Tab 1&lt;/a&gt;
+              &lt;/li&gt;
+
+              &lt;li role='presentation'&gt;
+                &lt;a href='#example-panel2' role='tab' id='example-tab2' tabindex='-1' &gt;Tab 2&lt;/a&gt;
+              &lt;/li&gt;
+
+              ...
+            &lt;/ul&gt;
+
+            &lt;section id='example-panel1' role='tabpanel' aria-labelledby='example-tab1' aria-hidden='false' tabindex='-1' &gt;
+              1 - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            &lt;/section&gt;
+
+            &lt;section id='example-panel2' role='tabpanel' aria-labelledby='example-tab2' aria-hidden='true' tabindex='-1' hidden&gt;
+              2 - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            &lt;/section&gt;
+            ...
+          </pre>
+        </div>
       </div>
     </section>
     <section id='design-accordions' class='design-system-section'>
