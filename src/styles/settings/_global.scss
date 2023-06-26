@@ -134,3 +134,21 @@ sup.symbol-sup {
   background-color: $color-black;
   border-radius: 0.5rem;
 }
+
+swiper-container {
+  /* Change the default color of the all swiper elements */
+  --swiper-theme-color: #000;
+
+  z-index: 0;
+
+  /* Width and height of slider */
+  width: 100%;
+  height: auto;
+}
+
+.myswiper-custum-text {
+  padding: 3rem;
+  font-size: 2rem;
+  line-height: 1.5;
+  text-align: center;
+}
