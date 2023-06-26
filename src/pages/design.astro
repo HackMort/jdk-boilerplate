@@ -523,6 +523,31 @@ const modalOptions: Partial<OptionsType> = {
         isLazy
         data-test='true'
       />
+
+      <div class='example-code'>
+        <button class='copy-clipboard' aria-labelledby='picture-code'
+          >Copy</button
+        >
+        <pre
+          class='code'
+          id='picture-code'>
+
+          &lt;Picture
+            id='test-image'
+            src='/assets/images/picture-component/test-image.png'
+            alt='Test image'
+            className='test-image'
+            imgClassName='test-image__img'
+            media=&#123;[
+              &#123;
+                '(min-width: 1600px)': 'desktop-lg'
+              &#125;
+            ]&#125;
+            isLazy
+            data-test='true'
+          /&gt;
+        </pre>
+      </div>
     </section>
 
     <section id='design-modal' class='design-system-section'>
