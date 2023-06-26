@@ -391,18 +391,47 @@ const modalOptions: Partial<OptionsType> = {
     </section>
 
     <section id='design-slide' class='design-system-section'>
-      <h2>Swiper Slider</h2>
-      <span
-        ><a
+      <h2>Swiper.js Element Slider</h2>
+      <span>
+        <a
           href='https://swiperjs.com/element'
           target='_blank'
-          style='text-decoration: underline;'>Doc</a
-        ></span
-      >
+          style='text-decoration: underline;'>Documentation how to use it.</a
+        >
+      </span>
       <br />
       <Slider />
       <br />
+      <p>
+        This code will create a new slider. Modified the attributes values or
+        add others.
+      </p>
+      <div class='example-code'>
+        <button class='copy-clipboard' aria-labelledby='slider-code'
+          >Copy</button
+        >
+        <pre
+          class='code'
+          id='slider-code'>
+
+          &lt;swiper-container navigation='true' pagination='true' scrollbar='false'&gt;
+            &lt;swiper-slide&gt;
+              &lt;img src='https://placehold.jp/2000x500.png' alt='Image as example 1' /&gt;
+            &lt;/swiper-slide&gt;
+            &lt;swiper-slide&gt;
+              &lt;p class='myswiper-custum-text'&gt;
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas ut sed
+                deleniti dolores dignissimos repellendus, possimus, impedit officiis
+                commodi earum numquam provident quos natus, qui quisquam temporibus
+                dolorem harum eligendi!
+              &lt;/p&gt;
+            &lt;/swiper-slide&gt;
+            ...
+          &lt;/swiper-container&gt;
+        </pre>
+      </div>
     </section>
+
     <section id='design-modal' class='design-system-section'>
       <br /><br /><br />
 
