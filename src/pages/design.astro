@@ -157,8 +157,8 @@ const modalOptions: Partial<OptionsType> = {
       <div class='section-wrapper section-wrapper--small'>
         <h1 class='title'>Tabs</h1>
         <p>
-          The picture component takes an src attribute and generates responsive
-          sources. The default image must be the mobile size.
+          Tabs are used to separate content into different sections that can be
+          shown or hidden by the user.
         </p>
         <table>
           <thead>
@@ -256,7 +256,7 @@ const modalOptions: Partial<OptionsType> = {
             class='code'
             id='tabs-code'>
 
-            &lt;ul role='tablist' data-horizontal-scroll&gt;
+            &lt;ul role='tablist' <b>data-horizontal-scroll</b>&gt;
               &lt;li role='presentation'&gt;
                 &lt;!--active one --&gt;
                 &lt;a href='#example-panel1' role='tab' id='example-tab1' aria-selected='true'&gt;Tab 1&lt;/a&gt;
@@ -359,6 +359,34 @@ const modalOptions: Partial<OptionsType> = {
             </p>
           </Accordion>
         </Accordions>
+
+        <div class='example-code'>
+          <button class='copy-clipboard' aria-labelledby='acc-code'>Copy</button
+          >
+          <pre
+            class='code'
+            id='acc-code'>
+
+            &lt;Accordions name='accordion-group-name' expandable&gt;
+              &lt;Accordion id='1' header='ACC-1' expanded&gt;
+                &lt;p&gt;
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, pariatur labore perspiciatis repudiandae aliquid quae doloribus! Ratione, fugiat quae ad dolor voluptatum esse laborum porro id non animi, sapiente exercitationem.
+                &lt;/p&gt;
+              &lt;/Accordion&gt;
+              &lt;Accordion id='2' header='ACC-2'&gt;
+                &lt;p&gt;
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, pariatur labore perspiciatis repudiandae aliquid quae doloribus! Ratione, fugiat quae ad dolor voluptatum esse laborum porro id non animi, sapiente exercitationem.
+                &lt;/p&gt;
+              &lt;/Accordion&gt;
+              &lt;Accordion id='3' header='ACC-3'&gt;
+                &lt;p&gt;
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, pariatur labore perspiciatis repudiandae aliquid quae doloribus! Ratione, fugiat quae ad dolor voluptatum esse laborum porro id non animi, sapiente exercitationem.
+                &lt;/p&gt;
+              &lt;/Accordion&gt;
+            &lt;/Accordions&gt;
+            ...
+          </pre>
+        </div>
       </div>
     </section>
 

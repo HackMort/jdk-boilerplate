@@ -100,6 +100,13 @@ sup.symbol-sup {
   line-height: 0;
 }
 
+.design-system-section {
+  margin-bottom: 1rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid $color-black;
+}
+
+// Example Code Block in Design System Page
 .example-code {
   position: relative;
   margin-top: 1rem;
