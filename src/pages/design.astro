@@ -141,14 +141,17 @@ const modalOptions: Partial<OptionsType> = {
             class='code'
             id='btn-code'>
 
-            &lt;!-- Default / Primary button --&gt;
-            &lt;button class='button'&gt; Button Primary / Default&lt;/button&gt;
-              
-            &lt;!-- Secondary button --&gt;
-            &lt;button class='button button--secondary'&gt; Button Secondary&lt;/button&gt;
-              
-            &lt;!-- Tertiary button --&gt;
-            &lt;button class='button button--tertiary'&gt; Tertiary Button&lt;/button&gt;
+            <code>
+&lt;!-- Default / Primary button --&gt;
+&lt;button class='button'&gt; Button Primary / Default&lt;/button&gt;
+
+&lt;!-- Secondary button --&gt;
+&lt;button class='button button--secondary'&gt; Button Secondary&lt;/button&gt;
+
+&lt;!-- Tertiary button --&gt;
+&lt;button class='button button--tertiary'&gt; Tertiary Button&lt;/button&gt;
+            </code>
+            
           </pre>
         </div>
       </div>
@@ -910,3 +913,9 @@ const modalOptions: Partial<OptionsType> = {
   </main>
 </Layout>
 <div class='space-at-bottom-for-navigation'></div>
+
+<script>
+  import hljs from 'highlight.js'
+  hljs.highlightAll()
+  import 'highlight.js/styles/github.css'
+</script>
