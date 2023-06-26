@@ -14,7 +14,10 @@ const navigationData = {
       { href: 'design-fonts', label: 'Fonts' },
       { href: 'design-buttons', label: 'Buttons' },
       { href: 'design-tabs', label: 'Tabs' },
-      { href: 'design-accordions', label: 'Accordions' }
+      { href: 'design-accordions', label: 'Accordions' },
+      { href: 'design-slide', label: 'Slider' },
+      { href: 'design-modal', label: 'Modal' },
+      { href: 'design-picture', label: 'Picture' }
     ],
     'internal-navigation-test': [
       { href: 'colors', label: 'Colors', active: true },

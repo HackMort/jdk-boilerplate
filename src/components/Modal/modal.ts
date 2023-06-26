@@ -19,7 +19,7 @@ const modals = new Map<string | number, Fancybox>()
  * @returns the cloned content of the provided HTML template element appended to the body of the
  * document.
  */
-function appendHtmlModalToDom (template: HTMLTemplateElement) {
+function appendHtmlModalToDom(template: HTMLTemplateElement) {
   const body = document.querySelector('body')
   const content = template.content.cloneNode(true)
   return body.appendChild(content)
@@ -30,7 +30,7 @@ function appendHtmlModalToDom (template: HTMLTemplateElement) {
  * @param {string} modalId - The modalId parameter is a string that represents the ID of the HTML modal
  * element that needs to be removed from the DOM (Document Object Model).
  */
-function removeHtmlModalFromDom (modalId: string) {
+function removeHtmlModalFromDom(modalId: string) {
   const node = document.querySelector('#' + modalId)
   if (node) {
     node.parentElement.removeChild(node)
@@ -44,7 +44,7 @@ function removeHtmlModalFromDom (modalId: string) {
  * @returns The function `createModal` is returning a new instance of the `Fancybox` class with the
  * provided configuration options.
  */
-function createModal (modalId: string, options: Partial<OptionsType> = {}) {
+function createModal(modalId: string, options: Partial<OptionsType> = {}) {
   return new Fancybox([{ src: modalId }], {
     id: modalId,
     autoFocus: false,
@@ -76,7 +76,7 @@ function createModal (modalId: string, options: Partial<OptionsType> = {}) {
   })
 }
 
-function dispatchEvent (fancybox: Fancybox, eventName: string) {
+function dispatchEvent(fancybox: Fancybox, eventName: string) {
   const availables = [
     'init',
     'ready',
@@ -87,7 +87,7 @@ function dispatchEvent (fancybox: Fancybox, eventName: string) {
     'destroy'
   ]
 
-  if (availables.some(available => eventName === available)) {
+  if (availables.some((available) => eventName === available)) {
     const event = new CustomEvent(`modal:${eventName}`, {
       detail: { fancybox, eventName, id: fancybox.id },
       bubbles: true,
@@ -106,7 +106,7 @@ function dispatchEvent (fancybox: Fancybox, eventName: string) {
  * an instance of this class/interface and adds it to a Map object called "modals", using the
  * instance's ID
  */
-function addModalInstanceToGroup (instance: Fancybox) {
+function addModalInstanceToGroup(instance: Fancybox) {
   modals.set(instance.id, instance)
 }
 
@@ -115,7 +115,7 @@ function addModalInstanceToGroup (instance: Fancybox) {
  * @param {string} modalId - a string representing the unique identifier of a modal instance that needs
  * to be removed from a group of modal instances.
  */
-function removeModalInstanceFromGroup (modalId: string) {
+function removeModalInstanceFromGroup(modalId: string) {
   if (modals.has(modalId)) {
     modals.delete(modalId)
   }
@@ -128,7 +128,7 @@ function removeModalInstanceFromGroup (modalId: string) {
  * element that triggered the event.
  */
 
-function init (event: Event) {
+function init(event: Event) {
   const trigger = event.target as HTMLElement
 
   const getModalId = (target: HTMLElement) => {
@@ -162,7 +162,7 @@ function init (event: Event) {
   )
 
   if (closeButtons) {
-    closeButtons.forEach(closeButton => {
+    closeButtons.forEach((closeButton) => {
       closeButton.addEventListener('click', () => {
         modal.close()
       })
@@ -175,20 +175,20 @@ function init (event: Event) {
 /**
  * The function removes click event listeners from an array of triggers.
  */
-function removeListeners () {
+function removeListeners() {
   if (openModalTriggers && openModalTriggers.length > 0) {
-    openModalTriggers.forEach(trigger =>
+    openModalTriggers.forEach((trigger) =>
       trigger.removeEventListener('click', init)
     )
   }
 }
 
-function addEventListeners () {
+function addEventListeners() {
   const openModalTriggers = Array.from(
     document.querySelectorAll<HTMLElement>('[data-modal-trigger]')
   )
 
-  openModalTriggers.forEach(trigger => {
+  openModalTriggers.forEach((trigger) => {
     trigger.addEventListener('click', init)
   })
 }
@@ -196,7 +196,7 @@ function addEventListeners () {
 const observeDomMutations = () => {
   const observedElement = document.querySelector('body')
   const observerConfig = { childList: true, subtree: true }
-  const formModalObserver = new MutationObserver(mutations => {
+  const formModalObserver = new MutationObserver((mutations) => {
     const addedNodes = Array.from(mutations[0].addedNodes) as HTMLElement[]
 
     const init = addedNodes.length > 0

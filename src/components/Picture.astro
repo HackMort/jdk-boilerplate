@@ -1,0 +1,47 @@
+---
+type Props = {
+  id?: string
+  className?: string
+  imgClassName?: string
+  src: string
+  alt: string
+  // Allows pass other media queries
+  media?: [
+    ...{
+      [key: string]: string
+    }[]
+  ]
+  isLazy?: boolean
+}
+
+const { id, className, imgClassName, src, alt, media, isLazy, ...attrs } =
+  Astro.props
+
+const medias = [
+  ...media,
+  {
+    '(min-width: 1024px)': 'desktop'
+  },
+  {
+    '(min-width: 768px)': 'tablet'
+  }
+]
+---
+
+<picture class={className} id={id}>
+  {
+    medias.map((media: any) => (
+      <source
+        srcset={src.split('.').join(`-${media[Object.keys(media)[0]]}.`)}
+        media={Object.keys(media)[0]}
+      />
+    ))
+  }
+  <img
+    class={imgClassName}
+    src={src}
+    alt={alt}
+    loading={isLazy ? 'lazy' : 'eager'}
+    {...attrs}
+  />
+</picture>
