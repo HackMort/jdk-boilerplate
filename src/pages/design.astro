@@ -8,6 +8,7 @@ import Layout from '../layouts/Layout.astro'
 import '../styles/settings/design.scss'
 import { OptionsType } from '@fancyapps/ui/types/Fancybox/options'
 import Picture from '../components/Picture.astro'
+import HeroHeader from '../components/HeroHeader/HeroHeader.astro'
 
 const modalOptions: Partial<OptionsType> = {
   closeButton: true
@@ -521,6 +522,49 @@ const modalOptions: Partial<OptionsType> = {
       isLazy
       data-test='true'
     />
+    <section id='hero-header' class='design-system-section'>
+      <HeroHeader>
+        <div slot='hero-content' class='hero-header__cta'>
+          <h1>Hero Header Title</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt error
+            labore ex iusto esse est, reprehenderit rerum et vero! Quas
+            voluptates at eligendi? Ipsum laudantium fugiat fuga? Nesciunt,
+            incidunt provident.
+          </p>
+          <div class='hero-header__actions'>
+            <button class='button button--primary'>Primary</button>
+            <button class='button button--secondary'>Secondary</button>
+          </div>
+        </div>
+        <Picture
+          slot='hero-image'
+          src='/assets/images/text-hero-header/world.png'
+          alt='Hero image'
+        />
+      </HeroHeader>
+
+      <HeroHeader layout='absolute' className='mountain-hero'>
+        <div slot='hero-content' class='hero-header__cta'>
+          <h1>Hero Header Title</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt error
+            labore ex iusto esse est, reprehenderit rerum et vero! Quas
+            voluptates at eligendi? Ipsum laudantium fugiat fuga? Nesciunt,
+            incidunt provident.
+          </p>
+          <div class='hero-header__actions'>
+            <button class='button button--primary'>Primary</button>
+            <button class='button button--secondary'>Secondary</button>
+          </div>
+        </div>
+        <Picture
+          slot='hero-image'
+          src='/assets/images/text-hero-header/mountain.jpg'
+          alt='Hero image'
+        />
+      </HeroHeader>
+    </section>
   </main>
 </Layout>
 <div class='space-at-bottom-for-navigation'></div>

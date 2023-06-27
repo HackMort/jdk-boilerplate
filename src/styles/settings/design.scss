@@ -153,3 +153,37 @@ main {
         font-size: 1.5rem;
     }
 }
+
+.hero-header__actions {
+    .button {
+        justify-content: center;
+        width: 100%;
+        max-width: initial;
+        text-align: center;
+    }
+}
+
+.hero-header__cta {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    p {
+        @media screen and (min-width: 1024px) {
+            font-size: 18px;
+            line-height: 24px;
+        }
+    }
+}
+
+.hero-header__actions {
+    margin-top: auto;
+}
+
+.mountain-hero {
+    img {
+        width: auto;
+        max-width: initial;
+        height: 100%;
+    }
+}

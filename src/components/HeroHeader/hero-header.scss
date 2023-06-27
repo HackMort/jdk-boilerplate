@@ -1,0 +1,99 @@
+:root {
+    --hero-header-bg: rgb(213 213 213);
+    --hero-header-content-wrapper: calc(100% - 2rem);
+    --hero-header-min-height: 400;
+    --hero-header-max-height: 750;
+    --hero-header-min-screen-size: 320;
+    --hero-header-max-screen-size: 1440;
+
+    @media screen and (min-width: 1024px) {
+        --hero-header-content-wrapper: calc(100% - 3rem);
+    }
+}
+
+.hero-header {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background: var(--hero-header-bg);
+
+    &__full-height {
+        height: 100vh;
+    }
+
+    .hero-header__wrapper {
+        display: flex;
+        flex-direction: column;
+        height: calc(calc(var(--hero-header-min-height) * 1px) + ((var(--hero-header-max-height) - var(--hero-header-min-height)) * ((100vw - calc(var(--hero-header-min-screen-size) * 1px)) / (var(--hero-header-max-screen-size) - var(--hero-header-min-screen-size)))));
+
+        // height: calc(var(--hero-header-min-height) * 1px);
+
+        .hero-header__content-container {
+            order: 2;
+
+            .hero-header__content-wrapper {
+                width: 100%;
+                max-width: var(--hero-header-content-wrapper);
+                height: 100%;
+                margin-right: auto;
+                margin-left: auto;
+            }
+        }
+
+        .hero-header__image-container {
+            width: 100%;
+        }
+
+        @media screen and (min-width: 1024px) {
+            flex-direction: row;
+
+            .hero-header__content-container {
+                order: initial;
+
+                .hero-header__content-wrapper {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+
+    .hero-header__actions {
+        display: flex;
+        flex-direction: column;
+
+        >*:not(:last-of-type) {
+            margin-bottom: .5rem;
+        }
+
+        @media screen and (min-width: 1024px) {
+            flex-direction: row;
+
+            >*:not(:last-of-type) {
+                margin-right: .5rem;
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__absolute-layout {
+        position: relative;
+
+        .hero-header__content-container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-header__image-container {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            picture {
+                height: 100%;
+            }
+        }
+    }
+}
