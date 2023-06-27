@@ -133,11 +133,56 @@ const modalOptions: Partial<OptionsType> = {
           <button class='button button--secondary'> Button Secondary</button>
           <button class='button button--tertiary'> Tertiary Button</button>
         </div>
+
+        <div class='example-code'>
+          <button class='copy-clipboard' aria-labelledby='btn-code'>Copy</button
+          >
+          <pre
+            class='code'
+            id='btn-code'>
+            <code>
+&lt;!-- Default / Primary button --&gt;
+&lt;button class='button'&gt; Button Primary / Default&lt;/button&gt;
+
+&lt;!-- Secondary button --&gt;
+&lt;button class='button button--secondary'&gt; Button Secondary&lt;/button&gt;
+
+&lt;!-- Tertiary button --&gt;
+&lt;button class='button button--tertiary'&gt; Tertiary Button&lt;/button&gt;
+            </code>
+            
+          </pre>
+        </div>
       </div>
     </section>
     <section id='design-tabs' class='design-system-section'>
       <div class='section-wrapper section-wrapper--small'>
         <h1 class='title'>Tabs</h1>
+        <p>
+          Tabs are used to separate content into different sections that can be
+          shown or hidden by the user.
+        </p>
+        <table>
+          <thead>
+            <tr style='text-align: left;'>
+              <th> props</th>
+              <th> type</th>
+              <th> description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style='text-align: left;'>
+              <td> data-horizontal-scroll</td>
+              <td> data attribute</td>
+              <td>
+                will enable an automatic horizontal scroll in order to be
+                visible always the active one</td
+              >
+            </tr>
+          </tbody>
+        </table>
+        <br />
+
         <ul role='tablist' data-horizontal-scroll>
           <li role='presentation'>
             <!--active one -->
@@ -204,6 +249,39 @@ const modalOptions: Partial<OptionsType> = {
             aliquet metus.
           </p>
         </section>
+
+        <div class='example-code'>
+          <button class='copy-clipboard' aria-labelledby='tabs-code'
+            >Copy</button
+          >
+          <pre
+            class='code'
+            id='tabs-code'>
+            <code>
+&lt;ul role='tablist' <b>data-horizontal-scroll</b>&gt;
+  &lt;li role='presentation'&gt;
+    &lt;!--active one --&gt;
+    &lt;a href='#example-panel1' role='tab' id='example-tab1' aria-selected='true'&gt;Tab 1&lt;/a&gt;
+  &lt;/li&gt;
+
+  &lt;li role='presentation'&gt;
+    &lt;a href='#example-panel2' role='tab' id='example-tab2' tabindex='-1' &gt;Tab 2&lt;/a&gt;
+  &lt;/li&gt;
+
+  ...
+&lt;/ul&gt;
+
+&lt;section id='example-panel1' role='tabpanel' aria-labelledby='example-tab1' aria-hidden='false' tabindex='-1' &gt;
+  1 - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+&lt;/section&gt;
+
+&lt;section id='example-panel2' role='tabpanel' aria-labelledby='example-tab2' aria-hidden='true' tabindex='-1' hidden&gt;
+  2 - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+&lt;/section&gt;
+...
+          </code>
+          </pre>
+        </div>
       </div>
     </section>
     <section id='design-accordions' class='design-system-section'>
@@ -284,29 +362,441 @@ const modalOptions: Partial<OptionsType> = {
             </p>
           </Accordion>
         </Accordions>
+
+        <div class='example-code'>
+          <button class='copy-clipboard' aria-labelledby='acc-code'>Copy</button
+          >
+          <pre
+            class='code'
+            id='acc-code'>
+          <code>
+&lt;Accordions name='accordion-group-name' expandable&gt;
+  &lt;Accordion id='1' header='ACC-1' expanded&gt;
+    &lt;p&gt;
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, pariatur labore perspiciatis repudiandae aliquid quae doloribus! Ratione, fugiat quae ad dolor voluptatum esse laborum porro id non animi, sapiente exercitationem.
+    &lt;/p&gt;
+  &lt;/Accordion&gt;
+  &lt;Accordion id='2' header='ACC-2'&gt;
+    &lt;p&gt;
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, pariatur labore perspiciatis repudiandae aliquid quae doloribus! Ratione, fugiat quae ad dolor voluptatum esse laborum porro id non animi, sapiente exercitationem.
+    &lt;/p&gt;
+  &lt;/Accordion&gt;
+  &lt;Accordion id='3' header='ACC-3'&gt;
+    &lt;p&gt;
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, pariatur labore perspiciatis repudiandae aliquid quae doloribus! Ratione, fugiat quae ad dolor voluptatum esse laborum porro id non animi, sapiente exercitationem.
+    &lt;/p&gt;
+  &lt;/Accordion&gt;
+&lt;/Accordions&gt;
+...
+          </code>
+          </pre>
+        </div>
       </div>
     </section>
 
     <section id='design-slide' class='design-system-section'>
-      <h2>Swiper Slider</h2>
-      <span
-        ><a
+      <h2>Swiper.js Element Slider</h2>
+      <span>
+        <a
           href='https://swiperjs.com/element'
           target='_blank'
-          style='text-decoration: underline;'>Doc</a
-        ></span
-      >
+          style='text-decoration: underline;'>Documentation how to use it.</a
+        >
+      </span>
       <br />
       <Slider />
       <br />
+      <p>
+        This code will create a new slider. Modified the attributes values or
+        add others.
+      </p>
+      <div class='example-code'>
+        <button class='copy-clipboard' aria-labelledby='slider-code'
+          >Copy</button
+        >
+        <pre
+          class='code'
+          id='slider-code'>
+          <code>
+&lt;swiper-container navigation='true' pagination='true' scrollbar='false'&gt;
+  &lt;swiper-slide&gt;
+    &lt;img src='https://placehold.jp/2000x500.png' alt='Image as example 1' /&gt;
+  &lt;/swiper-slide&gt;
+  &lt;swiper-slide&gt;
+    &lt;p class='myswiper-custum-text'&gt;
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas ut sed
+      deleniti dolores dignissimos repellendus, possimus, impedit officiis
+      commodi earum numquam provident quos natus, qui quisquam temporibus
+      dolorem harum eligendi!
+    &lt;/p&gt;
+  &lt;/swiper-slide&gt;
+  ...
+&lt;/swiper-container&gt;
+          </code>
+          
+        </pre>
+      </div>
     </section>
-    <section id='design-modal' class='design-system-section'>
-      <br /><br /><br />
 
+    <section id='design-picture' class='design-system-section'>
+      <h1 class='title'>Picture</h1>
+      <p>
+        The picture component takes an src attribute and generates responsive
+        sources. The default image must be the mobile size.
+      </p>
+      <table>
+        <thead>
+          <tr style='text-align: left;'>
+            <th> props</th>
+            <th> type</th>
+            <th> description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style='text-align: left;'>
+            <td> id</td>
+            <td> string</td>
+            <td> Generates an id in the picture element.</td>
+          </tr>
+
+          <tr style='text-align: left;'>
+            <td> className</td>
+            <td> string</td>
+            <td> Generates a class in the picture element.</td>
+          </tr>
+
+          <tr style='text-align: left;'>
+            <td> imgClassName</td>
+            <td> string</td>
+            <td> Generates a class in the img element.</td>
+          </tr>
+
+          <tr style='text-align: left;'>
+            <td> src</td>
+            <td> string</td>
+            <td>
+              Required prop. This is used to generate the src of the img element
+              and each srcset in the source elements.
+            </td>
+          </tr>
+
+          <tr style='text-align: left;'>
+            <td> alt</td>
+            <td> string</td>
+            <td> Required prop. Alt text for the img element.</td>
+          </tr>
+
+          <tr style='text-align: left;'>
+            <td> media</td>
+            <td> array</td>
+            <td>
+              An array of objects. Each object should have a key of the media
+              query and the value will be the prefix in srcset attribute.
+            </td>
+          </tr>
+
+          <tr style='text-align: left;'>
+            <td> isLazy</td>
+            <td> boolean</td>
+            <td>
+              If true, the img element will have a loading attribute with a lazy
+              value. (Default: false, will add the loading attribute with a
+              value of eager)
+            </td>
+          </tr>
+
+          <tr style='text-align: left;'>
+            <td> attrs</td>
+            <td> string</td>
+            <td>
+              Any other attribute that you want to add to the img element.</td
+            >
+          </tr>
+        </tbody>
+      </table>
+      <br />
+      <Picture
+        id='test-image'
+        src='/assets/images/picture-component/test-image.png'
+        alt='Test image'
+        className='test-image'
+        imgClassName='test-image__img'
+        media={[
+          {
+            '(min-width: 1600px)': 'desktop-lg'
+          }
+        ]}
+        isLazy
+        data-test='true'
+      />
+
+      <div class='example-code'>
+        <button class='copy-clipboard' aria-labelledby='picture-code'
+          >Copy</button
+        >
+        <pre
+          class='code'
+          id='picture-code'>
+          <code class="language-html">
+&lt;Picture
+  id='test-image'
+  src='/assets/images/picture-component/test-image.png'
+  alt='Test image'
+  className='test-image'
+  imgClassName='test-image__img'
+  media=&#123;[
+    &#123;
+      '(min-width: 1600px)': 'desktop-lg'
+    &#125;
+  ]&#125;
+  isLazy
+  data-test='true'
+/&gt;
+          </code>
+        </pre>
+      </div>
+    </section>
+
+    <section id='design-modal' class='design-system-section'>
+      <h2 class='design-system-section__title'>Modal</h2>
+      <br />
       <button
         class='button button--primary'
         data-modal-trigger='event-form-modal'>Modal 1</button
       >
+      <br />
+
+      <h3><strong>How to use it:</strong></h3>
+      <br />
+
+      <h3>Add html</h3>
+      <br />
+      <p>
+        The modal uses different properties to identify the parts of its content
+        and apply certain CSS styles:
+      </p>
+      <ul>
+        <li>Header: <strong>data-modal-header</strong></li>
+        <li>Title: <strong>data-modal-title</strong></li>
+        <li>
+          Close button: <strong>data-modal-close</strong> =&gt; very important
+        </li>
+        <li>Content: <strong>data-modal-content</strong></li>
+        <li>Actions container: <strong>data-modal-actions</strong></li>
+      </ul>
+
+      <div class='example-code'>
+        <button class='copy-clipboard' aria-labelledby='html-modal-code'
+          >Copy</button
+        >
+        <pre
+          class='code'
+          id='html-modal-code'>
+          <code>
+&lt;Modal id="custom-modal" className="custom-modal"&gt;
+  &lt;Fragment&gt;
+    &lt;div&gt;
+      &lt;div <strong>data-modal-header</strong>&gt;
+        &lt;h1 <strong>data-modal-title</strong>&gt;Modal title&lt;/h1&gt;
+        &lt;button <strong>data-modal-close</strong>&gt;X&lt;/button&gt;
+      &lt;/div&gt;
+
+      &lt;div <strong>data-modal-content</strong>&gt;
+        &lt;p&gt;
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
+          officiis mollitia cum amet quas quisquam soluta omnis, iusto, rem
+          veritatis dicta a optio aperiam vel corrupti recusandae vero harum
+          nisi!
+        &lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;div <strong>data-modal-actions</strong>&gt;
+        &lt;button <strong>data-modal-close</strong>&gt;Close&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/Fragment&gt;
+&lt;/Modal&gt;
+          </code>
+          </pre>
+      </div>
+
+      <br />
+
+      <h3>Triggers</h3>
+      <br />
+      <p>
+        For a DOM element to open the modal, it must have the data-modal-trigger
+        property with the modal's ID as its value.
+      </p>
+
+      <div class='example-code'>
+        <button class='copy-clipboard' aria-labelledby='html-modal-trigger-code'
+          >Copy</button
+        >
+        <pre
+          class='code'
+          id='html-modal-trigger-code'>
+          <code>
+&lt;Modal id="custom-modal" &gt; ... &lt;/Modal&gt;
+...
+
+&lt;button <strong>data-modal-trigger="custom-modal"</strong>&gt;Open custom modal&lt;/button&gt;
+          </code>
+          </pre>
+      </div>
+      <br />
+
+      <h3>Config modal fancybox instance</h3>
+      <br />
+
+      <p class='note'>
+        <strong>NOTE:</strong> Currently, we can only send static properties in the
+        configuration. Sending functions will have no effect; they simply won't work.
+        If we send a function for any Fancybox event, it will overwrite the default
+        function, and the modal may not work as expected.
+      </p>
+
+      <div class='example-code'>
+        <button class='copy-clipboard' aria-labelledby='html-modal-config-code'
+          >Copy</button
+        >
+        <pre
+          class='code'
+          id='html-modal-config-code'>
+          <code class="language-js">
+---
+import Modal from '../components/Modal/Modal.astro'
+import &#123; OptionsType &#125; from '@fancyapps/ui/types/Fancybox/options'
+
+const modalOptions: Partial&#60;OptionsType&#62; = &#123;
+  closeButton: true
+&#125;
+---
+
+&lt;Modal id="custom-modal" options=&#123;modalOptions&#125;&gt;
+...
+&lt;/Modal&gt;
+          </code>
+          </pre>
+      </div>
+      <small style='display: flex;'
+        >Learn more about Fancybox options <a
+          target='_blank'
+          href='https://fancyapps.com/fancybox/api/options/#available-options'
+          style='text-decoration: underline; padding-left: 2px;'
+        >
+          here</a
+        ></small
+      >
+      <br />
+
+      <h3>How to listen modal events</h3>
+      <br />
+      <small>Available events</small>
+      <ul>
+        <li>init</li>
+        <li>ready</li>
+        <li>resize</li>
+        <li>done</li>
+        <li>shouldClose</li>
+        <li>close</li>
+        <li>destroy</li>
+      </ul>
+      <br />
+
+      <div class='example-code'>
+        <button class='copy-clipboard' aria-labelledby='html-modal-events-code'
+          >Copy</button
+        >
+        <pre
+          class='code'
+          id='html-modal-events-code'>
+          <code>
+document.addEventListener('modal:ready', (&#123; detail &#125;) =&gt; &#123;
+  const &#123; fancybox, id, eventName &#125; = detail
+&#125;)
+          </code>
+          </pre>
+      </div>
+      <small style='display: flex;'
+        >Learn more about Fancybox events <a
+          target='_blank'
+          href='https://fancyapps.com/fancybox/api/events/#available-events'
+          style='text-decoration: underline; padding-left: 2px;'
+        >
+          here</a
+        ></small
+      >
+      <br />
+
+      <p>
+        When using your component on multiple pages, Astro will create a
+        separate stylesheet specifically for your component's styles. You can
+        read more about it <a
+          href='https://docs.astro.build/en/guides/styling/#production'
+          target='_blank'
+          rel='noopener noreferrer'>here</a
+        >.
+      </p>
+      <br />
+      <p>
+        Also, read the documentation of <a
+          href='https://docs.astro.build/en/guides/styling/'
+          target='_blank'
+          rel='noopener noreferrer'>Astro Framework</a
+        > regarding how styles are handled.
+      </p>
+      <br />
+
+      <p>
+        To properly name those styles that Astro will compile, you should add
+        the following comment on line 1 of the .scss file:
+      </p>
+      <br />
+
+      <div class='example-code'>
+        <button class='copy-clipboard' aria-labelledby='html-modal-styles-code'
+          >Copy</button
+        >
+        <pre
+          class='code'
+          id='html-modal-styles-code'>
+          <code>
+/* &#123;outputFileName:modal&#125; */
+          </code>
+          </pre>
+      </div>
+      <br />
+
+      <p>
+        You should replace modal with the name your file should have upon
+        compilation. This applies to all .scss files, for example, the one for
+        each page.
+      </p>
+      <p>
+        You can find more information about this in the configuration file of
+        this project (astro.config.mjs).
+      </p>
+      <br />
+
+      <h3>Add the corresponding script to your component:</h3>
+
+      <div class='example-code'>
+        <button
+          class='copy-clipboard'
+          aria-labelledby='script-modal-config-code'>Copy</button
+        >
+        <pre
+          class='code'
+          id='script-modal-config-code'>
+          <code>
+&lt;script src='./modal.ts'&gt;&lt;/script&gt;
+          </code>
+          </pre>
+      </div>
+      <br />
+
+      <p>This is how it's done in the modal component.</p>
 
       <Modal
         id='event-form-modal'
@@ -430,97 +920,12 @@ const modalOptions: Partial<OptionsType> = {
         </Fragment>
       </Modal>
     </section>
-
-    <section id='design-picture' class='design-system-section'>
-      <h1 class='title'>Picture</h1>
-      <p>
-        The picture component takes an src attribute and generates responsive
-        sources. The default image must be the mobile size.
-      </p>
-    </section>
-    <table>
-      <thead>
-        <tr style='text-align: left;'>
-          <th> props</th>
-          <th> type</th>
-          <th> description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr style='text-align: left;'>
-          <td> id</td>
-          <td> string</td>
-          <td> Generates an id in the picture element.</td>
-        </tr>
-
-        <tr style='text-align: left;'>
-          <td> className</td>
-          <td> string</td>
-          <td> Generates a class in the picture element.</td>
-        </tr>
-
-        <tr style='text-align: left;'>
-          <td> imgClassName</td>
-          <td> string</td>
-          <td> Generates a class in the img element.</td>
-        </tr>
-
-        <tr style='text-align: left;'>
-          <td> src</td>
-          <td> string</td>
-          <td>
-            Required prop. This is used to generate the src of the img element
-            and each srcset in the source elements.
-          </td>
-        </tr>
-
-        <tr style='text-align: left;'>
-          <td> alt</td>
-          <td> string</td>
-          <td> Required prop. Alt text for the img element.</td>
-        </tr>
-
-        <tr style='text-align: left;'>
-          <td> media</td>
-          <td> array</td>
-          <td>
-            An array of objects. Each object should have a key of the media
-            query and the value will be the prefix in srcset attribute.
-          </td>
-        </tr>
-
-        <tr style='text-align: left;'>
-          <td> isLazy</td>
-          <td> boolean</td>
-          <td>
-            If true, the img element will have a loading attribute with a lazy
-            value. (Default: false, will add the loading attribute with a value
-            of eager)
-          </td>
-        </tr>
-
-        <tr style='text-align: left;'>
-          <td> attrs</td>
-          <td> string</td>
-          <td> Any other attribute that you want to add to the img element.</td>
-        </tr>
-      </tbody>
-    </table>
-    <br />
-    <Picture
-      id='test-image'
-      src='/assets/images/picture-component/test-image.png'
-      alt='Test image'
-      className='test-image'
-      imgClassName='test-image__img'
-      media={[
-        {
-          '(min-width: 1600px)': 'desktop-lg'
-        }
-      ]}
-      isLazy
-      data-test='true'
-    />
   </main>
 </Layout>
 <div class='space-at-bottom-for-navigation'></div>
+
+<script>
+  import hljs from 'highlight.js'
+  hljs.highlightAll()
+  import 'highlight.js/styles/github.css'
+</script>

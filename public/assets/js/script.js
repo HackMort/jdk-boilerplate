@@ -1,6 +1,7 @@
 import { Tabs } from './tabs.js'
 // import { cookieValidation, cookieFormValidation } from './validate.js'
 import { Accordions } from './accordions.js'
+import { CopyToClipboard } from './copy.js'
 
 document.addEventListener('DOMContentLoaded', function (e) {
   console.log('DOM fully loaded and parsed')
@@ -23,6 +24,13 @@ document.addEventListener('DOMContentLoaded', function (e) {
    * Call the function from accordions.js
    */
   Accordions()
+
+  /**
+   * Copy to clipboard
+   * @see public/assets/js/copy.js
+   * Call the function from copy.js
+   */
+  CopyToClipboard()
 
   document.addEventListener('modal:done', ({ detail }) => {
     console.log(detail.id)

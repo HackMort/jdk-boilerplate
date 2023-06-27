@@ -7,35 +7,37 @@ h3,
 h4,
 h5,
 h6 {
-  color: $color-black;
   font-weight: 500;
-  font-stretch: normal;
   font-style: normal;
-  letter-spacing: normal;
+  font-stretch: normal;
   line-height: 1.5;
+  color: $color-black;
+  letter-spacing: normal;
 }
 
 h1 {
-  font-size: 1.875rem;
-  font-weight: bold;
-  line-height: 2.1563rem;
 
   @include media('tablet') {
     font-size: 2.5rem;
     line-height: 2.925rem;
   }
 
+  font-size: 1.875rem;
+  font-weight: bold;
+  line-height: 2.1563rem;
+
 }
 
 h2 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  line-height: 1.5625rem;
 
   @include media('tablet') {
     font-size: 1.875rem;
     line-height: 2.3438rem;
   }
+
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.5625rem;
 }
 
 h3 {
@@ -55,18 +57,18 @@ h5 {
 }
 
 p {
-  color: $color-black;
   font-size: 1rem;
-  font-style: normal;
   font-weight: 300;
+  font-style: normal;
   line-height: 1.3181rem;
+  color: $color-black;
 }
 
 label a,
 p a {
+  font-weight: bold;
   color: $color-black;
   text-decoration: underline;
-  font-weight: bold;
 }
 
 small {
@@ -93,7 +95,84 @@ main {
 }
 
 sup.symbol-sup {
+  top: initial;
   font-size: inherit;
   line-height: 0;
-  top: initial;
+}
+
+.design-system-section {
+  margin-bottom: 1rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid $color-black;
+}
+
+// Example Code Block in Design System Page
+.example-code {
+  position: relative;
+}
+
+.code {
+  overflow-x: auto;
+  display: block;
+
+  width: 100%;
+
+  font-style: normal;
+  color: #212529;
+}
+
+.copy-clipboard {
+  cursor: pointer;
+
+  position: absolute;
+  top: 20px;
+  right: 10px;
+
+  margin: 0.5rem;
+  padding: 0.5rem;
+
+  color: $color-white;
+
+  background-color: $color-black;
+  border-radius: 0.5rem;
+}
+
+// Higlihted Code colors
+.hljs {
+  background-color: #fff;
+}
+
+.hljs-tag {
+  color: #333;
+}
+
+.hljs-name {
+  color: #c6303e;
+}
+
+.hljs-attr {
+  color: #6f42c1;
+}
+
+.hljs-string {
+  color: #084298;
+}
+
+// Swiper Slider Styles
+swiper-container {
+  /* Change the default color of the all swiper elements */
+  --swiper-theme-color: #000;
+
+  z-index: 0;
+
+  /* Width and height of slider */
+  width: 100%;
+  height: auto;
+}
+
+.myswiper-custum-text {
+  padding: 3rem;
+  font-size: 2rem;
+  line-height: 1.5;
+  text-align: center;
 }
