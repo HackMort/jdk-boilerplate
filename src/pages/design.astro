@@ -8,6 +8,7 @@ import Layout from '../layouts/Layout.astro'
 import '../styles/settings/design.scss'
 import { OptionsType } from '@fancyapps/ui/types/Fancybox/options'
 import Picture from '../components/Picture.astro'
+import Hero from '../components/Hero/Hero.astro'
 
 const modalOptions: Partial<OptionsType> = {
   closeButton: true
@@ -1106,6 +1107,326 @@ export default navigationData
           </pre>
         </div>
       </div>
+    </section>
+    <table>
+      <thead>
+        <tr style='text-align: left;'>
+          <th> props</th>
+          <th> type</th>
+          <th> description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style='text-align: left;'>
+          <td> id</td>
+          <td> string</td>
+          <td> Generates an id in the picture element.</td>
+        </tr>
+
+        <tr style='text-align: left;'>
+          <td> className</td>
+          <td> string</td>
+          <td> Generates a class in the picture element.</td>
+        </tr>
+
+        <tr style='text-align: left;'>
+          <td> imgClassName</td>
+          <td> string</td>
+          <td> Generates a class in the img element.</td>
+        </tr>
+
+        <tr style='text-align: left;'>
+          <td> src</td>
+          <td> string</td>
+          <td>
+            Required prop. This is used to generate the src of the img element
+            and each srcset in the source elements.
+          </td>
+        </tr>
+
+        <tr style='text-align: left;'>
+          <td> alt</td>
+          <td> string</td>
+          <td> Required prop. Alt text for the img element.</td>
+        </tr>
+
+        <tr style='text-align: left;'>
+          <td> media</td>
+          <td> array</td>
+          <td>
+            An array of objects. Each object should have a key of the media
+            query and the value will be the prefix in srcset attribute.
+          </td>
+        </tr>
+
+        <tr style='text-align: left;'>
+          <td> isLazy</td>
+          <td> boolean</td>
+          <td>
+            If true, the img element will have a loading attribute with a lazy
+            value. (Default: false, will add the loading attribute with a value
+            of eager)
+          </td>
+        </tr>
+
+        <tr style='text-align: left;'>
+          <td> attrs</td>
+          <td> string</td>
+          <td> Any other attribute that you want to add to the img element.</td>
+        </tr>
+      </tbody>
+    </table>
+    <br />
+    <Picture
+      id='test-image'
+      src='/assets/images/picture-component/test-image.png'
+      alt='Test image'
+      className='test-image'
+      imgClassName='test-image__img'
+      media={[
+        {
+          '(min-width: 1600px)': 'desktop-lg'
+        }
+      ]}
+      isLazy
+      data-test='true'
+    />
+
+    <section id='hero-header' class='design-system-section'>
+      <h1 class='title'>Hero Header</h1>
+
+      <h4>Astro props</h4>
+      <table>
+        <thead>
+          <tr style='text-align: left;'>
+            <th> prop</th>
+            <th> type</th>
+            <th> description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style='text-align: left;'>
+            <td> fullHeight</td>
+            <td> boolean</td>
+            <td>
+              Default 'false', optional. If true will set <code
+                >height: 100vh;</code
+              > to hero</td
+            >
+          </tr>
+          <tr style='text-align: left;'>
+            <td> layout</td>
+            <td> 'flex' | 'absolute'</td>
+            <td>
+              Default 'flex', optional. if 'absolute' hero image will appear as
+              a background. If 'flex' hero image will appear next to hero
+              content</td
+            >
+          </tr>
+          <tr style='text-align: left;'>
+            <td> className</td>
+            <td> string</td>
+            <td>
+              Default '', optional. Allows to set any custom css class to hero</td
+            >
+          </tr>
+        </tbody>
+      </table>
+
+      <br />
+      <br />
+
+      <h4>Css variables</h4>
+      <table>
+        <thead>
+          <tr style='text-align: left;'>
+            <th> css variable</th>
+            <th> default value</th>
+            <th> description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style='text-align: left;'>
+            <td> --hero-header-bg</td>
+            <td> rgb(213 213 213)</td>
+            <td
+              >Background color of the hero header. Used to set the background
+              color of the hero header section.</td
+            >
+          </tr>
+          <tr style='text-align: left;'>
+            <td> --hero-header-wrapper-margin</td>
+            <td> 2rem</td>
+            <td>
+              Margin for the hero header wrapper. Used to define the margin
+              around the hero header content wrapper.</td
+            >
+          </tr>
+          <tr style='text-align: left;'>
+            <td> --hero-header-max-width-content-wrapper</td>
+            <td> calc(100% - var(--hero-header-wrapper-margin))</td>
+            <td
+              >Maximum width of the hero header content wrapper. Used to set the
+              maximum width of the content wrapper within the hero header.</td
+            >
+          </tr>
+          <tr>
+            <td colspan='3' style='text-align: left; font-weight: 600;'
+              >Variables to calculate hero height in 'absolute' layout</td
+            >
+          </tr>
+          <tr style='text-align: left;'>
+            <td>--hero-header-min-height</td>
+            <td> 400</td>
+            <td
+              >Minimum height of the hero header. Used to set a minimum height
+              to ensure it's not too small.</td
+            >
+          </tr>
+          <tr style='text-align: left;'>
+            <td>--hero-header-max-height</td>
+            <td> 750</td>
+            <td
+              >Maximum height of the hero header. Used to prevent the hero
+              header from being excessively large.</td
+            >
+          </tr>
+          <tr style='text-align: left;'>
+            <td>--hero-header-min-screen-size</td>
+            <td> 320</td>
+            <td>
+              Minimum screen size for the hero header. Used to adjust the height
+              on smaller screens.</td
+            >
+          </tr>
+          <tr style='text-align: left;'>
+            <td>--hero-header-max-screen-size</td>
+            <td> 1440</td>
+            <td
+              >Maximum screen size for the hero header. Used to scale the height
+              on larger screens.</td
+            >
+          </tr>
+        </tbody>
+      </table>
+
+      <br />
+      <br />
+
+      <h3>'flex' layout hero</h3>
+      <br />
+
+      <div class='example-code'>
+        <button class='copy-clipboard' aria-labelledby='flex-layout-hero'
+          >Copy</button
+        >
+        <pre
+          class='code'
+          id='flex-layout-hero'>
+          <code class="language-jsx hljs language-javascript">
+&lt;Hero&gt;
+    &lt;div slot=&quot;hero-content&quot; class=&quot;hero-header__cta&quot;&gt;
+            &lt;h1&gt;Hero Header Title&lt;/h1&gt;
+            &lt;p&gt;
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt error
+                labore ex iusto esse est, reprehenderit rerum et vero! Quas
+                voluptates at eligendi? Ipsum laudantium fugiat fuga? Nesciunt,
+                incidunt provident.
+            &lt;/p&gt;
+            &lt;div class=&quot;hero-header__actions&quot;&gt;
+                    &lt;button class=&quot;button button--primary&quot;&gt;Primary&lt;/button&gt;
+                    &lt;button class=&quot;button button--secondary&quot;&gt;Secondary&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;Picture slot=&quot;hero-image&quot; src=&quot;/assets/images/hero/world.png&quot; alt=&quot;Hero image&quot; /&gt;
+&lt;/Hero&gt;
+
+
+          </code>
+
+        </pre>
+      </div>
+
+      <Hero>
+        <div slot='hero-content' class='hero__cta'>
+          <h1>Hero Header Title</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt error
+            labore ex iusto esse est, reprehenderit rerum et vero! Quas
+            voluptates at eligendi? Ipsum laudantium fugiat fuga? Nesciunt,
+            incidunt provident.
+          </p>
+          <div class='hero__actions'>
+            <button class='button button--primary'>Primary</button>
+            <button class='button button--secondary'>Secondary</button>
+          </div>
+        </div>
+        <Picture
+          slot='hero-image'
+          src='/assets/images/hero/world.png'
+          alt='Hero image'
+        />
+      </Hero>
+
+      <br /><br /><br /><br />
+
+      <h3>'absolute' layout hero</h3>
+      <br />
+
+      <div class='example-code'>
+        <button class='copy-clipboard' aria-labelledby='flex-layout-hero'
+          >Copy</button
+        >
+        <pre
+          class='code'
+          id='flex-layout-hero'>
+          <code class="language-jsx hljs language-javascript">
+&lt;Hero&gt;
+    &lt;div slot=&quot;hero-content&quot; layout=&quot;absolute&quot; className=&quot;mountain-hero&quot; class=&quot;hero-header__cta&quot;&gt;
+            &lt;h1&gt;Hero Header Title&lt;/h1&gt;
+            &lt;p&gt;
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt error
+                labore ex iusto esse est, reprehenderit rerum et vero! Quas
+                voluptates at eligendi? Ipsum laudantium fugiat fuga? Nesciunt,
+                incidunt provident.
+            &lt;/p&gt;
+            &lt;div class=&quot;hero-header__actions&quot;&gt;
+                    &lt;button class=&quot;button button--primary&quot;&gt;Primary&lt;/button&gt;
+                    &lt;button class=&quot;button button--secondary&quot;&gt;Secondary&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;Picture slot=&quot;hero-image&quot; src=&quot;/assets/images/hero/mountain.jpg&quot; alt=&quot;Hero image&quot; /&gt;
+&lt;/Hero&gt;
+
+
+          </code>
+
+        </pre>
+      </div>
+      <Hero layout='absolute' className='mountain-hero'>
+        <div slot='hero-content' class='hero__cta'>
+          <h1>Hero Header Title</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt error
+            labore ex iusto esse est, reprehenderit rerum et vero! Quas
+            voluptates at eligendi? Ipsum laudantium fugiat fuga? Nesciunt,
+            incidunt provident.
+          </p>
+          <div class='hero__actions'>
+            <button class='button button--primary'>Primary</button>
+            <button class='button button--secondary'>Secondary</button>
+          </div>
+        </div>
+        <Picture
+          slot='hero-image'
+          src='/assets/images/hero/mountain.jpg'
+          alt='Hero image'
+        />
+      </Hero>
+
+      <br />
+
+      <a href='./hero-test'>Test page</a>
     </section>
   </main>
 </Layout>

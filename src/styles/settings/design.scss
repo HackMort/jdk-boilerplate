@@ -154,8 +154,84 @@ main {
     }
 }
 
+.hero__actions {
+    .button {
+        justify-content: center;
+        width: 100%;
+        max-width: initial;
+        text-align: center;
+    }
+}
+
+.hero__cta {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    p {
+        @media screen and (min-width: 1024px) {
+            font-size: 18px;
+            line-height: 24px;
+        }
+    }
+}
+
+.hero__actions {
+    margin-top: auto;
+}
+
+.mountain-hero {
+    .hero__content-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .hero__cta {
+        height: max-content;
+
+        h1,
+        p {
+            background: #E4E4E4;
+        }
+
+        @media screen and (min-width: 1024px) {
+            max-width: 75%;
+
+            h1 {
+                margin-bottom: 1rem;
+                padding: 1px;
+                font-size: 4rem;
+
+            }
+
+            p {
+                margin-bottom: 2rem;
+                padding: 1px;
+
+                font-size: 2rem;
+                line-height: 101%;
+                letter-spacing: 1px;
+
+            }
+
+            .button {
+                height: 60px;
+                max-height: initial;
+                font-size: 1.125rem;
+            }
+        }
+
+        @media screen and (min-width: 1366px) {
+            max-width: 50%;
+        }
+    }
+}
+
 .table-props {
-    td, th {
+
+    td,
+    th {
         padding: 0 .625rem;
     }
 }

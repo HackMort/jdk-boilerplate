@@ -14,8 +14,16 @@ type Props = {
   isLazy?: boolean
 }
 
-const { id, className, imgClassName, src, alt, media, isLazy, ...attrs } =
-  Astro.props
+const {
+  id,
+  className,
+  imgClassName,
+  src,
+  alt,
+  media = [],
+  isLazy,
+  ...attrs
+} = Astro.props
 
 const medias = [
   ...media,
