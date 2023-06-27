@@ -3,7 +3,7 @@
 :root {
     --hero-header-bg: rgb(213 213 213);
     --hero-header-wrapper-margin: 2rem;
-    --hero-header-content-wrapper: calc(100% - var(--hero-header-wrapper-margin));
+    --hero-header-max-width-content-wrapper: calc(100% - var(--hero-header-wrapper-margin));
     --hero-header-min-height: 400;
     --hero-header-max-height: 750;
     --hero-header-min-screen-size: 320;
@@ -32,7 +32,7 @@
 
             .hero-header__content-wrapper {
                 width: 100%;
-                max-width: var(--hero-header-content-wrapper);
+                max-width: var(--hero-header-max-width-content-wrapper);
                 height: 100%;
                 margin-right: auto;
                 margin-left: auto;
@@ -50,7 +50,7 @@
                 order: initial;
 
                 .hero-header__content-wrapper {
-                    max-width: calc(var(--hero-header-content-wrapper) + calc(calc(100% - var(--hero-header-content-wrapper)) / 2));
+                    max-width: calc(var(--hero-header-max-width-content-wrapper) + calc(calc(100% - var(--hero-header-max-width-content-wrapper)) / 2));
                     margin-right: 0;
                 }
             }
@@ -81,6 +81,7 @@
         .hero-header__wrapper {
             justify-content: center;
             height: calc(calc(var(--hero-header-min-height) * 1px) + ((var(--hero-header-max-height) - var(--hero-header-min-height)) * ((100vw - calc(var(--hero-header-min-screen-size) * 1px)) / (var(--hero-header-max-screen-size) - var(--hero-header-min-screen-size)))));
+            max-height: calc(var(--hero-header-max-height) * 1px);
 
             .hero-header__content-container {
                 position: relative;
@@ -88,7 +89,7 @@
 
                 .hero-header__content-wrapper {
                     @media screen and (min-width: 1024px) {
-                        max-width: var(--hero-header-content-wrapper);
+                        max-width: var(--hero-header-max-width-content-wrapper);
                         margin-right: auto;
                     }
                 }
