@@ -18,7 +18,8 @@ const navigationData = {
       { href: 'design-slide', label: 'Slider' },
       { href: 'design-picture', label: 'Picture' },
       { href: 'design-modal', label: 'Modal' },
-      { href: 'design-internal-nav', label: 'Internal Navigation' }
+      { href: 'design-internal-nav', label: 'Internal Navigation' },
+      { href: 'hero-header', label: 'Hero' }
     ],
     'internal-navigation-test': [
       { href: 'colors', label: 'Colors', active: true },
