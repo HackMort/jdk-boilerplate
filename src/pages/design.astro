@@ -370,6 +370,11 @@ const modalOptions: Partial<OptionsType> = {
             class='code'
             id='acc-code'>
           <code>
+---
+  import Accordions from '../components/Accordions.astro'
+  import Accordion from '../components/Accordion.astro'
+---
+
 &lt;Accordions name='accordion-group-name' expandable&gt;
   &lt;Accordion id='1' header='ACC-1' expanded&gt;
     &lt;p&gt;
@@ -537,7 +542,11 @@ const modalOptions: Partial<OptionsType> = {
         <pre
           class='code'
           id='picture-code'>
-          <code class="language-html">
+          <code class="language-jsx">
+---
+  import Picture from '../components/Picture.astro'
+---
+
 &lt;Picture
   id='test-image'
   src='/assets/images/picture-component/test-image.png'
@@ -592,7 +601,11 @@ const modalOptions: Partial<OptionsType> = {
         <pre
           class='code'
           id='html-modal-code'>
-          <code>
+          <code class="language-jsx">
+---
+  import Modal from '../components/Modal/Modal.astro'
+---
+
 &lt;Modal id="custom-modal" className="custom-modal"&gt;
   &lt;Fragment&gt;
     &lt;div&gt;
@@ -663,7 +676,7 @@ const modalOptions: Partial<OptionsType> = {
         <pre
           class='code'
           id='html-modal-config-code'>
-          <code class="language-js">
+          <code class="language-jsx">
 ---
 import Modal from '../components/Modal/Modal.astro'
 import &#123; OptionsType &#125; from '@fancyapps/ui/types/Fancybox/options'
