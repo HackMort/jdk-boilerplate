@@ -109,22 +109,24 @@ sup.symbol-sup {
 // Example Code Block in Design System Page
 .example-code {
   position: relative;
-  margin-top: 1rem;
-  background-color: #c1c1c1;
 }
 
 .code {
   overflow-x: auto;
   display: block;
+
   width: 100%;
+
+  font-style: normal;
+  color: #212529;
 }
 
 .copy-clipboard {
   cursor: pointer;
 
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 20px;
+  right: 10px;
 
   margin: 0.5rem;
   padding: 0.5rem;
@@ -135,6 +137,28 @@ sup.symbol-sup {
   border-radius: 0.5rem;
 }
 
+// Higlihted Code colors
+.hljs {
+  background-color: #fff;
+}
+
+.hljs-tag {
+  color: #333;
+}
+
+.hljs-name {
+  color: #c6303e;
+}
+
+.hljs-attr {
+  color: #6f42c1;
+}
+
+.hljs-string {
+  color: #084298;
+}
+
+// Swiper Slider Styles
 swiper-container {
   /* Change the default color of the all swiper elements */
   --swiper-theme-color: #000;

@@ -140,7 +140,6 @@ const modalOptions: Partial<OptionsType> = {
           <pre
             class='code'
             id='btn-code'>
-
             <code>
 &lt;!-- Default / Primary button --&gt;
 &lt;button class='button'&gt; Button Primary / Default&lt;/button&gt;
@@ -258,28 +257,29 @@ const modalOptions: Partial<OptionsType> = {
           <pre
             class='code'
             id='tabs-code'>
+            <code>
+&lt;ul role='tablist' <b>data-horizontal-scroll</b>&gt;
+  &lt;li role='presentation'&gt;
+    &lt;!--active one --&gt;
+    &lt;a href='#example-panel1' role='tab' id='example-tab1' aria-selected='true'&gt;Tab 1&lt;/a&gt;
+  &lt;/li&gt;
 
-            &lt;ul role='tablist' <b>data-horizontal-scroll</b>&gt;
-              &lt;li role='presentation'&gt;
-                &lt;!--active one --&gt;
-                &lt;a href='#example-panel1' role='tab' id='example-tab1' aria-selected='true'&gt;Tab 1&lt;/a&gt;
-              &lt;/li&gt;
+  &lt;li role='presentation'&gt;
+    &lt;a href='#example-panel2' role='tab' id='example-tab2' tabindex='-1' &gt;Tab 2&lt;/a&gt;
+  &lt;/li&gt;
 
-              &lt;li role='presentation'&gt;
-                &lt;a href='#example-panel2' role='tab' id='example-tab2' tabindex='-1' &gt;Tab 2&lt;/a&gt;
-              &lt;/li&gt;
+  ...
+&lt;/ul&gt;
 
-              ...
-            &lt;/ul&gt;
+&lt;section id='example-panel1' role='tabpanel' aria-labelledby='example-tab1' aria-hidden='false' tabindex='-1' &gt;
+  1 - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+&lt;/section&gt;
 
-            &lt;section id='example-panel1' role='tabpanel' aria-labelledby='example-tab1' aria-hidden='false' tabindex='-1' &gt;
-              1 - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            &lt;/section&gt;
-
-            &lt;section id='example-panel2' role='tabpanel' aria-labelledby='example-tab2' aria-hidden='true' tabindex='-1' hidden&gt;
-              2 - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            &lt;/section&gt;
-            ...
+&lt;section id='example-panel2' role='tabpanel' aria-labelledby='example-tab2' aria-hidden='true' tabindex='-1' hidden&gt;
+  2 - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+&lt;/section&gt;
+...
+          </code>
           </pre>
         </div>
       </div>
@@ -369,25 +369,26 @@ const modalOptions: Partial<OptionsType> = {
           <pre
             class='code'
             id='acc-code'>
-
-            &lt;Accordions name='accordion-group-name' expandable&gt;
-              &lt;Accordion id='1' header='ACC-1' expanded&gt;
-                &lt;p&gt;
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, pariatur labore perspiciatis repudiandae aliquid quae doloribus! Ratione, fugiat quae ad dolor voluptatum esse laborum porro id non animi, sapiente exercitationem.
-                &lt;/p&gt;
-              &lt;/Accordion&gt;
-              &lt;Accordion id='2' header='ACC-2'&gt;
-                &lt;p&gt;
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, pariatur labore perspiciatis repudiandae aliquid quae doloribus! Ratione, fugiat quae ad dolor voluptatum esse laborum porro id non animi, sapiente exercitationem.
-                &lt;/p&gt;
-              &lt;/Accordion&gt;
-              &lt;Accordion id='3' header='ACC-3'&gt;
-                &lt;p&gt;
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, pariatur labore perspiciatis repudiandae aliquid quae doloribus! Ratione, fugiat quae ad dolor voluptatum esse laborum porro id non animi, sapiente exercitationem.
-                &lt;/p&gt;
-              &lt;/Accordion&gt;
-            &lt;/Accordions&gt;
-            ...
+          <code>
+&lt;Accordions name='accordion-group-name' expandable&gt;
+  &lt;Accordion id='1' header='ACC-1' expanded&gt;
+    &lt;p&gt;
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, pariatur labore perspiciatis repudiandae aliquid quae doloribus! Ratione, fugiat quae ad dolor voluptatum esse laborum porro id non animi, sapiente exercitationem.
+    &lt;/p&gt;
+  &lt;/Accordion&gt;
+  &lt;Accordion id='2' header='ACC-2'&gt;
+    &lt;p&gt;
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, pariatur labore perspiciatis repudiandae aliquid quae doloribus! Ratione, fugiat quae ad dolor voluptatum esse laborum porro id non animi, sapiente exercitationem.
+    &lt;/p&gt;
+  &lt;/Accordion&gt;
+  &lt;Accordion id='3' header='ACC-3'&gt;
+    &lt;p&gt;
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, pariatur labore perspiciatis repudiandae aliquid quae doloribus! Ratione, fugiat quae ad dolor voluptatum esse laborum porro id non animi, sapiente exercitationem.
+    &lt;/p&gt;
+  &lt;/Accordion&gt;
+&lt;/Accordions&gt;
+...
+          </code>
           </pre>
         </div>
       </div>
@@ -416,21 +417,23 @@ const modalOptions: Partial<OptionsType> = {
         <pre
           class='code'
           id='slider-code'>
-
-          &lt;swiper-container navigation='true' pagination='true' scrollbar='false'&gt;
-            &lt;swiper-slide&gt;
-              &lt;img src='https://placehold.jp/2000x500.png' alt='Image as example 1' /&gt;
-            &lt;/swiper-slide&gt;
-            &lt;swiper-slide&gt;
-              &lt;p class='myswiper-custum-text'&gt;
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas ut sed
-                deleniti dolores dignissimos repellendus, possimus, impedit officiis
-                commodi earum numquam provident quos natus, qui quisquam temporibus
-                dolorem harum eligendi!
-              &lt;/p&gt;
-            &lt;/swiper-slide&gt;
-            ...
-          &lt;/swiper-container&gt;
+          <code>
+&lt;swiper-container navigation='true' pagination='true' scrollbar='false'&gt;
+  &lt;swiper-slide&gt;
+    &lt;img src='https://placehold.jp/2000x500.png' alt='Image as example 1' /&gt;
+  &lt;/swiper-slide&gt;
+  &lt;swiper-slide&gt;
+    &lt;p class='myswiper-custum-text'&gt;
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas ut sed
+      deleniti dolores dignissimos repellendus, possimus, impedit officiis
+      commodi earum numquam provident quos natus, qui quisquam temporibus
+      dolorem harum eligendi!
+    &lt;/p&gt;
+  &lt;/swiper-slide&gt;
+  ...
+&lt;/swiper-container&gt;
+          </code>
+          
         </pre>
       </div>
     </section>
@@ -534,21 +537,22 @@ const modalOptions: Partial<OptionsType> = {
         <pre
           class='code'
           id='picture-code'>
-
-          &lt;Picture
-            id='test-image'
-            src='/assets/images/picture-component/test-image.png'
-            alt='Test image'
-            className='test-image'
-            imgClassName='test-image__img'
-            media=&#123;[
-              &#123;
-                '(min-width: 1600px)': 'desktop-lg'
-              &#125;
-            ]&#125;
-            isLazy
-            data-test='true'
-          /&gt;
+          <code class="language-html">
+&lt;Picture
+  id='test-image'
+  src='/assets/images/picture-component/test-image.png'
+  alt='Test image'
+  className='test-image'
+  imgClassName='test-image__img'
+  media=&#123;[
+    &#123;
+      '(min-width: 1600px)': 'desktop-lg'
+    &#125;
+  ]&#125;
+  isLazy
+  data-test='true'
+/&gt;
+          </code>
         </pre>
       </div>
     </section>
@@ -588,30 +592,31 @@ const modalOptions: Partial<OptionsType> = {
         <pre
           class='code'
           id='html-modal-code'>
+          <code>
+&lt;Modal id="custom-modal" className="custom-modal"&gt;
+  &lt;Fragment&gt;
+    &lt;div&gt;
+      &lt;div <strong>data-modal-header</strong>&gt;
+        &lt;h1 <strong>data-modal-title</strong>&gt;Modal title&lt;/h1&gt;
+        &lt;button <strong>data-modal-close</strong>&gt;X&lt;/button&gt;
+      &lt;/div&gt;
 
-            &lt;Modal id="custom-modal" className="custom-modal"&gt;
-              &lt;Fragment&gt;
-                &lt;div&gt;
-                  &lt;div <strong>data-modal-header</strong>&gt;
-                    &lt;h1 <strong>data-modal-title</strong>&gt;Modal title&lt;/h1&gt;
-                    &lt;button <strong>data-modal-close</strong>&gt;X&lt;/button&gt;
-                  &lt;/div&gt;
+      &lt;div <strong>data-modal-content</strong>&gt;
+        &lt;p&gt;
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
+          officiis mollitia cum amet quas quisquam soluta omnis, iusto, rem
+          veritatis dicta a optio aperiam vel corrupti recusandae vero harum
+          nisi!
+        &lt;/p&gt;
+      &lt;/div&gt;
 
-                  &lt;div <strong>data-modal-content</strong>&gt;
-                    &lt;p&gt;
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
-                      officiis mollitia cum amet quas quisquam soluta omnis, iusto, rem
-                      veritatis dicta a optio aperiam vel corrupti recusandae vero harum
-                      nisi!
-                    &lt;/p&gt;
-                  &lt;/div&gt;
-
-                  &lt;div <strong>data-modal-actions</strong>&gt;
-                    &lt;button <strong>data-modal-close</strong>&gt;Close&lt;/button&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-              &lt;/Fragment&gt;
-            &lt;/Modal&gt;
+      &lt;div <strong>data-modal-actions</strong>&gt;
+        &lt;button <strong>data-modal-close</strong>&gt;Close&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/Fragment&gt;
+&lt;/Modal&gt;
+          </code>
           </pre>
       </div>
 
@@ -631,11 +636,12 @@ const modalOptions: Partial<OptionsType> = {
         <pre
           class='code'
           id='html-modal-trigger-code'>
+          <code>
+&lt;Modal id="custom-modal" &gt; ... &lt;/Modal&gt;
+...
 
-              &lt;Modal id="custom-modal" &gt; ... &lt;/Modal&gt;
-              ...
-
-              &lt;button <strong>data-modal-trigger="custom-modal"</strong>&gt;Open custom modal&lt;/button&gt;
+&lt;button <strong>data-modal-trigger="custom-modal"</strong>&gt;Open custom modal&lt;/button&gt;
+          </code>
           </pre>
       </div>
       <br />
@@ -657,19 +663,20 @@ const modalOptions: Partial<OptionsType> = {
         <pre
           class='code'
           id='html-modal-config-code'>
+          <code class="language-js">
+---
+import Modal from '../components/Modal/Modal.astro'
+import &#123; OptionsType &#125; from '@fancyapps/ui/types/Fancybox/options'
 
-            ---
-            import Modal from '../components/Modal/Modal.astro'
-            import &#123; OptionsType &#125; from '@fancyapps/ui/types/Fancybox/options'
+const modalOptions: Partial&#60;OptionsType&#62; = &#123;
+  closeButton: true
+&#125;
+---
 
-            const modalOptions: Partial&#60;OptionsType&#62; = &#123;
-              closeButton: true
-            &#125;
-            ---
-
-            &lt;Modal id="custom-modal" options=&#123;modalOptions&#125;&gt;
-            ...
-            &lt;/Modal&gt;
+&lt;Modal id="custom-modal" options=&#123;modalOptions&#125;&gt;
+...
+&lt;/Modal&gt;
+          </code>
           </pre>
       </div>
       <small style='display: flex;'
@@ -704,10 +711,11 @@ const modalOptions: Partial<OptionsType> = {
         <pre
           class='code'
           id='html-modal-events-code'>
-
-            document.addEventListener('modal:ready', (&#123; detail &#125;) =&gt; &#123;
-              const &#123; fancybox, id, eventName &#125; = detail
-            &#125;)
+          <code>
+document.addEventListener('modal:ready', (&#123; detail &#125;) =&gt; &#123;
+  const &#123; fancybox, id, eventName &#125; = detail
+&#125;)
+          </code>
           </pre>
       </div>
       <small style='display: flex;'
@@ -753,8 +761,9 @@ const modalOptions: Partial<OptionsType> = {
         <pre
           class='code'
           id='html-modal-styles-code'>
-
-            /* &#123;outputFileName:modal&#125; */
+          <code>
+/* &#123;outputFileName:modal&#125; */
+          </code>
           </pre>
       </div>
       <br />
@@ -780,8 +789,9 @@ const modalOptions: Partial<OptionsType> = {
         <pre
           class='code'
           id='script-modal-config-code'>
-
-            &lt;script src='./modal.ts'&gt;&lt;/script&gt;
+          <code>
+&lt;script src='./modal.ts'&gt;&lt;/script&gt;
+          </code>
           </pre>
       </div>
       <br />
