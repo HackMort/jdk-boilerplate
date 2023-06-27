@@ -38,6 +38,14 @@ const {
     {showISI && <Isi />}
     {showFooter && <Footer />}
     <script src='/assets/js/script.js' type='module'></script>
+
+    <script>
+      // import function to register Swiper custom elements
+      import { register } from 'swiper/element/bundle'
+      // register Swiper custom elements
+      register()
+    </script>
+
     <style is:global>
       :root {
         --accent: 124, 58, 237;
