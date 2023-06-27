@@ -181,9 +181,43 @@ main {
 }
 
 .mountain-hero {
-    img {
-        width: auto;
-        max-width: initial;
-        height: 100%;
+    .hero-header__content-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .hero-header__cta {
+        height: max-content;
+
+        h1,
+        p {
+            background: #E4E4E4;
+        }
+
+        @media screen and (min-width: 1024px) {
+            h1 {
+                margin-bottom: 1rem;
+                padding: 1px;
+                font-size: 4rem;
+
+            }
+
+            p {
+                margin-bottom: 2rem;
+                padding: 1px;
+
+                font-size: 2rem;
+                line-height: 101%;
+                letter-spacing: 1px;
+
+            }
+
+            .button {
+                height: 60px;
+                max-height: initial;
+                font-size: 1.125rem;
+            }
+        }
     }
 }
