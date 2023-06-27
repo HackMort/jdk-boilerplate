@@ -154,7 +154,7 @@ main {
     }
 }
 
-.hero-header__actions {
+.hero__actions {
     .button {
         justify-content: center;
         width: 100%;
@@ -163,7 +163,7 @@ main {
     }
 }
 
-.hero-header__cta {
+.hero__cta {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -176,18 +176,18 @@ main {
     }
 }
 
-.hero-header__actions {
+.hero__actions {
     margin-top: auto;
 }
 
 .mountain-hero {
-    .hero-header__content-wrapper {
+    .hero__content-wrapper {
         display: flex;
         flex-direction: column;
         justify-content: center;
     }
 
-    .hero-header__cta {
+    .hero__cta {
         height: max-content;
 
         h1,

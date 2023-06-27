@@ -8,7 +8,7 @@ import Layout from '../layouts/Layout.astro'
 import '../styles/settings/design.scss'
 import { OptionsType } from '@fancyapps/ui/types/Fancybox/options'
 import Picture from '../components/Picture.astro'
-import HeroHeader from '../components/HeroHeader/HeroHeader.astro'
+import Hero from '../components/Hero/Hero.astro'
 
 const modalOptions: Partial<OptionsType> = {
   closeButton: true
@@ -1324,7 +1324,7 @@ export default navigationData
           class='code'
           id='flex-layout-hero'>
           <code class="language-jsx hljs language-javascript">
-&lt;HeroHeader&gt;
+&lt;Hero&gt;
     &lt;div slot=&quot;hero-content&quot; class=&quot;hero-header__cta&quot;&gt;
             &lt;h1&gt;Hero Header Title&lt;/h1&gt;
             &lt;p&gt;
@@ -1338,8 +1338,8 @@ export default navigationData
                     &lt;button class=&quot;button button--secondary&quot;&gt;Secondary&lt;/button&gt;
             &lt;/div&gt;
         &lt;/div&gt;
-    &lt;Picture slot=&quot;hero-image&quot; src=&quot;/assets/images/text-hero-header/world.png&quot; alt=&quot;Hero image&quot; /&gt;
-&lt;/HeroHeader&gt;
+    &lt;Picture slot=&quot;hero-image&quot; src=&quot;/assets/images/hero/world.png&quot; alt=&quot;Hero image&quot; /&gt;
+&lt;/Hero&gt;
 
 
           </code>
@@ -1347,8 +1347,8 @@ export default navigationData
         </pre>
       </div>
 
-      <HeroHeader>
-        <div slot='hero-content' class='hero-header__cta'>
+      <Hero>
+        <div slot='hero-content' class='hero__cta'>
           <h1>Hero Header Title</h1>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt error
@@ -1356,17 +1356,17 @@ export default navigationData
             voluptates at eligendi? Ipsum laudantium fugiat fuga? Nesciunt,
             incidunt provident.
           </p>
-          <div class='hero-header__actions'>
+          <div class='hero__actions'>
             <button class='button button--primary'>Primary</button>
             <button class='button button--secondary'>Secondary</button>
           </div>
         </div>
         <Picture
           slot='hero-image'
-          src='/assets/images/text-hero-header/world.png'
+          src='/assets/images/hero/world.png'
           alt='Hero image'
         />
-      </HeroHeader>
+      </Hero>
 
       <br /><br /><br /><br />
 
@@ -1381,7 +1381,7 @@ export default navigationData
           class='code'
           id='flex-layout-hero'>
           <code class="language-jsx hljs language-javascript">
-&lt;HeroHeader&gt;
+&lt;Hero&gt;
     &lt;div slot=&quot;hero-content&quot; layout=&quot;absolute&quot; className=&quot;mountain-hero&quot; class=&quot;hero-header__cta&quot;&gt;
             &lt;h1&gt;Hero Header Title&lt;/h1&gt;
             &lt;p&gt;
@@ -1395,16 +1395,16 @@ export default navigationData
                     &lt;button class=&quot;button button--secondary&quot;&gt;Secondary&lt;/button&gt;
             &lt;/div&gt;
         &lt;/div&gt;
-    &lt;Picture slot=&quot;hero-image&quot; src=&quot;/assets/images/text-hero-header/mountain.jpg&quot; alt=&quot;Hero image&quot; /&gt;
-&lt;/HeroHeader&gt;
+    &lt;Picture slot=&quot;hero-image&quot; src=&quot;/assets/images/hero/mountain.jpg&quot; alt=&quot;Hero image&quot; /&gt;
+&lt;/Hero&gt;
 
 
           </code>
 
         </pre>
       </div>
-      <HeroHeader layout='absolute' className='mountain-hero'>
-        <div slot='hero-content' class='hero-header__cta'>
+      <Hero layout='absolute' className='mountain-hero'>
+        <div slot='hero-content' class='hero__cta'>
           <h1>Hero Header Title</h1>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt error
@@ -1412,17 +1412,17 @@ export default navigationData
             voluptates at eligendi? Ipsum laudantium fugiat fuga? Nesciunt,
             incidunt provident.
           </p>
-          <div class='hero-header__actions'>
+          <div class='hero__actions'>
             <button class='button button--primary'>Primary</button>
             <button class='button button--secondary'>Secondary</button>
           </div>
         </div>
         <Picture
           slot='hero-image'
-          src='/assets/images/text-hero-header/mountain.jpg'
+          src='/assets/images/hero/mountain.jpg'
           alt='Hero image'
         />
-      </HeroHeader>
+      </Hero>
     </section>
   </main>
 </Layout>
