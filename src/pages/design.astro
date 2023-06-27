@@ -133,7 +133,6 @@ const modalOptions: Partial<OptionsType> = {
           <button class='button button--secondary'> Button Secondary</button>
           <button class='button button--tertiary'> Tertiary Button</button>
         </div>
-
         <div class='example-code'>
           <button class='copy-clipboard' aria-labelledby='btn-code'>Copy</button
           >
@@ -437,6 +436,24 @@ const modalOptions: Partial<OptionsType> = {
   &lt;/swiper-slide&gt;
   ...
 &lt;/swiper-container&gt;
+          </code>
+
+        </pre>
+      </div>
+      <p>To make it globally available, add following code to Layout.astro</p>
+      <div class='example-code'>
+        <button class='copy-clipboard' aria-labelledby='slider-layout-code'
+          >Copy</button
+        >
+        <pre
+          class='code'
+          id='slider-layout-code'>
+          <code class="language-jsx">
+&lt;script&gt;
+  import &#123; register &#125; from 'swiper/element/bundle'
+
+  register()
+&lt;/script&gt;
           </code>
 
         </pre>
