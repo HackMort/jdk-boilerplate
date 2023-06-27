@@ -1,13 +1,16 @@
+/* {outputFileName:hero-header} */
+
 :root {
     --hero-header-bg: rgb(213 213 213);
-    --hero-header-content-wrapper: calc(100% - 2rem);
+    --hero-header-wrapper-margin: 2rem;
+    --hero-header-content-wrapper: calc(100% - var(--hero-header-wrapper-margin));
     --hero-header-min-height: 400;
     --hero-header-max-height: 750;
     --hero-header-min-screen-size: 320;
     --hero-header-max-screen-size: 1440;
 
     @media screen and (min-width: 1024px) {
-        --hero-header-content-wrapper: calc(100% - 3rem);
+        --hero-header-wrapper-margin: 3rem;
     }
 }
 
@@ -23,9 +26,6 @@
     .hero-header__wrapper {
         display: flex;
         flex-direction: column;
-        height: calc(calc(var(--hero-header-min-height) * 1px) + ((var(--hero-header-max-height) - var(--hero-header-min-height)) * ((100vw - calc(var(--hero-header-min-screen-size) * 1px)) / (var(--hero-header-max-screen-size) - var(--hero-header-min-screen-size)))));
-
-        // height: calc(var(--hero-header-min-height) * 1px);
 
         .hero-header__content-container {
             order: 2;
@@ -50,6 +50,7 @@
                 order: initial;
 
                 .hero-header__content-wrapper {
+                    max-width: calc(var(--hero-header-content-wrapper) + calc(calc(100% - var(--hero-header-content-wrapper)) / 2));
                     margin-right: 0;
                 }
             }
@@ -77,10 +78,29 @@
     &__absolute-layout {
         position: relative;
 
-        .hero-header__content-container {
-            position: relative;
-            z-index: 2;
+        .hero-header__wrapper {
+            justify-content: center;
+            height: calc(calc(var(--hero-header-min-height) * 1px) + ((var(--hero-header-max-height) - var(--hero-header-min-height)) * ((100vw - calc(var(--hero-header-min-screen-size) * 1px)) / (var(--hero-header-max-screen-size) - var(--hero-header-min-screen-size)))));
+
+            .hero-header__content-container {
+                position: relative;
+                z-index: 2;
+
+                .hero-header__content-wrapper {
+                    @media screen and (min-width: 1024px) {
+                        max-width: var(--hero-header-content-wrapper);
+                        margin-right: auto;
+                    }
+                }
+            }
+
+            @media screen and (min-width: 1024px) {
+                align-items: center;
+                justify-content: flex-start;
+            }
         }
+
+
 
         .hero-header__image-container {
             position: absolute;
@@ -92,7 +112,17 @@
             height: 100%;
 
             picture {
+                overflow: hidden;
                 height: 100%;
+
+                img {
+                    width: auto;
+                    max-width: initial;
+                    height: 100%;
+
+                    object-fit: cover;
+                    object-position: center;
+                }
             }
         }
     }
