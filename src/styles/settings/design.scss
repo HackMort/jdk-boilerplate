@@ -153,3 +153,24 @@ main {
         font-size: 1.5rem;
     }
 }
+
+.table-props {
+    td, th {
+        padding: 0 .625rem;
+    }
+}
+
+.example-code {
+    margin-top: .625rem;
+
+    &::before {
+        content: 'Example code: ';
+
+        position: absolute;
+        top: 0;
+
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+}

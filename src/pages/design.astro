@@ -133,7 +133,6 @@ const modalOptions: Partial<OptionsType> = {
           <button class='button button--secondary'> Button Secondary</button>
           <button class='button button--tertiary'> Tertiary Button</button>
         </div>
-
         <div class='example-code'>
           <button class='copy-clipboard' aria-labelledby='btn-code'>Copy</button
           >
@@ -150,7 +149,7 @@ const modalOptions: Partial<OptionsType> = {
 &lt;!-- Tertiary button --&gt;
 &lt;button class='button button--tertiary'&gt; Tertiary Button&lt;/button&gt;
             </code>
-            
+
           </pre>
         </div>
       </div>
@@ -162,7 +161,7 @@ const modalOptions: Partial<OptionsType> = {
           Tabs are used to separate content into different sections that can be
           shown or hidden by the user.
         </p>
-        <table>
+        <table class='table-props'>
           <thead>
             <tr style='text-align: left;'>
               <th> props</th>
@@ -293,7 +292,7 @@ const modalOptions: Partial<OptionsType> = {
           accordion-items wrapped.
         </p>
         <br />
-        <table>
+        <table class='table-props'>
           <thead>
             <tr style='text-align: left;'>
               <th> props</th>
@@ -370,6 +369,11 @@ const modalOptions: Partial<OptionsType> = {
             class='code'
             id='acc-code'>
           <code>
+---
+  import Accordions from '../components/Accordions.astro'
+  import Accordion from '../components/Accordion.astro'
+---
+
 &lt;Accordions name='accordion-group-name' expandable&gt;
   &lt;Accordion id='1' header='ACC-1' expanded&gt;
     &lt;p&gt;
@@ -433,7 +437,25 @@ const modalOptions: Partial<OptionsType> = {
   ...
 &lt;/swiper-container&gt;
           </code>
-          
+
+        </pre>
+      </div>
+      <p>To make it globally available, add following code to Layout.astro</p>
+      <div class='example-code'>
+        <button class='copy-clipboard' aria-labelledby='slider-layout-code'
+          >Copy</button
+        >
+        <pre
+          class='code'
+          id='slider-layout-code'>
+          <code class="language-jsx">
+&lt;script&gt;
+  import &#123; register &#125; from 'swiper/element/bundle'
+
+  register()
+&lt;/script&gt;
+          </code>
+
         </pre>
       </div>
     </section>
@@ -444,7 +466,7 @@ const modalOptions: Partial<OptionsType> = {
         The picture component takes an src attribute and generates responsive
         sources. The default image must be the mobile size.
       </p>
-      <table>
+      <table class='table-props'>
         <thead>
           <tr style='text-align: left;'>
             <th> props</th>
@@ -537,7 +559,11 @@ const modalOptions: Partial<OptionsType> = {
         <pre
           class='code'
           id='picture-code'>
-          <code class="language-html">
+          <code class="language-jsx">
+---
+  import Picture from '../components/Picture.astro'
+---
+
 &lt;Picture
   id='test-image'
   src='/assets/images/picture-component/test-image.png'
@@ -592,7 +618,11 @@ const modalOptions: Partial<OptionsType> = {
         <pre
           class='code'
           id='html-modal-code'>
-          <code>
+          <code class="language-jsx">
+---
+  import Modal from '../components/Modal/Modal.astro'
+---
+
 &lt;Modal id="custom-modal" className="custom-modal"&gt;
   &lt;Fragment&gt;
     &lt;div&gt;
@@ -663,7 +693,7 @@ const modalOptions: Partial<OptionsType> = {
         <pre
           class='code'
           id='html-modal-config-code'>
-          <code class="language-js">
+          <code class="language-jsx">
 ---
 import Modal from '../components/Modal/Modal.astro'
 import &#123; OptionsType &#125; from '@fancyapps/ui/types/Fancybox/options'
@@ -919,6 +949,163 @@ document.addEventListener('modal:ready', (&#123; detail &#125;) =&gt; &#123;
           </div>
         </Fragment>
       </Modal>
+    </section>
+    <section id='design-internal-nav' class='design-system-section'>
+      <div class='section-wrapper section-wrapper--small'>
+        <h1 class='title'>Internal Navigation</h1>
+        <table class='table-props'>
+          <thead>
+            <tr style='text-align: left;'>
+              <th> props</th>
+              <th> type</th>
+              <th> description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style='text-align: left;'>
+              <td> page</td>
+              <td> string</td>
+              <td>
+                Required. Allows astro component to get the correct settings
+                from navigationData
+              </td>
+            </tr>
+            <tr style='text-align: left;'>
+              <td> addWrapper</td>
+              <td> boolean</td>
+              <td>
+                Adds wrapper class to .internal-nav__container. (Default: true)
+              </td>
+            </tr>
+            <tr style='text-align: left;'>
+              <td> wrapperClassname</td>
+              <td> string</td>
+              <td>
+                Allows to set a custom wrapper classname instead of '.wrapper'
+                if addWrapper is set as true. (Default: .wrapper)
+              </td>
+            </tr>
+            <tr style='text-align: left;'>
+              <td> scrollToActiveItem</td>
+              <td> string</td>
+              <td>
+                Enable/Disable Internal Navigation's behavior to scroll the list
+                to the selected item (onScroll and onClick). (Default: false)
+              </td>
+            </tr>
+            <tr style='text-align: left;'>
+              <td> highlightOnScroll</td>
+              <td> string</td>
+              <td>
+                Enable/Disable Internal Navigation's behavior to highlight item
+                that has the reference of the visible section. (Default: false)
+              </td>
+            </tr>
+            <tr style='text-align: left;'>
+              <td> isFixed</td>
+              <td> string</td>
+              <td>
+                Enable/Disable Internal Navigation's behavior to get
+                position:fixed on scrolling. (Default: true)
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class='example-code'>
+          <button class='copy-clipboard' aria-labelledby='internal-nav-code'
+            >Copy</button
+          >
+          <pre
+            class='code'
+            id='internal-nav-code'>
+            <code class="language-jsx">
+---
+  import InternalNavigation from '../components/Navigation/
+---
+
+&lt;InternalNavigation
+    page='design'
+    addWrapper=&#123;false&#125;
+    highlightOnScroll=&#123;true&#125;
+    scrollToActiveItem=&#123;true&#125;
+    isFixed=&#123;true&#125;
+  /&gt;
+            </code>
+
+          </pre>
+        </div>
+
+        <h2 class='title'>Internal Navigation Data</h2>
+        <table class='table-props'>
+          <thead>
+            <tr style='text-align: left;'>
+              <th> props</th>
+              <th> type</th>
+              <th> description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style='text-align: left;'>
+              <td> elementsBeforeNav</td>
+              <td> array</td>
+              <td>
+                Array of objects that allows internal navigation knows elements
+                to take in count in calculations
+              </td>
+            </tr>
+            <tr style='text-align: left;'>
+              <td> navigationItems</td>
+              <td> Object</td>
+              <td>
+                Object that contains name of pages as keys and array of
+                navigation items as values
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class='example-code'>
+          <button
+            class='copy-clipboard'
+            aria-labelledby='internal-nav-data-code'>Copy</button
+          >
+          <pre
+            class='code'
+            id='internal-nav-data-code'>
+            <code class="language-js">
+const navigationData = &#123;
+  elementsBeforeNav: [
+    &#123; mainSelector: '.test-section-a', fixedPositionClassname: 'is--fixed' &#125;,
+    &#123; mainSelector: '.test-section-b', fixedPositionClassname: 'is--fixed' &#125;
+  ],
+  navigationItems: &#123;
+    design: [
+      &#123; href: 'design-colors', label: 'Colors', active: true &#125;,
+      &#123; href: 'design-fonts', label: 'Fonts' &#125;,
+      &#123; href: 'design-buttons', label: 'Buttons' &#125;,
+      &#123; href: 'design-tabs', label: 'Tabs' &#125;,
+      &#123; href: 'design-accordions', label: 'Accordions' &#125;,
+      &#123; href: 'design-slide', label: 'Slider' &#125;,
+      &#123; href: 'design-picture', label: 'Picture' &#125;,
+      &#123; href: 'design-modal', label: 'Modal' &#125;
+    ],
+    'internal-navigation-test': [
+      &#123; href: 'colors', label: 'Colors', active: true &#125;,
+      &#123; href: 'fonts', label: 'Fonts' &#125;,
+      &#123; href: 'buttons', label: 'Buttons' &#125;,
+      &#123; href: 'tabs', label: 'Tabs' &#125;,
+      &#123; href: 'accordions', label: 'Accordions' &#125;
+    ]
+  &#125;
+&#125;
+
+export default navigationData
+            </code>
+
+          </pre>
+        </div>
+      </div>
     </section>
   </main>
 </Layout>
