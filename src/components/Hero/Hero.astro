@@ -1,0 +1,30 @@
+---
+import './hero.scss'
+type Props = {
+  fullHeight?: boolean
+  layout?: 'flex' | 'absolute'
+  className?: string
+}
+const { fullHeight = false, layout = 'flex', className = '' } = Astro.props
+
+const layoutClass =
+  layout === 'flex' ? 'hero__flex-layout' : 'hero__absolute-layout'
+---
+
+<section
+  class:list={[
+    `hero ${className} ${layoutClass}`,
+    { 'hero__full-height': fullHeight }
+  ]}
+>
+  <div class='hero__wrapper'>
+    <div class='hero__content-container'>
+      <div class='hero__content-wrapper'>
+        <slot name='hero-content' />
+      </div>
+    </div>
+    <div class='hero__image-container'>
+      <slot name='hero-image' />
+    </div>
+  </div>
+</section>

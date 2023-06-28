@@ -1,0 +1,130 @@
+/* {outputFileName:hero} */
+
+:root {
+    --hero-bg: rgb(213 213 213);
+    --hero-wrapper-margin: 2rem;
+    --hero-max-width-content-wrapper: calc(100% - var(--hero-wrapper-margin));
+    --hero-min-height: 400;
+    --hero-max-height: 750;
+    --hero-min-screen-size: 320;
+    --hero-max-screen-size: 1440;
+
+    @media screen and (min-width: 1024px) {
+        --hero-wrapper-margin: 3rem;
+    }
+}
+
+.hero {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background: var(--hero-bg);
+
+    &__full-height {
+        height: 100vh;
+    }
+
+    .hero__wrapper {
+        display: flex;
+        flex-direction: column;
+
+        .hero__content-container {
+            order: 2;
+
+            .hero__content-wrapper {
+                width: 100%;
+                max-width: var(--hero-max-width-content-wrapper);
+                height: 100%;
+                margin-right: auto;
+                margin-left: auto;
+            }
+        }
+
+        .hero__image-container {
+            width: 100%;
+        }
+
+        @media screen and (min-width: 1024px) {
+            flex-direction: row;
+
+            .hero__content-container {
+                order: initial;
+
+                .hero__content-wrapper {
+                    max-width: calc(var(--hero-max-width-content-wrapper) + calc(calc(100% - var(--hero-max-width-content-wrapper)) / 2));
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+
+    .hero__actions {
+        display: flex;
+        flex-direction: column;
+
+        >*:not(:last-of-type) {
+            margin-bottom: .5rem;
+        }
+
+        @media screen and (min-width: 1024px) {
+            flex-direction: row;
+
+            >*:not(:last-of-type) {
+                margin-right: .5rem;
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__absolute-layout {
+        position: relative;
+
+        .hero__wrapper {
+            justify-content: center;
+            height: calc(calc(var(--hero-min-height) * 1px) + ((var(--hero-max-height) - var(--hero-min-height)) * ((100vw - calc(var(--hero-min-screen-size) * 1px)) / (var(--hero-max-screen-size) - var(--hero-min-screen-size)))));
+            max-height: calc(var(--hero-max-height) * 1px);
+
+            .hero__content-container {
+                position: relative;
+                z-index: 2;
+
+                .hero__content-wrapper {
+                    @media screen and (min-width: 1024px) {
+                        max-width: var(--hero-max-width-content-wrapper);
+                        margin-right: auto;
+                    }
+                }
+            }
+
+            @media screen and (min-width: 1024px) {
+                align-items: center;
+                justify-content: flex-start;
+            }
+        }
+
+
+
+        .hero__image-container {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            picture {
+                overflow: hidden;
+                height: 100%;
+
+                img {
+                    width: auto;
+                    max-width: initial;
+                    height: 100%;
+
+                    object-fit: cover;
+                    object-position: center;
+                }
+            }
+        }
+    }
+}

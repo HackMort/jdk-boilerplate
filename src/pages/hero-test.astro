@@ -1,0 +1,131 @@
+---
+import '../styles/style.scss'
+import Picture from '../components/Picture.astro'
+import Hero from '../components/Hero/Hero.astro'
+---
+
+<Hero layout='absolute' className='mountain-hero' fullHeight>
+  <div slot='hero-content' class='hero__cta'>
+    <h1>Hero Header Title</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt error labore
+      ex iusto esse est, reprehenderit rerum et vero! Quas voluptates at
+      eligendi? Ipsum laudantium fugiat fuga? Nesciunt, incidunt provident.
+    </p>
+    <div class='hero__actions'>
+      <button class='button button--primary'>Primary</button>
+      <button class='button button--secondary'>Secondary</button>
+    </div>
+  </div>
+  <Picture
+    slot='hero-image'
+    src='/assets/images/hero/mountain.jpg'
+    alt='Hero image'
+  />
+</Hero>
+
+<br /><br />
+
+<Hero>
+  <div slot='hero-content' class='hero__cta'>
+    <h1>Hero Header Title</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt error labore
+      ex iusto esse est, reprehenderit rerum et vero! Quas voluptates at
+      eligendi? Ipsum laudantium fugiat fuga? Nesciunt, incidunt provident.
+    </p>
+    <div class='hero__actions'>
+      <button class='button button--primary'>Primary</button>
+      <button class='button button--secondary'>Secondary</button>
+    </div>
+  </div>
+  <Picture
+    slot='hero-image'
+    src='/assets/images/hero/world.png'
+    alt='Hero image'
+  />
+</Hero>
+
+<style lang='scss'>
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    min-height: 100vh;
+  }
+  .hero__actions {
+    .button {
+      justify-content: center;
+      width: 100%;
+      max-width: initial;
+      text-align: center;
+    }
+  }
+
+  .hero__cta {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    p {
+      @media screen and (min-width: 1024px) {
+        font-size: 18px;
+        line-height: 24px;
+      }
+    }
+  }
+
+  .hero__actions {
+    margin-top: auto;
+  }
+
+  .mountain-hero {
+    .hero__content-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero__cta {
+      @media screen and (min-width: 1024px) {
+        max-width: 75%;
+      }
+      @media screen and (min-width: 1366px) {
+        max-width: 50%;
+      }
+    }
+  }
+
+  .hero__cta {
+    height: max-content;
+
+    h1,
+    p {
+      background: #e4e4e4;
+    }
+
+    @media screen and (min-width: 1024px) {
+      h1 {
+        margin-bottom: 1rem;
+        padding: 1px;
+        font-size: 4rem;
+      }
+
+      p {
+        margin-bottom: 2rem;
+        padding: 1px;
+
+        font-size: 2rem;
+        line-height: 101%;
+        letter-spacing: 1px;
+      }
+
+      .button {
+        height: 60px;
+        max-height: initial;
+        font-size: 1.125rem;
+      }
+    }
+  }
+</style>
