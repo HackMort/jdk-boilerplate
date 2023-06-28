@@ -1076,8 +1076,9 @@ document.addEventListener('modal:ready', (&#123; detail &#125;) =&gt; &#123;
             <code class="language-js">
 const navigationData = &#123;
   elementsBeforeNav: [
-    &#123; mainSelector: '.test-section-a', fixedPositionClassname: 'is--fixed' &#125;,
-    &#123; mainSelector: '.test-section-b', fixedPositionClassname: 'is--fixed' &#125;
+    &#123; mainSelector: '.test-section-a', positionOnScroll: 'fixed' &#125;,
+    &#123; mainSelector: '.test-section-b', positionOnScroll: 'fixed' &#125;,
+    &#123; mainSelector: '.hero-test', positionOnScroll: 'relative' &#125;
   ],
   navigationItems: &#123;
     design: [
