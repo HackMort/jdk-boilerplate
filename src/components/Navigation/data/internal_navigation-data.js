@@ -5,8 +5,9 @@
 */
 const navigationData = {
   elementsBeforeNav: [
-    { mainSelector: '.test-section-a', fixedPositionClassname: 'is--fixed' },
-    { mainSelector: '.test-section-b', fixedPositionClassname: 'is--fixed' }
+    { mainSelector: '.test-section-a', positionOnScroll: 'fixed' },
+    { mainSelector: '.test-section-b', positionOnScroll: 'fixed' },
+    { mainSelector: '.hero-test', positionOnScroll: 'relative' }
   ],
   navigationItems: {
     design: [
