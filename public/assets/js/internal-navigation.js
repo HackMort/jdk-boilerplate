@@ -1,5 +1,6 @@
 let isClick = false
 let clickTimeout
+const heightRatio = 1.45
 
 window.addEventListener('DOMContentLoaded', (event) => {
   const internalNav = document.querySelector('.internal-nav')
@@ -15,9 +16,15 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     if (internalNav.dataset.fixOnScroll !== 'false') {
       setFixInternalNav()
+      setTopNav()
+
+      window.addEventListener('resize', () => {
+        setTopNav()
+      })
 
       window.addEventListener('scroll', () => {
         setFixInternalNav()
+        setTopNav()
       })
     }
 
@@ -26,11 +33,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
         addHighlightOnScrollObserver()
       })
     }
-
-    setTopNav()
-    window.addEventListener('resize', () => {
-      setTopNav()
-    })
   }
 })
 
@@ -42,33 +44,33 @@ function goToTarget(event) {
   const target = document.querySelector(event.target.hash)
   if (target) {
     const internalNav = document.querySelector('.internal-nav')
-    const internalNavStyles = window.getComputedStyle(internalNav)
-
     let internalNavHeight = 0
     let elementsBeforeNavHeight = 0
-    let fixedElementsBeforeHeight = 0
-    getNavigationOffsetPreFixedPosition()
+    let internalNavTop = 0
+
+    elementsBeforeNavHeight = getHeightNavigationCalcs()
     if (internalNav.dataset.fixOnScroll !== 'false') {
-      internalNavHeight = internalNav.scrollHeight
-      elementsBeforeNavHeight = parseInt(
+      const internalNavStyles = window.getComputedStyle(internalNav)
+      internalNavTop = parseInt(
         internalNavStyles.getPropertyValue('--internal-nav-top').slice(0, -2)
       )
-      fixedElementsBeforeHeight = getNavigationOffsetPreFixedPosition()
+      internalNavHeight = internalNav.scrollHeight * heightRatio
+      const mobileQuery = window.matchMedia('(max-width: 1199px)')
+      if (mobileQuery) {
+        internalNavHeight = internalNav.offsetHeight
+      }
     }
 
-    let targetOffsetTop =
+    const targetOffsetTop =
       target.getBoundingClientRect().top + window.pageYOffset
-    if (!internalNav.classList.contains('is--fixed')) {
-      targetOffsetTop =
-        targetOffsetTop -
-        internalNavHeight -
-        elementsBeforeNavHeight +
-        fixedElementsBeforeHeight
-    }
 
     const scrollPosition =
-      targetOffsetTop - internalNavHeight - elementsBeforeNavHeight
+      targetOffsetTop -
+      internalNavHeight -
+      internalNavTop -
+      elementsBeforeNavHeight
     isClick = true
+
     switchActive(event.target)
 
     window.scroll({
@@ -131,57 +133,92 @@ function addHighlightOnScrollObserver() {
 }
 
 function setFixInternalNav() {
-  let extraOffset = 0
   const internalNav = document.querySelector('.internal-nav')
-  const previousSibling = internalNav.previousElementSibling
+  const internalNavMargin = document.querySelector(
+    '.internal-nav-margin-on-fix'
+  )
 
-  if (previousSibling) {
-    extraOffset += previousSibling.offsetHeight
-  }
+  const heightBeforeChangingPosition = getHeightCalc()
+  const heightBeforeOnFixPosition = getHeightCalc(['fixed'])
+  const windowPageYOffset = window.pageYOffset
 
-  const fixedElementsBeforeHeight = getNavigationOffsetPreFixedPosition()
-
-  const internalNavHeight = internalNav.offsetHeight
   if (
-    window.pageYOffset >
-    internalNavHeight + extraOffset - fixedElementsBeforeHeight
+    windowPageYOffset >
+    heightBeforeChangingPosition - heightBeforeOnFixPosition
   ) {
     internalNav.classList.add('is--fixed')
+    let fixMarginBottom = internalNav.scrollHeight * heightRatio
+    const mobileQuery = window.matchMedia('(max-width: 1199px)')
+    if (mobileQuery) {
+      fixMarginBottom = internalNav.offsetHeight
+    }
+    internalNavMargin.style.setProperty('margin-bottom', fixMarginBottom + 'px')
   } else {
     internalNav.classList.remove('is--fixed')
+    internalNavMargin.style.removeProperty('margin-bottom')
   }
 }
 
 function setTopNav() {
   const internalNav = document.querySelector('.internal-nav')
-  const elementsBeforeNav = JSON.parse(internalNav.dataset.elementsBeforeNav)
+  const extraOffset = getHeightCalc(['fixed', 'sticky'])
 
-  let totalOffset = 0
-  elementsBeforeNav.forEach((element) => {
-    if (element.selector !== '') {
-      const elementBeforeNav = document.querySelector(element.mainSelector)
-      if (elementBeforeNav) {
-        totalOffset += elementBeforeNav.scrollHeight
-      }
-    }
-  })
-
-  internalNav.style.setProperty('--internal-nav-top', `${totalOffset}px`)
+  internalNav.style.setProperty('--internal-nav-top', `${extraOffset}px`)
 }
 
-function getNavigationOffsetPreFixedPosition() {
+function getHeightCalc(positions = ['static', 'relative']) {
   const internalNav = document.querySelector('.internal-nav')
   const elementsBeforeNav = JSON.parse(internalNav.dataset.elementsBeforeNav)
 
   let totalOffset = 0
   elementsBeforeNav.forEach((element) => {
-    if (element.selector !== '') {
-      const elementBeforeNav = document.querySelector(element.mainSelector)
-      if (
-        elementBeforeNav &&
-        elementBeforeNav.classList.contains(element.fixedPositionClassname)
-      ) {
-        totalOffset += elementBeforeNav.scrollHeight
+    const elementBeforeNav = document.querySelector(element.mainSelector)
+    if (elementBeforeNav) {
+      const elementStyles = window.getComputedStyle(elementBeforeNav)
+      const elementPosition = elementStyles.getPropertyValue('position')
+
+      if (positions.indexOf(elementPosition) !== -1) {
+        totalOffset += elementBeforeNav.offsetHeight
+      }
+    }
+  })
+
+  return totalOffset
+}
+
+function getHeightNavigationCalcs() {
+  const internalNav = document.querySelector('.internal-nav')
+  const elementsBeforeNav = JSON.parse(internalNav.dataset.elementsBeforeNav)
+
+  let totalOffset = 0
+  elementsBeforeNav.forEach((element) => {
+    const elementBeforeNav = document.querySelector(element.mainSelector)
+    if (elementBeforeNav) {
+      const elementStyles = window.getComputedStyle(elementBeforeNav)
+      const elementPosition = elementStyles.getPropertyValue('position')
+      if (internalNav.dataset.fixOnScroll !== 'false') {
+        if (element.positionOnScroll === 'fixed') {
+          totalOffset += elementBeforeNav.offsetHeight
+          if (elementPosition === element.positionOnScroll) {
+            totalOffset -= elementBeforeNav.offsetHeight
+          } else {
+            totalOffset += elementBeforeNav.offsetHeight
+          }
+        } else if (element.positionOnScroll === 'sticky') {
+          totalOffset += elementBeforeNav.offsetHeight
+          if (elementPosition === element.positionOnScroll) {
+            totalOffset -= elementBeforeNav.offsetHeight
+          }
+        }
+      } else {
+        if (element.positionOnScroll === 'sticky') {
+          totalOffset += elementBeforeNav.offsetHeight
+        } else if (element.positionOnScroll === 'fixed') {
+          totalOffset += elementBeforeNav.offsetHeight
+          if (elementPosition !== element.positionOnScroll) {
+            totalOffset += elementBeforeNav.offsetHeight
+          }
+        }
       }
     }
   })
