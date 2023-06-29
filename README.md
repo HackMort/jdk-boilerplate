@@ -12,7 +12,7 @@ npm install
 
 ## Install VS Code extensions
 
-To ensure that your environment will work properly, please verify that you have the following extensions installed:
+Make sure you have installed the following extensions in VS Code. They are required by our workspace configuration:
 
 - [Astro](https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode)
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
