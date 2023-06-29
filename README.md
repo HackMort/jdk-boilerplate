@@ -10,6 +10,16 @@ git clone https://github.com/HackMort/jdk-boilerplate.git
 npm install
 ```
 
+## Install VS Code extensions
+
+Make sure you have installed the following extensions in VS Code. They are required by our workspace configuration:
+
+- [Astro](https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode)
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- [Prettier-Standard](https://marketplace.visualstudio.com/items?itemName=numso.prettier-standard-vscode)
+- [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
+
 ## Run the project
 
 ```
