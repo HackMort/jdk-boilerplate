@@ -131,6 +131,8 @@ main {
     height: 4.375rem;
     margin-bottom: 0.5rem;
     padding: 0.2rem;
+
+    border: 1px solid $color-black;
 }
 
 .color__hex {
@@ -155,6 +157,8 @@ main {
 }
 
 .hero__actions {
+    margin-top: auto;
+
     .button {
         justify-content: center;
         width: 100%;
@@ -174,10 +178,6 @@ main {
             line-height: 24px;
         }
     }
-}
-
-.hero__actions {
-    margin-top: auto;
 }
 
 .mountain-hero {
@@ -229,7 +229,6 @@ main {
 }
 
 .table-props {
-
     td,
     th {
         padding: 0 .625rem;
