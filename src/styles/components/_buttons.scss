@@ -1,16 +1,30 @@
 .button {
-  background-color: #000000;
-  color: #FFFFFF;
+  @include transition('all, 0.4s, ease-in-out');
+
   cursor: pointer;
+
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+
+  width: max-content;
+  max-height: 3.125rem;
+  padding: .9375rem 1.25rem;
+
   font-size: 1.125rem;
   font-weight: 700;
   line-height: 1.125rem;
-  max-height: 3.125rem;
-  padding: .9375rem 1.25rem;
-  @include transition('all, 0.4s, ease-in-out');
-  width: max-content;
+  color: #FFF;
+
+  background-color: #000;
+
+  &--secondary {
+    background-color: $color-dark-blue-gray;
+  }
+
+  &--tertiary {
+    color: $color-black;
+    background-color: transparent;
+  }
 }
