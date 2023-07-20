@@ -358,7 +358,7 @@ const modalOptions: Partial<OptionsType> = {
         <br />
 
         <Accordions name='accordion-group-name' expandable>
-          <Accordion id='1' header='ACC-1' expanded>
+          <Accordion id='1' header='Accordion Item 1' expanded>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti,
               pariatur labore perspiciatis repudiandae aliquid quae doloribus!
@@ -366,7 +366,13 @@ const modalOptions: Partial<OptionsType> = {
               animi, sapiente exercitationem.
             </p>
           </Accordion>
-          <Accordion id='2' header='ACC-2'>
+          <Accordion id='2' header='Accordion Item 2'>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti,
+              pariatur labore perspiciatis repudiandae aliquid quae doloribus!
+              Ratione, fugiat quae ad dolor voluptatum esse laborum porro id non
+              animi, sapiente exercitationem.
+            </p>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti,
               pariatur labore perspiciatis repudiandae aliquid quae doloribus!
@@ -374,7 +380,19 @@ const modalOptions: Partial<OptionsType> = {
               animi, sapiente exercitationem.
             </p>
           </Accordion>
-          <Accordion id='3' header='ACC-3'>
+          <Accordion id='3' header='Accordion Item 3'>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti,
+              pariatur labore perspiciatis repudiandae aliquid quae doloribus!
+              Ratione, fugiat quae ad dolor voluptatum esse laborum porro id non
+              animi, sapiente exercitationem.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti,
+              pariatur labore perspiciatis repudiandae aliquid quae doloribus!
+              Ratione, fugiat quae ad dolor voluptatum esse laborum porro id non
+              animi, sapiente exercitationem.
+            </p>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti,
               pariatur labore perspiciatis repudiandae aliquid quae doloribus!
@@ -1130,89 +1148,6 @@ export default navigationData
         </div>
       </div>
     </section>
-    <table>
-      <thead>
-        <tr style='text-align: left;'>
-          <th> props</th>
-          <th> type</th>
-          <th> description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr style='text-align: left;'>
-          <td> id</td>
-          <td> string</td>
-          <td> Generates an id in the picture element.</td>
-        </tr>
-
-        <tr style='text-align: left;'>
-          <td> className</td>
-          <td> string</td>
-          <td> Generates a class in the picture element.</td>
-        </tr>
-
-        <tr style='text-align: left;'>
-          <td> imgClassName</td>
-          <td> string</td>
-          <td> Generates a class in the img element.</td>
-        </tr>
-
-        <tr style='text-align: left;'>
-          <td> src</td>
-          <td> string</td>
-          <td>
-            Required prop. This is used to generate the src of the img element
-            and each srcset in the source elements.
-          </td>
-        </tr>
-
-        <tr style='text-align: left;'>
-          <td> alt</td>
-          <td> string</td>
-          <td> Required prop. Alt text for the img element.</td>
-        </tr>
-
-        <tr style='text-align: left;'>
-          <td> media</td>
-          <td> array</td>
-          <td>
-            An array of objects. Each object should have a key of the media
-            query and the value will be the prefix in srcset attribute.
-          </td>
-        </tr>
-
-        <tr style='text-align: left;'>
-          <td> isLazy</td>
-          <td> boolean</td>
-          <td>
-            If true, the img element will have a loading attribute with a lazy
-            value. (Default: false, will add the loading attribute with a value
-            of eager)
-          </td>
-        </tr>
-
-        <tr style='text-align: left;'>
-          <td> attrs</td>
-          <td> string</td>
-          <td> Any other attribute that you want to add to the img element.</td>
-        </tr>
-      </tbody>
-    </table>
-    <br />
-    <Picture
-      id='test-image'
-      src='/assets/images/picture-component/test-image.png'
-      alt='Test image'
-      className='test-image'
-      imgClassName='test-image__img'
-      media={[
-        {
-          '(min-width: 1600px)': 'desktop-lg'
-        }
-      ]}
-      isLazy
-      data-test='true'
-    />
 
     <section id='hero-header' class='design-system-section'>
       <h1 class='title'>Hero Header</h1>
