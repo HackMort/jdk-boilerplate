@@ -19,12 +19,26 @@
 
   background-color: #000;
 
+  &:hover {
+    filter: contrast(70%);
+  }
+
   &--secondary {
     background-color: $color-dark-blue-gray;
+
+    &:hover {
+      filter: brightness(130%);
+    }
   }
 
   &--tertiary {
     color: $color-black;
     background-color: transparent;
+    border: 1px solid $color-black;
+
+    &:hover {
+      background-color: $color-white;
+    }
   }
+
 }
